@@ -1,0 +1,82 @@
+{
+  "taskId": "sky130-pll-charge-pump-pvt",
+  "taskTitle": "Design a PLL Charge Pump: 50 uA Matched UP/DN Current",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 11,
+  "costUsd": 3.10698,
+  "inputTokens": 262403,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 9659,
+  "peakContextTokens": 31176,
+  "durationMs": 390778,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-pll-charge-pump-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_current_accuracy",
+        "status": "passed",
+        "measurement": "UP=49.68..50.05uA, DN=49.95..50.1uA; flatness=0.2881%; mismatch=0.686% at ss/1.62V/-40C"
+      },
+      {
+        "name": "pvt_inactive_modes",
+        "status": "passed",
+        "measurement": "off_leakage=0.1756nA; both_high_net=0.343uA"
+      },
+      {
+        "name": "tt_mm_up_dn_matching",
+        "status": "passed",
+        "measurement": "worst=1.085% at seed=31002, vout=1.15V; current=49.7..50.24uA; seeds=20"
+      },
+      {
+        "name": "representative_pulse_fidelity",
+        "status": "passed",
+        "measurement": "10ns_error=2.913%, 1ns_error=17.48%, overlap=7.488fC"
+      },
+      {
+        "name": "pvt_switching_speed",
+        "status": "passed",
+        "measurement": "turn_on_worst=0.2019ns at ff/1.98V/-40C; turn_off_worst=0.0012ns at ff/1.98V/-40C"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "worst=338.2uW at ff/1.98V/-40C"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-pll-charge-pump-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-pll-charge-pump-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+.subckt cgm_amp vss iref vdd vinp vinn voutp voutn
+XBIAS1 biasn biasn vss vss sky130_fd_pr__nfet_01v8 l=1 w=5 nf=1
+XBIAS2 biasp biasn biasr biasr sky130_fd_pr__nfet_01v8 l=1 w=20 nf=4
+XPM1 biasn biasp vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=10 nf=2
+XPM2 biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=10 nf=2
+RBIAS biasr vss 10k
+XSTARTOFF iref biasn vss vss sky130_fd_pr__nfet_01v8 l=1 w=100 nf=20
+XSTART biasp iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=1 nf=1
+XTAIL tail biasn vss vss sky130_fd_pr__nfet_01v8 l=1 w=50 nf=10
+XINP voutn vinp sourcep sourcep sky130_fd_pr__nfet_01v8 l=1 w=50 nf=10
+XINN voutp vinn sourcen sourcen sky130_fd_pr__nfet_01v8 l=1 w=50 nf=10
+RSP sourcep tail 330
+RSN sourcen tail 330
+RLP vdd voutp 6.2k
+RLN vdd voutn 6.2k
+.ends cgm_amp

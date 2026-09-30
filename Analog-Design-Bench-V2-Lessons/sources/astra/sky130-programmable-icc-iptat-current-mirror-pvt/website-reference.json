@@ -1,0 +1,120 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-programmable-icc-iptat-current-mirror-pvt",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 11,
+  "tests_total": 11,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 3.134,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": 6,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 3.414,
+    "wall_clock_seconds": 3.769,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "output_current_error",
+      "source_check": "output_current_error",
+      "specification": "output current error ≤ 8 %",
+      "metric": 8,
+      "value": 5.04,
+      "status": "pass"
+    },
+    {
+      "id": "output_current_positive",
+      "source_check": "output_current_positive",
+      "specification": "output current positive > 0 A",
+      "metric": 0,
+      "value": 0.000732668,
+      "status": "pass"
+    },
+    {
+      "id": "weight_accuracy",
+      "source_check": "weight_accuracy",
+      "specification": "weight accuracy ≤ 10 %",
+      "metric": 10,
+      "value": 8.65,
+      "status": "pass"
+    },
+    {
+      "id": "ratio_accuracy",
+      "source_check": "ratio_accuracy",
+      "specification": "ratio accuracy ≤ 10 %",
+      "metric": 10,
+      "value": 0.78,
+      "status": "pass"
+    },
+    {
+      "id": "reference_pin_voltage_minimum",
+      "source_check": "reference_pin_headroom",
+      "specification": "reference pin voltage ≥ 0.2 V",
+      "metric": 0.2,
+      "value": 0.705,
+      "status": "pass"
+    },
+    {
+      "id": "reference_pin_voltage_maximum",
+      "source_check": "reference_pin_headroom",
+      "specification": "reference pin voltage ≤ 1.1 V",
+      "metric": 1.1,
+      "value": 0.815,
+      "status": "pass"
+    },
+    {
+      "id": "reference_pin_isolation_perturbation",
+      "source_check": "reference_pin_isolation_perturbation",
+      "specification": "reference pin isolation perturbation ≤ 25 mV",
+      "metric": 25,
+      "value": 0,
+      "status": "pass"
+    },
+    {
+      "id": "reference_pin_isolation_code",
+      "source_check": "reference_pin_isolation_code",
+      "specification": "reference pin isolation code ≤ 50 mV",
+      "metric": 50,
+      "value": 0,
+      "status": "pass"
+    },
+    {
+      "id": "static_vdd_current",
+      "source_check": "static_vdd_current",
+      "specification": "static vdd current ≤ 100 µA",
+      "metric": 100,
+      "value": 4.52,
+      "status": "pass"
+    },
+    {
+      "id": "digital_pin_current",
+      "source_check": "digital_pin_current",
+      "specification": "digital pin current ≤ 1 µA",
+      "metric": 1,
+      "value": 0,
+      "status": "pass"
+    },
+    {
+      "id": "compliance_flatness",
+      "source_check": "compliance_flatness",
+      "specification": "compliance flatness ≤ 3 %",
+      "metric": 3,
+      "value": 1.66,
+      "status": "pass"
+    },
+    {
+      "id": "output_resistance",
+      "source_check": "output_resistance",
+      "specification": "output resistance ≥ 100 kΩ",
+      "metric": 100,
+      "value": 294.1,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-14T19:59:44+00:00"
+}

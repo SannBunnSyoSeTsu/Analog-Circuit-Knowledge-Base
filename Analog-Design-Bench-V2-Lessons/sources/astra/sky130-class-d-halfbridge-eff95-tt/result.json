@@ -1,0 +1,77 @@
+{
+  "taskId": "sky130-class-d-halfbridge-eff95-tt",
+  "taskTitle": "Design a Half-Bridge Class-D Power Amplifier",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 25,
+  "costUsd": 7.2518,
+  "inputTokens": 667305,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 11575,
+  "peakContextTokens": 37010,
+  "durationMs": 445646,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-class-d-halfbridge-eff95-tt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "e1_peak_eff_27c_95pct",
+        "status": "passed",
+        "measurement": "peak_27c=97.46% (limit > 95%)"
+      },
+      {
+        "name": "e2_all_eff_27c_85pct",
+        "status": "passed",
+        "measurement": "min_27c=87.12% at 1ohm (limit > 85%)"
+      },
+      {
+        "name": "e3_peak_eff_125c_90pct",
+        "status": "passed",
+        "measurement": "peak_125c=96.62% (limit > 90%)"
+      },
+      {
+        "name": "e4_all_eff_125c_80pct",
+        "status": "passed",
+        "measurement": "min_125c=85.91% at 1ohm (limit > 80%)"
+      },
+      {
+        "name": "e5_min_output_power_30mw",
+        "status": "passed",
+        "measurement": "min_p_out=39.89mW (limit > 30mW)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-class-d-halfbridge-eff95-tt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-class-d-halfbridge-eff95-tt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

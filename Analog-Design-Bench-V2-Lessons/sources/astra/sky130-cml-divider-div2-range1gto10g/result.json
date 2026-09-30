@@ -1,0 +1,62 @@
+{
+  "taskId": "sky130-cml-divider-div2-range1gto10g",
+  "taskTitle": "Design a static CML divide-by-2 frequency divider",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 25,
+  "costUsd": 7.85821,
+  "inputTokens": 722056,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 12753,
+  "peakContextTokens": 42811,
+  "durationMs": 775928,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-cml-divider-div2-range1gto10g",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "divide_operating_points",
+        "status": "passed",
+        "measurement": "required_points=1.000,2.000,5.000,10.000GHz; highest_passing_frequency=10.000GHz; min_cycle_swing=335.0mVpp (require >=200mVpp); target_tone=506.9mVpp (require >=200mVpp); failed_points=none"
+      },
+      {
+        "name": "dc_power",
+        "status": "passed",
+        "measurement": "power_max=1.155mW (require <1.500mW)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-cml-divider-div2-range1gto10g/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-cml-divider-div2-range1gto10g/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+.subckt gilbert_mixer vss iref vdd lop lon rfp rfn ifoutp ifoutn
+XREF iref iref sref vss sky130_fd_pr__nfet_01v8_lvt l=0.3 w=20 nf=4
+RREF sref vss 360
+CREF iref vss 10p
+RBP iref gp 15k
+RBN iref gn 15k
+CRFP rfp gp 3p
+CRFN rfn gn 3p
+XGMP xp gp sp vss sky130_fd_pr__nfet_01v8_lvt l=0.3 w=120 nf=24
+XGMN xn gn sn vss sky130_fd_pr__nfet_01v8_lvt l=0.3 w=120 nf=24
+RSP sp vss 60
+RSN sn vss 60
+XSWPP op lop xp vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=24 nf=6
+XSWPN on lon xp vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=24 nf=6
+XSWNP on lop xn vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=24 nf=6
+XSWNN op lon xn vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=24 nf=6
+RLP vdd op 1.8k
+RLN vdd on 1.8k
+CLP op vss 170f
+CLN on vss 170f
+RFP op ifoutp 1.5k
+RFN on ifoutn 1.5k
+.ends gilbert_mixer

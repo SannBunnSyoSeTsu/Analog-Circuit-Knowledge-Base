@@ -1,0 +1,87 @@
+{
+  "taskId": "sky130-gilbert-cell-mixer-2p4ghz-pvt-mismatch",
+  "taskTitle": "Design a 2.4 GHz Gilbert-Cell Mixer",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 28,
+  "costUsd": 11.92463,
+  "inputTokens": 1058673,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 26758,
+  "peakContextTokens": 67703,
+  "durationMs": 1128317,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-gilbert-cell-mixer-2p4ghz-pvt-mismatch",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "conversion_gain",
+        "status": "passed",
+        "measurement": "min=7.14dB at ss/1.62V/+125C/2.3GHz/imbalance"
+      },
+      {
+        "name": "robust_port_isolation",
+        "status": "passed",
+        "measurement": "LO-IF=-55.8dB at tt_mm/1.80V/+27C/seed43002; RF-IF=-54.8dB at ff/1.98V/-40C/2.5GHz/imbalance; LO-RF=-57dB at ff/1.98V/-40C/2.5GHz/imbalance"
+      },
+      {
+        "name": "output_operating_point",
+        "status": "passed",
+        "measurement": "offset_max=8.07mV at tt_mm/1.80V/+27C/seed43009; VCM_min=1.08V at ff/1.62V/+27C/2.3GHz; headroom_min=0.514V at ss/1.80V/-40C/2.4GHz"
+      },
+      {
+        "name": "two_tone_iip3",
+        "status": "passed",
+        "measurement": "IIP3_min=-3.7dBm at ff/1.98V/-40C; two_tone_gain_difference_max=1.19dB; slopes=fund 0.98..0.991, IM3 1.85..2.16"
+      },
+      {
+        "name": "large_signal_linearity",
+        "status": "passed",
+        "measurement": "compression_max=0.648dB at ff/1.98V/-40C"
+      },
+      {
+        "name": "if_spectral_purity",
+        "status": "passed",
+        "measurement": "worst=-39.1dBc at tt_mm/1.80V/+27C/seed43002"
+      },
+      {
+        "name": "average_power",
+        "status": "passed",
+        "measurement": "max=1.29mW at tt/1.98V/+125C/2.5GHz/imbalance"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-gilbert-cell-mixer-2p4ghz-pvt-mismatch/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-gilbert-cell-mixer-2p4ghz-pvt-mismatch/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

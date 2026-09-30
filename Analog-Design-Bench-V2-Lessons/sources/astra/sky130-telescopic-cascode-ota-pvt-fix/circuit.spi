@@ -1,0 +1,38 @@
+.subckt telescopic_cascode_ota vss iref vdd vinn vinp vocm voutn voutp
+XREF iref iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=20 nf=4
+XTAIL tail iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=100 nf=10
+
+XNBP vbp iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=4 nf=1
+XPBP vbp vbp vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=16 nf=2
+XPVCN vcn vbp vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=16 nf=2
+XVCN vcn vcn nx vss sky130_fd_pr__nfet_01v8 l=0.5 w=3.2 nf=1
+RNX nx vss 47k
+XNPC vbpc iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=4 nf=1
+XPPCT pcrep vbp vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=16 nf=2
+XPPCD vbpc vbpc pcrep vdd sky130_fd_pr__pfet_01v8 l=0.5 w=8 nf=1
+
+XINP a1 vinp tail vss sky130_fd_pr__nfet_01v8 l=0.5 w=64 nf=8
+XINN a2 vinn tail vss sky130_fd_pr__nfet_01v8 l=0.5 w=64 nf=8
+XNCASP voutn vcn a1 vss sky130_fd_pr__nfet_01v8 l=0.5 w=40 nf=5
+XNCASN voutp vcn a2 vss sky130_fd_pr__nfet_01v8 l=0.5 w=40 nf=5
+XPTOPN pn vctrl vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=120 nf=12
+XPTOPP pp vctrl vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=120 nf=12
+XPCASN voutn vbpc pn vdd sky130_fd_pr__pfet_01v8 l=0.5 w=100 nf=10
+XPCASP voutp vbpc pp vdd sky130_fd_pr__pfet_01v8 l=0.5 w=100 nf=10
+
+RCMN voutn vcm_sense 20meg
+RCMP voutp vcm_sense 20meg
+CCMN voutn vcm_sense 200f
+CCMP voutp vcm_sense 200f
+RCMR vocm cm_ref 10meg
+CCMR vocm cm_ref 400f
+XCMTAIL cm_tail iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=12 nf=2
+XCMSENSE cm_left vcm_sense cm_tail vss sky130_fd_pr__nfet_01v8 l=1 w=12 nf=2
+XCMREF vctrl cm_ref cm_tail vss sky130_fd_pr__nfet_01v8 l=1 w=12 nf=2
+XCMLOADD cm_left cm_left vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=12 nf=2
+XCMLOADO vctrl cm_left vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=12 nf=2
+RCOMPN vctrl cm_compn 1k
+RCOMPP vctrl cm_compp 1k
+CCOMPN cm_compn voutn 500f
+CCOMPP cm_compp voutp 500f
+.ends telescopic_cascode_ota

@@ -1,0 +1,20 @@
+.subckt bootstrap_gate_driver vdd vss clk vinp vinn gatep gaten
+CBP topp botp 2p
+CBN topn botn 2p
+
+XPCP topp ctlp vdd topp sky130_fd_pr__pfet_01v8 l=0.15 w=8 nf=4
+XPFP ctlp clk topp topp sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XNCP ctlp clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=2
+XPGP gatep clk topp topp sky130_fd_pr__pfet_01v8 l=0.15 w=4 nf=2
+XNGP gatep clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=16 nf=8
+XNBP botp clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=8 nf=4
+XNIP botp gatep vinp vss sky130_fd_pr__nfet_01v8 l=0.15 w=16 nf=8
+
+XPCN topn ctln vdd topn sky130_fd_pr__pfet_01v8 l=0.15 w=8 nf=4
+XPFN ctln clk topn topn sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XNCN ctln clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=2
+XPGN gaten clk topn topn sky130_fd_pr__pfet_01v8 l=0.15 w=4 nf=2
+XNGN gaten clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=16 nf=8
+XNBN botn clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=8 nf=4
+XNIN botn gaten vinn vss sky130_fd_pr__nfet_01v8 l=0.15 w=16 nf=8
+.ends bootstrap_gate_driver

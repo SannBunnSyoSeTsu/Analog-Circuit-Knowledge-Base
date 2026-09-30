@@ -1,0 +1,77 @@
+{
+  "taskId": "sky130-high-psrr-bandgap-reference-pvt",
+  "taskTitle": "Design a High-PSRR Bandgap Reference",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 25,
+  "costUsd": 10.72621,
+  "inputTokens": 928456,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 28833,
+  "peakContextTokens": 60216,
+  "durationMs": 872348,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-high-psrr-bandgap-reference-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_reference_voltage",
+        "status": "passed",
+        "measurement": "range=1.21416V at ss/1.7V/+85C .. 1.21654V at tt/1.8V/+27C (required 1.05..1.35V)"
+      },
+      {
+        "name": "pvt_temperature_drift",
+        "status": "passed",
+        "measurement": "worst=22.9454ppm/C at fs/1.7V/-40C (required <=50ppm/C)"
+      },
+      {
+        "name": "pvt_low_frequency_supply_gain",
+        "status": "passed",
+        "measurement": "worst=-90.1037dB at ss/1.7V/+85C (required <=-50dB); nominal=-99.0598dB (required <=-60dB)"
+      },
+      {
+        "name": "pvt_one_megahertz_supply_gain",
+        "status": "passed",
+        "measurement": "worst=-56.8324dB at ss/1.7V/+85C (required <=-30dB)"
+      },
+      {
+        "name": "pvt_startup_accuracy",
+        "status": "passed",
+        "measurement": "worst=0.00328869% at fs/1.7V/-40C (required <=1%)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-high-psrr-bandgap-reference-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-high-psrr-bandgap-reference-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

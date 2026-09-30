@@ -1,0 +1,26 @@
+.subckt sampler_inv input output vdd vss
+XN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1
+XP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2
+.ends sampler_inv
+
+.subckt sampler_boot reference clock_bar gate vdd vss
+CPUMP pump_top pump_bottom 200f
+XPRECHARGE pump_top gate vdd pump_top sky130_fd_pr__pfet_01v8 l=0.15 w=2
+XRESETBOTTOM pump_bottom clock_bar vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+XCONNECTBOTTOM pump_bottom gate reference vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+XCONNECTGATE gate clock_bar pump_top pump_top sky130_fd_pr__pfet_01v8 l=0.15 w=2
+XRESETGATE gate clock_bar vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+.ends sampler_boot
+
+.subckt bottom_plate_sampler vinp vinn clk vcm vdd vss vsp vsn vtopp vtopn
+XREFINV clk refb vdd vss sampler_inv
+XBOOT vcm refb refgate vdd vss sampler_boot
+XSIGNALPN vsp vdd vinp vinp sky130_fd_pr__nfet_01v8 l=0.15 w=1000 nf=100
+XSIGNALPP vsp vss vinp vinp sky130_fd_pr__pfet_01v8 l=0.15 w=1000 nf=100
+XSIGNALNN vsn vdd vinn vinn sky130_fd_pr__nfet_01v8 l=0.15 w=1000 nf=100
+XSIGNALNP vsn vss vinn vinn sky130_fd_pr__pfet_01v8 l=0.15 w=1000 nf=100
+XREFPN vtopp refgate vcm vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+XREFNN vtopn refgate vcm vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+CSTOREP vsp vtopp 350f
+CSTOREN vsn vtopn 350f
+.ends bottom_plate_sampler

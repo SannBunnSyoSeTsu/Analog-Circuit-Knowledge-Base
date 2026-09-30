@@ -1,0 +1,11 @@
+.subckt tx_driver_28g vss vdd iref dinp dinn voutp voutn
+XREF iref iref vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=20 nf=4
+XTAIL tail iref vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=240 nf=24 m=10
+CBIAS iref vss 1p
+LINP dinp gatep 330p
+LINN dinn gaten 330p
+XINP drainn gatep tail vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=96 nf=12
+XINN drainp gaten tail vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=96 nf=12
+LOUTP drainp voutp 200p
+LOUTN drainn voutn 200p
+.ends tx_driver_28g

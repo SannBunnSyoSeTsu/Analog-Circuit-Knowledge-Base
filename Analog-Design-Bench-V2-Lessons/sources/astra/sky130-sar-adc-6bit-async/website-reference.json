@@ -1,0 +1,56 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-sar-adc-6bit-async",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 4,
+  "tests_total": 4,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 2.376,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": 12,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 165.622,
+    "wall_clock_seconds": 165.983,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "code_mismatch_count",
+      "source_check": "sample_hold_64_codes",
+      "specification": "code mismatch count = 0 mismatches",
+      "metric": 0,
+      "value": 0,
+      "status": "pass"
+    },
+    {
+      "id": "sndr",
+      "source_check": "sndr",
+      "specification": "sndr ≥ 35 dB",
+      "metric": 35,
+      "value": 37.35,
+      "status": "pass"
+    },
+    {
+      "id": "normalized_enob",
+      "source_check": "normalized_enob",
+      "specification": "normalized enob > 5.9 bit",
+      "metric": 5.9,
+      "value": 5.999,
+      "status": "pass"
+    },
+    {
+      "id": "power",
+      "source_check": "power",
+      "specification": "power < 3 mW",
+      "metric": 3,
+      "value": 2.004,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-14T20:13:00+00:00"
+}

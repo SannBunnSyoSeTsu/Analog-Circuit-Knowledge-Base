@@ -1,0 +1,51 @@
+.subckt folded_cascode_ota vss iref vdd vinn vinp vout
+XREF iref iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=20
+XGAIN1 vss iref vdd vinn vinp firstn firstp gain_cell
+XGAIN2 vss iref vdd firstn firstp secondn secondp gain_cell
+XGAIN3 vss iref vdd secondn secondp thirdn thirdp gain_cell
+CFIRSTP vinp feed1p 140n
+CFIRSTN vinn feed1n 140n
+RFIRSTP feed1p firstp 10
+RFIRSTN feed1n firstn 10
+CSECONDP firstp feed2p 1.4n
+CSECONDN firstn feed2n 1.4n
+RSECONDP feed2p secondp 10
+RSECONDN feed2n secondn 10
+CTHIRDP secondp feed3p 14p
+CTHIRDN secondn feed3n 14p
+RTHIRDP feed3p thirdp 10
+RTHIRDN feed3n thirdn 10
+XPBIAS pbias pbias vdd vdd sky130_fd_pr__pfet_01v8 l=0.5 w=20
+RSHIFT pbias pcas 6k
+XNBIAS pcas iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=20
+CBP pbias vdd 1n
+CBC pcas vdd 1n
+XTAIL tail iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=240
+XINP left thirdp tail vss sky130_fd_pr__nfet_01v8_lvt l=0.3 w=160
+XINN right thirdn tail vss sky130_fd_pr__nfet_01v8_lvt l=0.3 w=160
+XTOPL left pbias vdd vdd sky130_fd_pr__pfet_01v8 l=0.5 w=200
+XTOPR right pbias vdd vdd sky130_fd_pr__pfet_01v8 l=0.5 w=200
+XFOLDL mirror pcas left vdd sky130_fd_pr__pfet_01v8 l=0.5 w=100
+XFOLDR vout pcas right vdd sky130_fd_pr__pfet_01v8 l=0.5 w=100
+XMIRL lowleft mirror vss vss sky130_fd_pr__nfet_01v8 l=0.4 w=40
+XMIRR lowright mirror vss vss sky130_fd_pr__nfet_01v8 l=0.4 w=40
+XCASL mirror ncas lowleft vss sky130_fd_pr__nfet_01v8_lvt l=0.5 w=100
+XCASR vout ncas lowright vss sky130_fd_pr__nfet_01v8_lvt l=0.5 w=100
+RNCH vdd ncas 900k
+RNCL ncas iref 100k
+CNCAS ncas vss 1n
+CREF iref vss 1n
+COUT vout vss 1p
+.ends folded_cascode_ota
+
+.subckt gain_cell vss nbias vdd inn inp outn outp
+XTAIL tail nbias vss vss sky130_fd_pr__nfet_01v8 l=1 w=4
+XINP outn inp tail vss sky130_fd_pr__nfet_01v8_lvt l=2 w=20
+XINN outp inn tail vss sky130_fd_pr__nfet_01v8_lvt l=2 w=20
+XLOADP outp center vdd vdd sky130_fd_pr__pfet_01v8_lvt l=2 w=10
+XLOADN outn center vdd vdd sky130_fd_pr__pfet_01v8_lvt l=2 w=10
+RCMP outp center 2meg
+RCMN outn center 2meg
+CCMP outp center 30f
+CCMN outn center 30f
+.ends gain_cell

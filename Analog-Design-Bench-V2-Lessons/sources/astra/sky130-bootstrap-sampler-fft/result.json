@@ -1,0 +1,77 @@
+{
+  "taskId": "sky130-bootstrap-sampler-fft",
+  "taskTitle": "Design a 100 MHz Differential Bootstrap Gate Driver",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 17,
+  "costUsd": 4.76528,
+  "inputTokens": 409828,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 13340,
+  "peakContextTokens": 32641,
+  "durationMs": 773700,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-bootstrap-sampler-fft",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "22/22 serial analyses complete"
+      },
+      {
+        "name": "pvt_sdr",
+        "status": "passed",
+        "measurement": "worst=75.74dB at ff_1p62v_m40c (min 72dB)"
+      },
+      {
+        "name": "pvt_midtrack_vgs",
+        "status": "passed",
+        "measurement": "worst=0.9265*VDD at ff_1p62v_125c (min 0.8*VDD)"
+      },
+      {
+        "name": "acquisition_and_hold",
+        "status": "passed",
+        "measurement": "worst retained gain=0.9824 at ff_1p98v_m40c negative_retained_gain (min 0.9)"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "max=121.7uW at ff_1p98v_125c (max 500uW)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-bootstrap-sampler-fft/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-bootstrap-sampler-fft/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

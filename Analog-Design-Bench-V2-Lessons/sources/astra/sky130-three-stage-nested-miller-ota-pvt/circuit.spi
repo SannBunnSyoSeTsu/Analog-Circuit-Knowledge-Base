@@ -1,0 +1,20 @@
+.subckt three_stage_nmc_ota vss iref vdd vinn vinp vout
+XNR iref iref vss vss sky130_fd_pr__nfet_01v8 l=2 w=10
+XNB pb iref vss vss sky130_fd_pr__nfet_01v8 l=2 w=10
+XPB pb pb vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=20
+XPT tail pb vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=40
+XIP first vinp tail vdd sky130_fd_pr__pfet_01v8_lvt l=1 w=480
+XIN mirror vinn tail vdd sky130_fd_pr__pfet_01v8_lvt l=1 w=480
+XND mirror mirror vss vss sky130_fd_pr__nfet_01v8 l=2 w=40
+XNL first mirror vss vss sky130_fd_pr__nfet_01v8 l=2 w=40
+XN2I drive first vss vss sky130_fd_pr__nfet_01v8 l=2 w=80
+XP2D drive drive vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=40
+XP2 second drive vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=40
+XN2B second iref vss vss sky130_fd_pr__nfet_01v8 l=2 w=20
+XN3 vout second vss vss sky130_fd_pr__nfet_01v8 l=1 w=200
+XP3B vout pb vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=360
+CC1 first outer 20p
+RC1 outer vout 1k
+CC2 second inner 4p
+RC2 inner vout 15k
+.ends three_stage_nmc_ota

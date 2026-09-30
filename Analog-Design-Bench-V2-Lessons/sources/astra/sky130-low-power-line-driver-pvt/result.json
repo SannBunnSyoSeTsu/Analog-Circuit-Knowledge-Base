@@ -1,0 +1,92 @@
+{
+  "taskId": "sky130-low-power-line-driver-pvt",
+  "taskTitle": "Design a low-power line driver",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 13,
+  "costUsd": 3.93581,
+  "inputTokens": 329286,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 12859,
+  "peakContextTokens": 33804,
+  "durationMs": 487664,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-low-power-line-driver-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_loop_gain",
+        "status": "passed",
+        "measurement": "worst=63.94dB at sf/1.62V/+125C (min 40dB)"
+      },
+      {
+        "name": "pvt_bandwidth",
+        "status": "passed",
+        "measurement": "worst=0.6844MHz at fs/1.62V/+125C (min 0.5MHz)"
+      },
+      {
+        "name": "pvt_phase_margin",
+        "status": "passed",
+        "measurement": "worst=85.28deg at sf/1.98V/-40C (min 60deg)"
+      },
+      {
+        "name": "pvt_output_bias",
+        "status": "passed",
+        "measurement": "worst=4.386mV at sf/1.62V/+125C (max 20mV)"
+      },
+      {
+        "name": "pvt_quiescent_power",
+        "status": "passed",
+        "measurement": "worst=343uW at sf/1.98V/+125C (max 400uW)"
+      },
+      {
+        "name": "line_distortion",
+        "status": "passed",
+        "measurement": "THD_max=0.412% at fs/1.98V/+125C (max 3%); fundamental_min=0.590V at sf/1.62V/+125C (min 0.55V)"
+      },
+      {
+        "name": "line_drive",
+        "status": "passed",
+        "measurement": "ipeak_min=2.12mA at sf/1.62V/-40C (min 2mA); drive_ratio_min=12.2 at sf/1.62V/+125C (min 10)"
+      },
+      {
+        "name": "closed_loop_range",
+        "status": "passed",
+        "measurement": "worst=1.534Vpp at tt/1.62V/-40C (min 1.5Vpp)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-low-power-line-driver-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-low-power-line-driver-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

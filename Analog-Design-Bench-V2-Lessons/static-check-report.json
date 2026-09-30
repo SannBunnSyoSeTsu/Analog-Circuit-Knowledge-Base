@@ -1,0 +1,17 @@
+{
+  "check_kind": "static-files-only-not-circuit-verification",
+  "local_simulations_run": 0,
+  "upstream_scripts_executed": 0,
+  "task_count": 50,
+  "case_notes": 50,
+  "topic_notes": 8,
+  "reference_provenance_hashes_matched": 150,
+  "upstream_git_blobs_matched": 996,
+  "source_sha256_matched": 1150,
+  "astra_r1_website_pass_records": 50,
+  "astra_detailed_static_comparisons": 8,
+  "bench_inventory_entries": 392,
+  "local_markdown_links_checked": 1285,
+  "errors": [],
+  "status": "passed"
+}

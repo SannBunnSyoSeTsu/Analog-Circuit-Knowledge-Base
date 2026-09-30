@@ -1,0 +1,29 @@
+.subckt buf_ppsf_bs IREF VCM VDD VIN VIP VON VOP VSS
+XBN IREF IREF VSS VSS sky130_fd_pr__nfet_01v8_lvt l=5 w=100
+XBM BP IREF VSS VSS sky130_fd_pr__nfet_01v8_lvt l=5 w=100
+XBP BP BP VDD VDD sky130_fd_pr__pfet_01v8_lvt l=5 w=300
+XBU GN BP VDD VDD sky130_fd_pr__pfet_01v8_lvt l=5 w=300
+XBRN GN GN VCM VCM sky130_fd_pr__nfet_01v8_lvt l=1 w=12.857143
+XBD GP IREF VSS VSS sky130_fd_pr__nfet_01v8_lvt l=5 w=100
+XBRP GP GP VCM VCM sky130_fd_pr__pfet_01v8_lvt l=0.7 w=37.5
+RSHIFT GP GC 40k
+XBCP GC IREF VSS VSS sky130_fd_pr__nfet_01v8_lvt l=5 w=25
+CBCP GC VSS 100p
+XPOS VIP VOP GN GP GC VDD VSS ppsf_half
+XNEG VIN VON GN GP GC VDD VSS ppsf_half
+.ends buf_ppsf_bs
+
+.subckt ppsf_half VI VO GN GP GC VDD VSS
+CINN VI NG 24p
+CINP VI PG 24p
+CICN VI NC 24p
+CICP VI PC 24p
+RBN NG GN 125k
+RBP PG GP 125k
+RBCN NC VDD 125k
+RBCP PC GC 125k
+XON DN NG VO VO sky130_fd_pr__nfet_01v8_lvt l=1 w=128.57143
+XOP DP PG VO VO sky130_fd_pr__pfet_01v8_lvt l=0.7 w=300
+XCN VDD NC DN DN sky130_fd_pr__nfet_01v8_lvt l=0.7 w=90
+XCP VSS PC DP DP sky130_fd_pr__pfet_01v8_lvt l=0.7 w=300
+.ends ppsf_half

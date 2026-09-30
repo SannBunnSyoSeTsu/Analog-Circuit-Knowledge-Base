@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "markdown_documents": 211,
+  "generated_tables": 374,
+  "local_links": 3429,
+  "case_notes": 50,
+  "topics": 8,
+  "reproduction_reports": 50,
+  "pdf_pages": 533,
+  "mermaid_diagrams": 28,
+  "companion_reports_identical": true,
+  "vendor_files": 0,
+  "credential_patterns": 0,
+  "errors": []
+}

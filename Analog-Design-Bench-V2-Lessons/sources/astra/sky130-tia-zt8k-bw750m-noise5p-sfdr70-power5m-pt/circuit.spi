@@ -1,0 +1,22 @@
+.subckt tia IREF IN VCM VDD VOUT VSS
+RF IN VOUT 9k
+XCF IN VOUT sky130_fd_pr__cap_mim_m3_1 w=3 l=3 mf=1
+RBIAS AMP_IN AMP_OUT 1meg
+XCIN IN AMP_IN sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=50
+XN NINT AMP_IN VSS VSS sky130_fd_pr__nfet_01v8 l=0.15 w=16 nf=4
+XP PINT AMP_IN VDD VDD sky130_fd_pr__pfet_01v8 l=0.15 w=48 nf=12
+XNC AMP_OUT NCAS NINT VSS sky130_fd_pr__nfet_01v8 l=0.3 w=32 nf=8
+XPC AMP_OUT PCAS PINT VDD sky130_fd_pr__pfet_01v8 l=0.3 w=96 nf=24
+RNTOP VDD NCAS 130k
+RNBOT NCAS VSS 230k
+RPTOP VDD PCAS 350k
+RPBOT PCAS VSS 100k
+XCN NCAS VSS sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=50
+XCP PCAS VSS sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=50
+XCBUF AMP_OUT BUF_GATE sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=50
+RBTOP VDD BUF_GATE 100k
+RBBOT BUF_GATE VCM 200k
+XBUF VDD BUF_GATE VOUT VOUT sky130_fd_pr__nfet_01v8 l=0.3 w=16 nf=4
+XREF IREF IREF VSS VSS sky130_fd_pr__nfet_01v8 l=0.8 w=2 nf=1
+XSINK VOUT IREF VSS VSS sky130_fd_pr__nfet_01v8 l=0.8 w=60 nf=12
+.ends tia

@@ -1,0 +1,56 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-gmr-degenerated-diff-amp-gain2-bw70m-power1p2mw-sdr60",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 4,
+  "tests_total": 4,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 3.118,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": 10,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": null,
+    "wall_clock_seconds": 5.322,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "maximum_gain_1mhz",
+      "source_check": "pvt_gain_1mhz",
+      "specification": "maximum gain 1 MHz ≤ 2.02 V/V",
+      "metric": 2.02,
+      "value": 2.01436,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_bandwidth",
+      "source_check": "pvt_bandwidth",
+      "specification": "pvt bandwidth > 70 MHz",
+      "metric": 70,
+      "value": 71.785,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_power",
+      "source_check": "pvt_power",
+      "specification": "pvt power < 1.2 mW",
+      "metric": 1.2,
+      "value": 1.1,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_dynamic_range",
+      "source_check": "pvt_dynamic_range",
+      "specification": "pvt dynamic range > 60 dB",
+      "metric": 60,
+      "value": 65.58,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-14T19:59:46+00:00"
+}

@@ -1,5 +1,23 @@
 # Analog Circuit Knowledge Base
 
+模拟电路基础知识、Analog Design Bench V2 案例学习与 SMIC18 实测复现资料。
+
+**Credit / 致谢：基础知识库来自 [Arcadia-1/Analog-Circuit-Knowledge-Base](https://github.com/Arcadia-1/Analog-Circuit-Knowledge-Base)，上游现名 [Arcadia-1/circuits-and-systems-classroom](https://github.com/Arcadia-1/circuits-and-systems-classroom)。本仓库保留本机使用的 `3dab708` 版本及其 Git 历史，感谢 Arcadia-1 / Token Zhang 的原始工作。**
+
+案例与复现基于 **[Arcadia-1/analog-design-bench](https://github.com/Arcadia-1/analog-design-bench)**，固定版本 `c23f124de1e461655d2e02ce6cfae2654ccea0d3`。来源、版权及各部分的许可见 [NOTICE](NOTICE.md)。
+
+| 内容 | 入口 | 范围 |
+|---|---|---|
+| 模拟电路基础 | 下方原知识库目录 | 放大器、噪声、采样、动态放大与补偿 |
+| Benchmark 学习笔记 | [50 个案例与 8 个专题](Analog-Design-Bench-V2-Lessons/INDEX.md) | 原题、参考电路和测量定义的静态阅读 |
+| SMIC18 实测复现 | [复现索引](SMIC18-Benchmark-Reproduction/README.md) | 50 项 TT/nominal 原理图级复现 |
+| Markdown / PDF 报告 | [全部 50 份报告](SMIC18-Benchmark-Reproduction/MARKDOWN-REPORTS.md) | 可编辑表格、独立图表、完整电路图，28 份 Mermaid 框图 |
+| 复现工程 | [配套 GitHub 仓库](https://github.com/SannBunnSyoSeTsu/smic18-benchmark-reproduction) | 仿真与测量脚本、运行输入、合同与冻结来源 |
+
+Markdown 已于 2026-09-30 完成可读性修订：去除整页 PDF 重复插图、坐标文字堆叠与重复网表，保留原测量表格。详见 [修订记录](SMIC18-Benchmark-Reproduction/documentation/MARKDOWN-REVISION.md)。
+
+## 原知识库说明
+
 A knowledge repository for analog circuit design fundamentals, focusing on amplifier theory, signal processing techniques, noise reduction, and ADC architectures.
 
 ## Contents

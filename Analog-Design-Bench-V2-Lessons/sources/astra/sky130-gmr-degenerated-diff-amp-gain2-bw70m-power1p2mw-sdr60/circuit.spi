@@ -1,0 +1,23 @@
+.subckt gmr_degen IREF VCM VDD VIN VIP VON VOP VSS
+RREF IREF VSS 12k
+RNHI VDD BN 600k
+RNLO BN VSS 1.2meg
+RPHI VDD BP 1.25meg
+RPLO BP VSS 550k
+XPOS VIN VOP BN BP VDD VSS gain_half
+XNEG VIP VON BN BP VDD VSS gain_half
+.ends gmr_degen
+
+.subckt gain_half INPUT OUTPUT BN BP VDD VSS
+RIN INPUT SUM 50k
+RFB OUTPUT SUM 101.8k
+XCF OUTPUT SUM sky130_fd_pr__cap_mim_m3_1 w=10 l=10
+XCI1 INPUT SUM sky130_fd_pr__cap_mim_m3_1 w=10 l=10
+XCI2 INPUT SUM sky130_fd_pr__cap_mim_m3_1 w=10 l=10
+RNS NS VSS 10
+RPS VDD PS 10
+XNI ND SUM NS VSS sky130_fd_pr__nfet_01v8 l=0.35 w=11.2 nf=1
+XNC OUTPUT BN ND VSS sky130_fd_pr__nfet_01v8 l=0.35 w=22.4 nf=1
+XPI PD SUM PS VDD sky130_fd_pr__pfet_01v8_lvt l=1 w=33.6 nf=1
+XPC OUTPUT BP PD VDD sky130_fd_pr__pfet_01v8_lvt l=1 w=168 nf=1
+.ends gain_half

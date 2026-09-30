@@ -1,0 +1,72 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-flash-adc-4bit-50msps",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 6,
+  "tests_total": 6,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 0.204,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": null,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 199.51951598600135,
+    "wall_clock_seconds": 200.279,
+    "within_optimization_target": false
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "transfer",
+      "source_check": "transfer",
+      "specification": "transfer = 0 errors",
+      "metric": 0,
+      "value": 0,
+      "status": "pass"
+    },
+    {
+      "id": "sndr",
+      "source_check": "sndr",
+      "specification": "sndr ≥ 22 dB",
+      "metric": 22,
+      "value": 25.483,
+      "status": "pass"
+    },
+    {
+      "id": "sfdr",
+      "source_check": "sfdr",
+      "specification": "sfdr ≥ 26 dB",
+      "metric": 26,
+      "value": 29.034,
+      "status": "pass"
+    },
+    {
+      "id": "power",
+      "source_check": "power",
+      "specification": "power ≤ 5 mW",
+      "metric": 5,
+      "value": 2.398,
+      "status": "pass"
+    },
+    {
+      "id": "inl",
+      "source_check": "inl",
+      "specification": "inl ≤ 0.75 LSB",
+      "metric": 0.75,
+      "value": 0,
+      "status": "pass"
+    },
+    {
+      "id": "dnl",
+      "source_check": "dnl",
+      "specification": "dnl ≤ 0.75 LSB",
+      "metric": 0.75,
+      "value": 0,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-13T10:39:54+00:00"
+}

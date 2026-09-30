@@ -1,0 +1,132 @@
+{
+  "taskId": "sky130-fully-differential-ota-c-biquad-pvt",
+  "taskTitle": "Design a Fully Differential OTA-C Biquad",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 19,
+  "costUsd": 8.1237,
+  "inputTokens": 711055,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 20263,
+  "peakContextTokens": 53987,
+  "durationMs": 860505,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-fully-differential-ota-c-biquad-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "runs=62/62 failed=0"
+      },
+      {
+        "name": "pvt_center_frequency",
+        "status": "passed",
+        "measurement": "fitted f0 1.984..2.003 MHz (band 1.8..2.2)"
+      },
+      {
+        "name": "pvt_quality_factor",
+        "status": "passed",
+        "measurement": "fitted Q 0.676..0.715 (band 0.65..0.75)"
+      },
+      {
+        "name": "pvt_passband_gain",
+        "status": "passed",
+        "measurement": "passband gain 0.086..0.225 dB (band -1..1)"
+      },
+      {
+        "name": "pvt_second_order_fit",
+        "status": "passed",
+        "measurement": "second-order fit RMS error 0.297 dB (max 0.5)"
+      },
+      {
+        "name": "pvt_stopband_attenuation",
+        "status": "passed",
+        "measurement": "attenuation at 20 MHz 38.27 dB (min 35)"
+      },
+      {
+        "name": "pvt_bandpass_output",
+        "status": "passed",
+        "measurement": "BP peak 1.950..1.995 MHz, gain -6.52..-6.26 dB, worst decade-edge attenuation 17.49 dB"
+      },
+      {
+        "name": "pvt_bandpass_low_frequency_rejection",
+        "status": "passed",
+        "measurement": "1 kHz rejection from BP peak 40.79 dB (min 18)"
+      },
+      {
+        "name": "pvt_output_common_mode",
+        "status": "passed",
+        "measurement": "output common-mode error 0.98 mV on both node pairs (max 10 mV)"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "supply power 394.0 uW (max 500)"
+      },
+      {
+        "name": "stress_thd_nominal",
+        "status": "passed",
+        "measurement": "THD -102.77 dB, fundamental gain 0.997 at 0.6 Vpp diff"
+      },
+      {
+        "name": "stress_thd_large_signal",
+        "status": "passed",
+        "measurement": "THD -95.38 dB, fundamental gain 0.997 at 0.9 Vpp diff"
+      },
+      {
+        "name": "stress_thd_near_f0",
+        "status": "passed",
+        "measurement": "at 2 MHz and 0.9 Vpp: LP THD -79.47 dB / gain 0.747, BP THD -72.13 dB / gain 0.471"
+      },
+      {
+        "name": "pvt_output_noise",
+        "status": "passed",
+        "measurement": "integrated output noise 391.8 uVrms over 1 kHz..4 MHz (max 500)"
+      },
+      {
+        "name": "stress_cmfb_settling",
+        "status": "passed",
+        "measurement": "common-mode step settling 0.297 us on both loops (max 1)"
+      },
+      {
+        "name": "stress_cmfb_damping",
+        "status": "passed",
+        "measurement": "late common-mode excursion 1.47 mV (max 10 mV)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-fully-differential-ota-c-biquad-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-fully-differential-ota-c-biquad-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

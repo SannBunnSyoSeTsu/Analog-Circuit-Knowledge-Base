@@ -1,0 +1,92 @@
+{
+  "taskId": "sky130-telescopic-cascode-ota-pvt-fix",
+  "taskTitle": "Design a telescopic-cascode fully differential OTA",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 23,
+  "costUsd": 8.14203,
+  "inputTokens": 745368,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 13767,
+  "peakContextTokens": 47127,
+  "durationMs": 533939,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-telescopic-cascode-ota-pvt-fix",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "rows=30/30 PVT=27/27 executed=30 blocked=0"
+      },
+      {
+        "name": "pvt_gain_bandwidth",
+        "status": "passed",
+        "measurement": "gain_min=64.21dB at ff/1.62V/+125C; UGB_min=93.50MHz at ss/1.62V/+125C"
+      },
+      {
+        "name": "pvt_phase_margin",
+        "status": "passed",
+        "measurement": "PM_min=88.81deg at ss/1.62V/+125C; falling_crossings=1 post_first_max=-0.005dB"
+      },
+      {
+        "name": "pvt_output_common_mode",
+        "status": "passed",
+        "measurement": "CM_error_max=0.154mV at ff/1.62V/+125C"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "power_min=535.3uW; power_max=682.6uW at ff/1.98V/+125C"
+      },
+      {
+        "name": "closed_loop_range",
+        "status": "passed",
+        "measurement": "range=0.900Vpp points=181/181 tracking_max=0.143mV CM_error_max=0.087mV"
+      },
+      {
+        "name": "closed_loop_settling",
+        "status": "passed",
+        "measurement": "last_entry=6.170ns final_10ns_error=0.0145mV (0.0145% of step)"
+      },
+      {
+        "name": "common_mode_recovery",
+        "status": "passed",
+        "measurement": "last_entry=25.225ns final_20ns_error=0.1767mV"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-telescopic-cascode-ota-pvt-fix/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-telescopic-cascode-ota-pvt-fix/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

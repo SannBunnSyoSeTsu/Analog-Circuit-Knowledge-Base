@@ -1,0 +1,72 @@
+{
+  "taskId": "sky130-sar-adc-6bit-async",
+  "taskTitle": "Design a 6-Bit 100 MS/s Asynchronous SAR ADC",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 53,
+  "costUsd": 25.88091,
+  "inputTokens": 2338866,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 49845,
+  "peakContextTokens": 81275,
+  "durationMs": 3086760,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-sar-adc-6bit-async",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "sample_hold_64_codes",
+        "status": "passed",
+        "measurement": "transfer=[11, 48, 21, 58, 31, 4, 41, 14, 51, 24, 61, 34, 7, 44, 17, 54, 27, 0, 37, 10, 47, 20, 57, 30, 3, 40, 13, 50, 23, 60, 33, 6, 43, 16, 53, 26, 63, 36, 9, 46, 19, 56, 29, 2, 39, 12, 49, 22, 59, 32, 5, 42, 15, 52, 25, 62, 35, 8, 45, 18, 55, 28, 1, 38]; transfer_alt=[47, 4, 25, 46, 3, 24, 45, 2, 23, 44, 1, 22, 43, 0, 21, 42, 63, 20, 41, 62, 19, 40, 61, 18, 39, 60, 17, 38, 59, 16, 37, 58, 15, 36, 57, 14, 35, 56, 13, 34, 55, 12, 33, 54, 11, 32, 53, 10, 31, 52, 9, 30, 51, 8, 29, 50, 7, 28, 49, 6, 27, 48, 5, 26]"
+      },
+      {
+        "name": "sndr",
+        "status": "passed",
+        "measurement": "worst=37.09dB at tt_1p80v_27c_bin31 (min 35dB)"
+      },
+      {
+        "name": "normalized_enob",
+        "status": "passed",
+        "measurement": "worst=5.946 bit at tt_1p80v_27c_bin31 (> 5.9 bit)"
+      },
+      {
+        "name": "power",
+        "status": "passed",
+        "measurement": "worst=1.784mW at tt_1p80v_27c_bin31 (< 3mW)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-sar-adc-6bit-async/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-sar-adc-6bit-async/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

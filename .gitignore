@@ -15,3 +15,14 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+.claude/
+__pycache__/
+*.pyc
+.env
+.env.*
+hd_cells.scs
+*.cdl
+*.lib
+*.lic
+license.dat

@@ -1,0 +1,97 @@
+{
+  "taskId": "sky130-delta-sigma-adc-1bit-first-order-osr32-sndr40",
+  "taskTitle": "Design a First-Order 1-bit Delta-Sigma ADC with 40 dB SNDR",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 29,
+  "costUsd": 9.10834,
+  "inputTokens": 817509,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 18665,
+  "peakContextTokens": 38846,
+  "durationMs": 778165,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-delta-sigma-adc-1bit-first-order-osr32-sndr40",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "nominal_function",
+        "status": "passed",
+        "measurement": "gain=1.013 density=0.525 transitions=61% complementary=100.0% invalid=0"
+      },
+      {
+        "name": "stimulus_transfer",
+        "status": "passed",
+        "measurement": "AC gains=1.013,1.014,1.015 streams_valid=True (gain target [0.70,1.35])"
+      },
+      {
+        "name": "dc_tracking",
+        "status": "passed",
+        "measurement": "worst mean-code error=0.0008 (target <=0.035)"
+      },
+      {
+        "name": "polarity_tracking",
+        "status": "passed",
+        "measurement": "magnitude_ratio=1.000 phase_error=0.0deg"
+      },
+      {
+        "name": "bounded_state",
+        "status": "passed",
+        "measurement": "worst max|integrator differential|=0.468 V (target <2)"
+      },
+      {
+        "name": "noise_shaping",
+        "status": "passed",
+        "measurement": "shaping dB=35.7,34.5,34.3 (min >=10)"
+      },
+      {
+        "name": "first_order_gain",
+        "status": "passed",
+        "measurement": "nominal SNDR32-SNDR16=10.19 dB/oct (target >=6)"
+      },
+      {
+        "name": "power",
+        "status": "passed",
+        "measurement": "worst total VDD power=1.262 mW (target <=2.0)"
+      },
+      {
+        "name": "sndr_suite",
+        "status": "passed",
+        "measurement": "SNDR32 dB=44.78,42.70,42.49 (targets 40/40/40)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-delta-sigma-adc-1bit-first-order-osr32-sndr40/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-delta-sigma-adc-1bit-first-order-osr32-sndr40/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

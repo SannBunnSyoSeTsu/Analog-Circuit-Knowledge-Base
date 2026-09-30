@@ -1,0 +1,50 @@
+.subckt programmable_current_mirror vss vdd icc_ref iptat_ref ratio_b0 ratio_b1 iout
+Xinv0n b0_bar ratio_b0 vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=1 nf=1
+Xinv0p b0_bar ratio_b0 vdd vdd sky130_fd_pr__pfet_01v8 l=0.5 w=2 nf=1
+Xinv1n b1_bar ratio_b1 vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=1 nf=1
+Xinv1p b1_bar ratio_b1 vdd vdd sky130_fd_pr__pfet_01v8 l=0.5 w=2 nf=1
+
+Xicc_ref icc_stack icc_ref vss vss sky130_fd_pr__nfet_01v8 l=10 w=200 nf=20
+Xicc_casref icc_ref icc_ref icc_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=400 nf=40
+Xiptat_ref iptat_stack iptat_ref vss vss sky130_fd_pr__nfet_01v8 l=10 w=200 nf=20
+Xiptat_casref iptat_ref iptat_ref iptat_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=400 nf=40
+
+Xicc0n icc_gate0 b0_bar icc_ref vss sky130_fd_pr__nfet_01v8 l=0.5 w=2 nf=1
+Xicc0p icc_gate0 ratio_b0 icc_ref vdd sky130_fd_pr__pfet_01v8 l=0.5 w=2 nf=1
+Xicc0off icc_gate0 ratio_b0 vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=1 nf=1
+Xicc1n icc_gate1 b1_bar icc_ref vss sky130_fd_pr__nfet_01v8 l=0.5 w=2 nf=1
+Xicc1p icc_gate1 ratio_b1 icc_ref vdd sky130_fd_pr__pfet_01v8 l=0.5 w=2 nf=1
+Xicc1off icc_gate1 ratio_b1 vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=1 nf=1
+
+Xiptat0n iptat_gate0 ratio_b0 iptat_ref vss sky130_fd_pr__nfet_01v8 l=0.5 w=2 nf=1
+Xiptat0p iptat_gate0 b0_bar iptat_ref vdd sky130_fd_pr__pfet_01v8 l=0.5 w=2 nf=1
+Xiptat0off iptat_gate0 b0_bar vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=1 nf=1
+Xiptat1n iptat_gate1 ratio_b1 iptat_ref vss sky130_fd_pr__nfet_01v8 l=0.5 w=2 nf=1
+Xiptat1p iptat_gate1 b1_bar iptat_ref vdd sky130_fd_pr__pfet_01v8 l=0.5 w=2 nf=1
+Xiptat1off iptat_gate1 b1_bar vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=1 nf=1
+
+Xicc_base_sink icc_base_stack icc_ref vss vss sky130_fd_pr__nfet_01v8 l=10 w=800 nf=80
+Xicc_base_casa iout icc_ref icc_base_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xicc_base_casb iout icc_ref icc_base_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xicc_bit0_sink icc_bit0_stack icc_gate0 vss vss sky130_fd_pr__nfet_01v8 l=10 w=800 nf=80
+Xicc_bit0_casa iout icc_gate0 icc_bit0_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xicc_bit0_casb iout icc_gate0 icc_bit0_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xicc_bit1a_sink icc_bit1a_stack icc_gate1 vss vss sky130_fd_pr__nfet_01v8 l=10 w=800 nf=80
+Xicc_bit1a_casa iout icc_gate1 icc_bit1a_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xicc_bit1a_casb iout icc_gate1 icc_bit1a_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xicc_bit1b_sink icc_bit1b_stack icc_gate1 vss vss sky130_fd_pr__nfet_01v8 l=10 w=800 nf=80
+Xicc_bit1b_casa iout icc_gate1 icc_bit1b_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xicc_bit1b_casb iout icc_gate1 icc_bit1b_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xiptat_base_sink iptat_base_stack iptat_ref vss vss sky130_fd_pr__nfet_01v8 l=10 w=800 nf=80
+Xiptat_base_casa iout iptat_ref iptat_base_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xiptat_base_casb iout iptat_ref iptat_base_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xiptat_bit0_sink iptat_bit0_stack iptat_gate0 vss vss sky130_fd_pr__nfet_01v8 l=10 w=800 nf=80
+Xiptat_bit0_casa iout iptat_gate0 iptat_bit0_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xiptat_bit0_casb iout iptat_gate0 iptat_bit0_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xiptat_bit1a_sink iptat_bit1a_stack iptat_gate1 vss vss sky130_fd_pr__nfet_01v8 l=10 w=800 nf=80
+Xiptat_bit1a_casa iout iptat_gate1 iptat_bit1a_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xiptat_bit1a_casb iout iptat_gate1 iptat_bit1a_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xiptat_bit1b_sink iptat_bit1b_stack iptat_gate1 vss vss sky130_fd_pr__nfet_01v8 l=10 w=800 nf=80
+Xiptat_bit1b_casa iout iptat_gate1 iptat_bit1b_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+Xiptat_bit1b_casb iout iptat_gate1 iptat_bit1b_stack vss sky130_fd_pr__nfet_01v8_lvt l=1 w=800 nf=80
+.ends programmable_current_mirror

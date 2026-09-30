@@ -1,0 +1,213 @@
+.subckt adc_inv a y vss vdd
+XP y a vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XN y a vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1 nf=1
+.ends adc_inv
+
+.subckt adc_drv a y vss vdd
+XP y a vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=8 nf=1
+XN y a vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+.ends adc_drv
+
+.subckt adc_nand2 a b y vss vdd
+XP1 y a vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XP2 y b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XN1 y a mid vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XN2 mid b vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+.ends adc_nand2
+
+.subckt adc_nand4 a b c d y vss vdd
+XP1 y a vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XP2 y b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XP3 y c vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XP4 y d vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XN1 y a mid1 vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XN2 mid1 b mid2 vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XN3 mid2 c mid3 vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XN4 mid3 d vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+.ends adc_nand4
+
+.subckt adc_nor2 a b y vss vdd
+XP1 pmid a vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4 nf=1
+XP2 y b pmid vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4 nf=1
+XN1 y a vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1 nf=1
+XN2 y b vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1 nf=1
+.ends adc_nor2
+
+.subckt adc_compare clk clkb inp inn q qb vss vdd
+XSPN hp clkb inp vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XSPP hp clk inp vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4 nf=1
+XSNN hn clkb inn vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XSNP hn clk inn vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4 nf=1
+CHP hp vss 30f
+CHN hn vss 30f
+XIP xp hp tail vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XIN xn hn tail vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XT tail clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=6 nf=1
+XLNP op on xp vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XLNN on op xn vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XLPP op on vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XLPN on op vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XRIP xp clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1 nf=1
+XRIN xn clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1 nf=1
+XROP op clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1 nf=1
+XRON on clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1 nf=1
+XSET op set vss vdd adc_inv
+XRESET on reset vss vdd adc_inv
+XQ reset qb q vss vdd adc_nor2
+XQB set q qb vss vdd adc_nor2
+.ends adc_compare
+
+.subckt flash_adc_4bit clk dout3 dout2 dout1 dout0 vss vdd vinn vinp vrefn vrefp
+XCLK clk clkb vss vdd adc_drv
+
+RPI1 vinp ip1 10000
+RPP1 vrefp ip1 10666.66667
+RPN1 vrefn ip1 160000
+RNI1 vinn in1 10000
+RNP1 vrefp in1 160000
+RNN1 vrefn in1 10666.66667
+XC1 clk clkb ip1 in1 q1 qb1 vss vdd adc_compare
+
+RPI2 vinp ip2 10000
+RPP2 vrefp ip2 11428.57143
+RPN2 vrefn ip2 80000
+RNI2 vinn in2 10000
+RNP2 vrefp in2 80000
+RNN2 vrefn in2 11428.57143
+XC2 clk clkb ip2 in2 q2 qb2 vss vdd adc_compare
+
+RPI3 vinp ip3 10000
+RPP3 vrefp ip3 12307.69231
+RPN3 vrefn ip3 53333.33333
+RNI3 vinn in3 10000
+RNP3 vrefp in3 53333.33333
+RNN3 vrefn in3 12307.69231
+XC3 clk clkb ip3 in3 q3 qb3 vss vdd adc_compare
+
+RPI4 vinp ip4 10000
+RPP4 vrefp ip4 13333.33333
+RPN4 vrefn ip4 40000
+RNI4 vinn in4 10000
+RNP4 vrefp in4 40000
+RNN4 vrefn in4 13333.33333
+XC4 clk clkb ip4 in4 q4 qb4 vss vdd adc_compare
+
+RPI5 vinp ip5 10000
+RPP5 vrefp ip5 14545.45455
+RPN5 vrefn ip5 32000
+RNI5 vinn in5 10000
+RNP5 vrefp in5 32000
+RNN5 vrefn in5 14545.45455
+XC5 clk clkb ip5 in5 q5 qb5 vss vdd adc_compare
+
+RPI6 vinp ip6 10000
+RPP6 vrefp ip6 16000
+RPN6 vrefn ip6 26666.66667
+RNI6 vinn in6 10000
+RNP6 vrefp in6 26666.66667
+RNN6 vrefn in6 16000
+XC6 clk clkb ip6 in6 q6 qb6 vss vdd adc_compare
+
+RPI7 vinp ip7 10000
+RPP7 vrefp ip7 17777.77778
+RPN7 vrefn ip7 22857.14286
+RNI7 vinn in7 10000
+RNP7 vrefp in7 22857.14286
+RNN7 vrefn in7 17777.77778
+XC7 clk clkb ip7 in7 q7 qb7 vss vdd adc_compare
+
+RPI8 vinp ip8 10000
+RPP8 vrefp ip8 20000
+RPN8 vrefn ip8 20000
+RNI8 vinn in8 10000
+RNP8 vrefp in8 20000
+RNN8 vrefn in8 20000
+XC8 clk clkb ip8 in8 q8 qb8 vss vdd adc_compare
+
+RPI9 vinp ip9 10000
+RPP9 vrefp ip9 22857.14286
+RPN9 vrefn ip9 17777.77778
+RNI9 vinn in9 10000
+RNP9 vrefp in9 17777.77778
+RNN9 vrefn in9 22857.14286
+XC9 clk clkb ip9 in9 q9 qb9 vss vdd adc_compare
+
+RPI10 vinp ip10 10000
+RPP10 vrefp ip10 26666.66667
+RPN10 vrefn ip10 16000
+RNI10 vinn in10 10000
+RNP10 vrefp in10 16000
+RNN10 vrefn in10 26666.66667
+XC10 clk clkb ip10 in10 q10 qb10 vss vdd adc_compare
+
+RPI11 vinp ip11 10000
+RPP11 vrefp ip11 32000
+RPN11 vrefn ip11 14545.45455
+RNI11 vinn in11 10000
+RNP11 vrefp in11 14545.45455
+RNN11 vrefn in11 32000
+XC11 clk clkb ip11 in11 q11 qb11 vss vdd adc_compare
+
+RPI12 vinp ip12 10000
+RPP12 vrefp ip12 40000
+RPN12 vrefn ip12 13333.33333
+RNI12 vinn in12 10000
+RNP12 vrefp in12 13333.33333
+RNN12 vrefn in12 40000
+XC12 clk clkb ip12 in12 q12 qb12 vss vdd adc_compare
+
+RPI13 vinp ip13 10000
+RPP13 vrefp ip13 53333.33333
+RPN13 vrefn ip13 12307.69231
+RNI13 vinn in13 10000
+RNP13 vrefp in13 12307.69231
+RNN13 vrefn in13 53333.33333
+XC13 clk clkb ip13 in13 q13 qb13 vss vdd adc_compare
+
+RPI14 vinp ip14 10000
+RPP14 vrefp ip14 80000
+RPN14 vrefn ip14 11428.57143
+RNI14 vinn in14 10000
+RNP14 vrefp in14 11428.57143
+RNN14 vrefn in14 80000
+XC14 clk clkb ip14 in14 q14 qb14 vss vdd adc_compare
+
+RPI15 vinp ip15 10000
+RPP15 vrefp ip15 160000
+RPN15 vrefn ip15 10666.66667
+RNI15 vinn in15 10000
+RNP15 vrefp in15 10666.66667
+RNN15 vrefn in15 160000
+XC15 clk clkb ip15 in15 q15 qb15 vss vdd adc_compare
+
+XE20 q4 qb8 e20 vss vdd adc_nand2
+XE2 e20 qb12 b2 vss vdd adc_nand2
+XI2 b2 nb2 vss vdd adc_inv
+XD2 nb2 dout2 vss vdd adc_drv
+XE10 q2 qb4 e10 vss vdd adc_nand2
+XE11 q6 qb8 e11 vss vdd adc_nand2
+XE12 q10 qb12 e12 vss vdd adc_nand2
+XE1 e10 e11 e12 qb14 b1 vss vdd adc_nand4
+XI1 b1 nb1 vss vdd adc_inv
+XD1 nb1 dout1 vss vdd adc_drv
+
+XE00 q1 qb2 e00 vss vdd adc_nand2
+
+XE01 q3 qb4 e01 vss vdd adc_nand2
+
+XE02 q5 qb6 e02 vss vdd adc_nand2
+
+XE03 q7 qb8 e03 vss vdd adc_nand2
+
+XE04 q9 qb10 e04 vss vdd adc_nand2
+
+XE05 q11 qb12 e05 vss vdd adc_nand2
+
+XE06 q13 qb14 e06 vss vdd adc_nand2
+
+XE0A e00 e01 e02 e03 b0a vss vdd adc_nand4
+XE0B e04 e05 e06 qb15 b0b vss vdd adc_nand4
+XE0 b0a b0b nb0 vss vdd adc_nor2
+XD0 nb0 dout0 vss vdd adc_drv
+XD3 qb8 dout3 vss vdd adc_drv
+.ends flash_adc_4bit

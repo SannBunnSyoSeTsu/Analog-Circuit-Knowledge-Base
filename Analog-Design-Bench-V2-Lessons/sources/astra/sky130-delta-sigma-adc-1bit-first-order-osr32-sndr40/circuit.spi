@@ -1,0 +1,46 @@
+.subckt sigma_adc vss vdd vip vin vp vn vcm ctrl_a ctrl_b c1a c1b c2a c2b intp intn inp inn
+CSP sp bp 200f
+CSN sn bn 200f
+CIP inp intp 400f
+CIN inn intn 400f
+RDP vp refp 100
+RCP refp vcm 6.4k
+RDN vn refn 100
+RCN refn vcm 6.4k
+
+XHPP holdp ctrl_a vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XHPQ holdp holdn vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XHPN holdp ctrl_a hp_mid vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XHPS hp_mid holdn vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XHNP holdn ctrl_b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XHNQ holdn holdp vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XHNN holdn ctrl_b hn_mid vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XHNS hn_mid holdp vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+
+XDPPN dp holdp refp vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XDPPP dp holdn refp vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XDPNN dp holdn refn vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XDPNP dp holdp refn vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XDNNN dn holdp refn vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XDNPP dn holdn refn vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XDNPN dn holdn refp vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XDNNP dn holdp refp vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+
+XSPVN bp c1a vip vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XSPVP bp c1b vip vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XSNVN bn c1a vin vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XSNVP bn c1b vin vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XSPDN bp c2a dp vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XSPDP bp c2b dp vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XSNDN bn c2a dn vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XSNDP bn c2b dn vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+
+XSCPN sp c1a vcm vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XSCPP sp c1b vcm vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XSCNN sn c1a vcm vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XSCNP sn c1b vcm vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XSTPN sp c2a inn vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XSTPP sp c2b inn vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XSTNN sn c2a inp vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XSTNP sn c2b inp vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends sigma_adc

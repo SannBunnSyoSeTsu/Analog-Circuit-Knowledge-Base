@@ -1,0 +1,18 @@
+.subckt osc_delay IN OUT DRIVE AVDD AVSS NBIAS
+XNS VN NBIAS AVSS AVSS sky130_fd_pr__nfet_01v8 l=4 w=2
+XP DRIVE IN AVDD AVDD sky130_fd_pr__pfet_01v8_lvt l=1.2 w=0.42
+XN DRIVE IN VN AVSS sky130_fd_pr__nfet_01v8 l=0.15 w=0.63
+XR DRIVE OUT AVSS sky130_fd_pr__res_xhigh_po w=0.35 l=240
+XC OUT AVSS sky130_fd_pr__cap_mim_m3_1 w=4.18 l=4.18
+.ends osc_delay
+
+.subckt osc_2m AVDD AVSS CLKO IBN2U
+XNB IBN2U IBN2U AVSS AVSS sky130_fd_pr__nfet_01v8 l=4 w=2
+XD1 N3 N1 D1 AVDD AVSS IBN2U osc_delay
+XD2 N1 N2 D2 AVDD AVSS IBN2U osc_delay
+XD3 N2 N3 D3 AVDD AVSS IBN2U osc_delay
+XPB1 NB D3 AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.15 w=1
+XNB1 NB D3 AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.15 w=0.42
+XPO CLKO NB AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.15 w=3.36
+XNO CLKO NB AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.15 w=1.68
+.ends osc_2m

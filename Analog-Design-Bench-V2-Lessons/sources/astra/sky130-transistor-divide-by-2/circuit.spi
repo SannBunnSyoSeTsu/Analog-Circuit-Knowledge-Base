@@ -1,0 +1,22 @@
+.subckt divide_by_2 clk reset vdd vss clkout
+XCKN clkb clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XCKP clkb clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=8 nf=1
+XRN resetb reset vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XRP resetb reset vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=8 nf=1
+XDN feedback clkout vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XDP feedback clkout vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6 nf=1
+XMN master clkb feedback vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XMP master clk feedback vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4 nf=1
+XMR master reset reset_tail vss sky130_fd_pr__nfet_01v8 l=0.15 w=8 nf=1
+XMRC reset_tail clk vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=8 nf=1
+XMIN masterb master vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XMIP masterb master vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=12 nf=1
+XSN state clk masterb vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XSP state clkb masterb vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6 nf=1
+XSR state resetb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6 nf=1
+XON clkout state vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XOP clkout state vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=12 nf=1
+XOR clkout reset vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=8 nf=1
+CM master vss 2f
+CS state vss 2f
+.ends divide_by_2

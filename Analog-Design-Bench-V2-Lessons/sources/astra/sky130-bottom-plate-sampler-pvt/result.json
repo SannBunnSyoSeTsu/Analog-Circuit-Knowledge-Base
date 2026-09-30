@@ -1,0 +1,82 @@
+{
+  "taskId": "sky130-bottom-plate-sampler-pvt",
+  "taskTitle": "Design a Differential Bottom-Plate Sampler",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 24,
+  "costUsd": 9.72923,
+  "inputTokens": 849108,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 24763,
+  "peakContextTokens": 58016,
+  "durationMs": 1252967,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-bottom-plate-sampler-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "bipolar_acquisition_5mv",
+        "status": "passed",
+        "measurement": "+0.8V=0.0071mV, -0.8V=0.007mV"
+      },
+      {
+        "name": "hold_isolation_and_reacquisition_5mv",
+        "status": "passed",
+        "measurement": "capture=0.0166mV at ff/1.98V/-40C, shift=3.797mV at ss/1.62V/+125C, reacquire=0.0165mV at ff/1.98V/-40C (max 5mV each)"
+      },
+      {
+        "name": "representative_sfdr_80db",
+        "status": "passed",
+        "measurement": "worst=90.981dB at fs/1.62V/+125C (min 80dB)"
+      },
+      {
+        "name": "representative_gain_error_0p5pct",
+        "status": "passed",
+        "measurement": "worst=0.0055% at ss/1.62V/+125C (max 0.5%)"
+      },
+      {
+        "name": "representative_stored_common_mode_25mv",
+        "status": "passed",
+        "measurement": "worst=7.3675mV at ff/1.98V/-40C (max 25mV)"
+      },
+      {
+        "name": "representative_total_source_power_0p6mw",
+        "status": "passed",
+        "measurement": "worst=0.0123mW at ff/1.98V/-40C (max 0.6mW)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-bottom-plate-sampler-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-bottom-plate-sampler-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

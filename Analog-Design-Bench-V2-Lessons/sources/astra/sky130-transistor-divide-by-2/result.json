@@ -1,0 +1,72 @@
+{
+  "taskId": "sky130-transistor-divide-by-2",
+  "taskTitle": "Design a 1 GHz divide-by-two flip-flop",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 25,
+  "costUsd": 8.23253,
+  "inputTokens": 723378,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 19975,
+  "peakContextTokens": 43448,
+  "durationMs": 815563,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-transistor-divide-by-2",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "reset",
+        "status": "passed",
+        "measurement": "delay=0.01771ns; pre/asserted/release/next=1.8/0.0006185/0.002332/1.8V"
+      },
+      {
+        "name": "frequency",
+        "status": "passed",
+        "measurement": "input=1GHz; output=500MHz; ratio=2"
+      },
+      {
+        "name": "duty_cycle",
+        "status": "passed",
+        "measurement": "high/low duty=50.3/50.3/50.3/49.7/49.7/49.7%; low/high=0.0004194/1.8V"
+      },
+      {
+        "name": "clock_to_output_delay",
+        "status": "passed",
+        "measurement": "delays=70.03/70.02/70.02/70.02ps"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-transistor-divide-by-2/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-transistor-divide-by-2/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

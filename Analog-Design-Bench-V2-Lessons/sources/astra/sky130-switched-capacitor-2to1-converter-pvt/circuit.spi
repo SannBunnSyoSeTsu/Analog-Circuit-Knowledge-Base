@@ -1,0 +1,44 @@
+.subckt sc_inv1 vss vdd input output
+XN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84 nf=1
+XP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68 nf=1
+.ends sc_inv1
+
+.subckt sc_inv4 vss vdd input output
+XN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36 nf=1
+XP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6.72 nf=1
+.ends sc_inv4
+
+.subckt sc_inv16 vss vdd input output
+XN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=14 nf=2
+XP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=28 nf=4
+.ends sc_inv16
+
+.subckt sc_nand vss vdd input_a input_b output
+XPA output input_a vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68 nf=1
+XPB output input_b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68 nf=1
+XNA output input_a series vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.68 nf=1
+XNB series input_b vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.68 nf=1
+.ends sc_nand
+
+.subckt sc_2to1_converter vss vdd clk vout
+XCLK_INV vss vdd clk clock_b sc_inv1
+XCLK_BUF vss vdd clock_b clock_a sc_inv4
+XPHASE1 vss vdd clock_a phase2_b phase1_raw sc_nand
+XPHASE2 vss vdd clock_b phase1_b phase2_raw sc_nand
+XPRE1 vss vdd phase1_raw phase1_pre sc_inv4
+XPRE2 vss vdd phase2_raw phase2_pre sc_inv4
+XDRV1B vss vdd phase1_pre phase1_b sc_inv16
+XDRV2B vss vdd phase2_pre phase2_b sc_inv16
+XDRV1 vss vdd phase1_b phase1 sc_inv16
+XDRV2 vss vdd phase2_b phase2 sc_inv16
+
+XSUPPLY flying_top phase1_b vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=168 nf=24
+XCHARGE_N flying_bottom phase1 vout vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=98 nf=14
+XCHARGE_P flying_bottom phase1_b vout vdd sky130_fd_pr__pfet_01v8 l=0.15 w=168 nf=24
+XDELIVER_N flying_top phase2 vout vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=98 nf=14
+XDELIVER_P flying_top phase2_b vout vdd sky130_fd_pr__pfet_01v8 l=0.15 w=168 nf=24
+XGROUND flying_bottom phase2 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=84 nf=12
+
+XFLY flying_top flying_bottom sky130_fd_pr__cap_mim_m3_1 w=450 l=450 mult=1
+XOUT vout vss sky130_fd_pr__cap_mim_m3_1 w=600 l=600 mult=1
+.ends sc_2to1_converter

@@ -1,0 +1,117 @@
+{
+  "taskId": "sky130-flash-adc-3bit-pvt",
+  "taskTitle": "Design a 3-bit 50 MS/s flash ADC",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 39,
+  "costUsd": 14.03715,
+  "inputTokens": 1275860,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 25571,
+  "peakContextTokens": 49416,
+  "durationMs": 1446711,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-flash-adc-3bit-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "valid_output_levels",
+        "status": "passed",
+        "measurement": "runs=8/8 unique=8 failures=0 finite=True invalid_levels=0 at transition_tt_1p80v_27c stable_level_violations=0 at transition_tt_1p80v_27c"
+      },
+      {
+        "name": "pvt_code_progression",
+        "status": "passed",
+        "measurement": "monotonic=1 codes=8/8 thresholds=7/7 at ramp_tt_1p80v_27c"
+      },
+      {
+        "name": "pvt_dnl",
+        "status": "passed",
+        "measurement": "worst=0.080 LSB at ramp_tt_1p80v_27c (<= 0.30)"
+      },
+      {
+        "name": "pvt_inl",
+        "status": "passed",
+        "measurement": "worst=0.075 LSB at ramp_tt_1p80v_27c (<= 0.30)"
+      },
+      {
+        "name": "pvt_absolute_threshold_error",
+        "status": "passed",
+        "measurement": "worst=0.060 LSB at ramp_tt_1p80v_27c (<= 0.30)"
+      },
+      {
+        "name": "hidden_transition_sequence",
+        "status": "passed",
+        "measurement": "code_errors=0 at transition_tt_1p80v_27c missing_expected_transitions=0 at transition_tt_1p80v_27c stable_level_violations=0 at transition_tt_1p80v_27c"
+      },
+      {
+        "name": "pvt_clock_to_output_delay",
+        "status": "passed",
+        "measurement": "last_crossing=0.559 ns at transition_fs_1p98v_125c late_crossings=0 at transition_tt_1p80v_27c"
+      },
+      {
+        "name": "pvt_core_reference_power",
+        "status": "passed",
+        "measurement": "worst=0.168 mW at transition_ff_1p98v_125c (<= 1.00)"
+      },
+      {
+        "name": "pvt_clock_delivery_power",
+        "status": "passed",
+        "measurement": "positive-delivery average=0.015 mW at transition_ff_1p98v_125c (<= 0.25)"
+      },
+      {
+        "name": "low_frequency_sndr",
+        "status": "passed",
+        "measurement": "SNDR=22.886 dB, diagnostic codes=8/8 at sine_low_ff_1p98v_125c (>= 17.0)"
+      },
+      {
+        "name": "high_frequency_sndr",
+        "status": "passed",
+        "measurement": "SNDR=22.886 dB, diagnostic codes=8/8 at sine_high_fs_1p98v_125c (>= 17.0)"
+      },
+      {
+        "name": "dynamic_sfdr",
+        "status": "passed",
+        "measurement": "worst=25.643 dB at sine_high_fs_1p98v_125c (>= 21.0)"
+      },
+      {
+        "name": "dynamic_normalized_enob",
+        "status": "passed",
+        "measurement": "worst=3.635 bit at sine_low_ff_1p98v_125c (>= 2.50)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-flash-adc-3bit-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-flash-adc-3bit-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

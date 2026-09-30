@@ -1,0 +1,97 @@
+{
+  "taskId": "sky130-ldo-ota5-robust-pvt-mc",
+  "taskTitle": "Design a Robust PMOS-Pass LDO Across PVT and Mismatch",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 42,
+  "costUsd": 24.12167,
+  "inputTokens": 2232992,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 35835,
+  "peakContextTokens": 83787,
+  "durationMs": 1614078,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-ldo-ota5-robust-pvt-mc",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "runs=161 PVT=15/15 DC-points=135"
+      },
+      {
+        "name": "pvt_dc_regulation_and_iq",
+        "status": "passed",
+        "measurement": "error=14.468mV Iq=157.096uA..167.455uA"
+      },
+      {
+        "name": "dropout",
+        "status": "passed",
+        "measurement": "dropout=203.563mV"
+      },
+      {
+        "name": "loop_stability",
+        "status": "passed",
+        "measurement": "gain_min=48.287dB PM_min=67.623deg UGB_min=58.057kHz"
+      },
+      {
+        "name": "psrr_and_output_noise",
+        "status": "passed",
+        "measurement": "PSRR_min(100Hz/1kHz/100kHz/1MHz)=44.531dB/44.531dB/44.412dB/39.134dB noise=103.237uVrms"
+      },
+      {
+        "name": "startup",
+        "status": "passed",
+        "measurement": "sustained_t90=19.488us settling_after_ramp=0.000us overshoot=6.414mV"
+      },
+      {
+        "name": "load_transient",
+        "status": "passed",
+        "measurement": "excursion=8.854mV settling=0.000us"
+      },
+      {
+        "name": "line_transient",
+        "status": "passed",
+        "measurement": "excursion=8.987mV settling=0.000us"
+      },
+      {
+        "name": "monte_carlo_output",
+        "status": "passed",
+        "measurement": "samples=30/30 yield=100.000%"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-ldo-ota5-robust-pvt-mc/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-ldo-ota5-robust-pvt-mc/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

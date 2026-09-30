@@ -1,0 +1,56 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-sar-adc-4bit-async",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 4,
+  "tests_total": 4,
+  "runtime": {
+    "cpu_limit": 4,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": null,
+    "memory_limit_mb": 4096,
+    "ngspice_runs": 6,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 140.1,
+    "wall_clock_seconds": 140.1,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "code_mismatches",
+      "source_check": "sample_hold_16_codes",
+      "specification": "code mismatches = 0",
+      "metric": 0,
+      "value": 0,
+      "status": "pass"
+    },
+    {
+      "id": "minimum_sndr",
+      "source_check": "sndr",
+      "specification": "minimum SNDR > 24 dB",
+      "metric": 24,
+      "value": 27.14,
+      "status": "pass"
+    },
+    {
+      "id": "minimum_normalized_enob",
+      "source_check": "normalized_enob",
+      "specification": "minimum normalized ENOB > 3.90 bit",
+      "metric": 3.9,
+      "value": 4.313,
+      "status": "pass"
+    },
+    {
+      "id": "maximum_external_power",
+      "source_check": "power",
+      "specification": "maximum external power ≤ 5 mW",
+      "metric": 5,
+      "value": 4.287,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-15T18:00:00Z"
+}

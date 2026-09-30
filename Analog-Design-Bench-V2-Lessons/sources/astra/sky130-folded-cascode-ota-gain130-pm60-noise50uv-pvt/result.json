@@ -1,0 +1,92 @@
+{
+  "taskId": "sky130-folded-cascode-ota-gain130-pm60-noise50uv-pvt",
+  "taskTitle": "Design a Gain-Boosted Folded-Cascode OTA: Gain 130 dB, UGB 200 MHz, PM 60 deg, Noise 50 uVrms",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 75,
+  "costUsd": 64.40356,
+  "inputTokens": 6008946,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 86282,
+  "peakContextTokens": 152998,
+  "durationMs": 4049901,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-folded-cascode-ota-gain130-pm60-noise50uv-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "rows=60/60 OP/AC=27/27 noise=27/27 range=3/3 settling=3/3 executed=60 blocked=0"
+      },
+      {
+        "name": "pvt_gain_bandwidth",
+        "status": "passed",
+        "measurement": "gain_min=153.32dB at ff/1.62V/+125C; UGB_min=268.23MHz at ss/1.62V/+125C"
+      },
+      {
+        "name": "pvt_phase_margin",
+        "status": "passed",
+        "measurement": "PM_min=66.49deg at ff/1.62V/-40C; worst_falling_crossings=1 post_first_max=-0.009dB at ff/1.98V/+125C"
+      },
+      {
+        "name": "pvt_input_noise",
+        "status": "passed",
+        "measurement": "max=47.21uVrms at ss/1.98V/+125C (10Hz..10MHz)"
+      },
+      {
+        "name": "pvt_output_bias",
+        "status": "passed",
+        "measurement": "error_max=0.000mV at ff/1.62V/+125C"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "min=1.402mW; max=2.083mW at ss/1.98V/+125C"
+      },
+      {
+        "name": "closed_loop_range",
+        "status": "passed",
+        "measurement": "range_min=1.2000Vpp at tt/1.80V/+27C; selected_interval_tracking_max=0.021mV at ss/1.62V/-40C"
+      },
+      {
+        "name": "closed_loop_settling",
+        "status": "passed",
+        "measurement": "last_entry_max=3.275ns at tt/1.80V/+27C; final_5ns_error_max=0.5156mV (0.5156%) at tt/1.80V/+27C"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-folded-cascode-ota-gain130-pm60-noise50uv-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-folded-cascode-ota-gain130-pm60-noise50uv-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

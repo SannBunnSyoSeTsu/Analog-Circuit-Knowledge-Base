@@ -1,0 +1,72 @@
+{
+  "taskId": "sky130-regulated-charge-pump-10mhz-pvt",
+  "taskTitle": "Design a Regulated Charge Pump",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 31,
+  "costUsd": 12.96907,
+  "inputTokens": 1111127,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 37156,
+  "peakContextTokens": 61273,
+  "durationMs": 1942017,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-regulated-charge-pump-10mhz-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_load_regulation",
+        "status": "passed",
+        "measurement": "worst VOUT=2.10954V at ff/1.62V/+125C/1uA; bounds=2.0007..2.2113V"
+      },
+      {
+        "name": "pvt_output_ripple",
+        "status": "passed",
+        "measurement": "worst=0.51mVpp at ff/1.98V/-10C/50uA (required <=5mVpp)"
+      },
+      {
+        "name": "pvt_enabled_current",
+        "status": "passed",
+        "measurement": "worst=168.131uA at ff/1.98V/-10C/50uA (required <=200uA)"
+      },
+      {
+        "name": "pvt_disabled_current",
+        "status": "passed",
+        "measurement": "worst=0.24126nA at sf/1.62V/+125C/powerdown (required <=100nA)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-regulated-charge-pump-10mhz-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-regulated-charge-pump-10mhz-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

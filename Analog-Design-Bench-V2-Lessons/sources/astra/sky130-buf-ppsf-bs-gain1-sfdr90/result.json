@@ -1,0 +1,72 @@
+{
+  "taskId": "sky130-buf-ppsf-bs-gain1-sfdr90",
+  "taskTitle": "Design a differential push-pull source-follower buffer",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 50,
+  "costUsd": 32.24741,
+  "inputTokens": 2915566,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 61835,
+  "peakContextTokens": 102789,
+  "durationMs": 2383796,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-buf-ppsf-bs-gain1-sfdr90",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "input_current_gate",
+        "status": "passed",
+        "measurement": "max 40 MHz differential input current=14.811 uA, equivalent capacitance=73.662 fF (requirement <20 uA)"
+      },
+      {
+        "name": "gain_1m_to_40m",
+        "status": "passed",
+        "measurement": "min gain=0.99409 V/V (requirement >0.99)"
+      },
+      {
+        "name": "sfdr_1m_11m_41m",
+        "status": "passed",
+        "measurement": "worst SFDR=90.416 dB (requirement >90 dB); minimum transient fundamental gain=0.99701 V/V (requirement >0.95); worst SFDR=90.611 dB (requirement >80 dB); minimum transient fundamental gain=0.99764 V/V (requirement >0.95); worst SFDR=86.065 dB (requirement >70 dB); minimum transient fundamental gain=0.98908 V/V (requirement >0.95)"
+      },
+      {
+        "name": "dc_power",
+        "status": "passed",
+        "measurement": "max power=0.78499 mW (requirement <1.0 mW)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-buf-ppsf-bs-gain1-sfdr90/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-buf-ppsf-bs-gain1-sfdr90/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 0,
+      "reward": 0.6667
+    }
+  ]
+}

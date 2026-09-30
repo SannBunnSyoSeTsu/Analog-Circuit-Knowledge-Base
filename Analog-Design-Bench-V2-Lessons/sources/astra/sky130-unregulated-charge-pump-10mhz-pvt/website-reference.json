@@ -1,0 +1,64 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-unregulated-charge-pump-10mhz-pvt",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 4,
+  "tests_total": 4,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 2.321,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": 16,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 117.222,
+    "wall_clock_seconds": 117.602,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "loaded_output_voltage_minimum",
+      "source_check": "pvt_loaded_output_voltage",
+      "specification": "loaded output voltage ≥ 2.2 V",
+      "metric": 2.2,
+      "value": 2.35616,
+      "status": "pass"
+    },
+    {
+      "id": "loaded_output_voltage_maximum",
+      "source_check": "pvt_loaded_output_voltage",
+      "specification": "loaded output voltage ≤ 2.8 V",
+      "metric": 2.8,
+      "value": 2.68624,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_output_ripple",
+      "source_check": "pvt_output_ripple",
+      "specification": "pvt output ripple ≤ 5 mVpp",
+      "metric": 5,
+      "value": 3.26,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_enabled_current",
+      "source_check": "pvt_enabled_current",
+      "specification": "pvt enabled current ≤ 200 µA",
+      "metric": 200,
+      "value": 136.114,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_disabled_current",
+      "source_check": "pvt_disabled_current",
+      "specification": "pvt disabled current ≤ 100 nA",
+      "metric": 100,
+      "value": 9.02651,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-14T20:03:58+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "excluded_vendor_files": [
+    "SMIC18-Benchmark-Reproduction/evidence/42-sar-adc6bit/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/31-bottom-plate/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/24-ring-vco/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/23-resistor-dac/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/47-charge-pump/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/02-mirror/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/46-flash-adc3bit/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/28-fct-amplifier/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/48-sar-adc4bit/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/20-mux/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/18-regulated-pump/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/19-sc-converter/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/15-unregulated-pump/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/01-class-d/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/22-bootstrap/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/45-divider/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/05-bootstrap-driver/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/27-flash-adc4bit/hd_cells.scs",
+    "SMIC18-Benchmark-Reproduction/evidence/14-oscillator/hd_cells.scs"
+  ]
+}

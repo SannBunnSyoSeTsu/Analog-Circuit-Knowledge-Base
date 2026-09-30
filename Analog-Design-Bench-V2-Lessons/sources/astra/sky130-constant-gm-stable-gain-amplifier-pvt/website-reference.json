@@ -1,0 +1,96 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-constant-gm-stable-gain-amplifier-pvt",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 9,
+  "tests_total": 9,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 2.24,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": 81,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 40.62,
+    "wall_clock_seconds": 40.964,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "complete_signoff",
+      "source_check": "complete_signoff",
+      "specification": "complete signoff = 27 PVT points",
+      "metric": 27,
+      "value": 27,
+      "status": "pass"
+    },
+    {
+      "id": "absolute_gain_window",
+      "source_check": "absolute_gain_window",
+      "specification": "absolute gain window ≥ 3 V/V",
+      "metric": 3,
+      "value": 3.4084,
+      "status": "pass"
+    },
+    {
+      "id": "bandwidth",
+      "source_check": "bandwidth",
+      "specification": "bandwidth ≥ 30 MHz",
+      "metric": 30,
+      "value": 40,
+      "status": "pass"
+    },
+    {
+      "id": "load_drop_window",
+      "source_check": "load_drop_window",
+      "specification": "load drop window ≥ 150 mV",
+      "metric": 150,
+      "value": 195.81,
+      "status": "pass"
+    },
+    {
+      "id": "deterministic_output_imbalance",
+      "source_check": "deterministic_output_imbalance",
+      "specification": "deterministic output imbalance ≤ 10 mV",
+      "metric": 10,
+      "value": 0,
+      "status": "pass"
+    },
+    {
+      "id": "linearity",
+      "source_check": "linearity",
+      "specification": "linearity ≤ 8 %",
+      "metric": 8,
+      "value": 5.99,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_power",
+      "source_check": "pvt_power",
+      "specification": "pvt power ≤ 500 µW",
+      "metric": 500,
+      "value": 439.92,
+      "status": "pass"
+    },
+    {
+      "id": "gain_spread",
+      "source_check": "gain_spread",
+      "specification": "gain spread ≤ 1.15",
+      "metric": 1.15,
+      "value": 1.06703,
+      "status": "pass"
+    },
+    {
+      "id": "startup_zero_input_imbalance",
+      "source_check": "startup_power_on",
+      "specification": "startup zero input imbalance ≤ 10 mV",
+      "metric": 10,
+      "value": 0,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-14T20:01:41+00:00"
+}

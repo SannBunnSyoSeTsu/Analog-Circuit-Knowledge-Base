@@ -1,0 +1,112 @@
+{
+  "taskId": "sky130-bandgap-reference-pvt",
+  "taskTitle": "Design a high-impedance first-order bandgap core",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 45,
+  "costUsd": 24.27807,
+  "inputTokens": 2246112,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 36339,
+  "peakContextTokens": 87114,
+  "durationMs": 1702812,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-bandgap-reference-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "runs=189 groups={'pvt_op': 81, 'line': 27, 'temperature': 54, 'startup': 18, 'ac': 15, 'noise': 3, 'line_step': 15, 'monte_carlo': 30}"
+      },
+      {
+        "name": "pvt_reference_voltage",
+        "status": "passed",
+        "measurement": "VREF=1.216654..1.233700V"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "power_max=98.454uW"
+      },
+      {
+        "name": "temperature_coefficient",
+        "status": "passed",
+        "measurement": "per_corner_ppm_per_C={'tt': 16.550310411584434, 'ff': 16.874505252813506, 'ss': 16.37228480366936, 'fs': 16.56490871836942, 'sf': 16.830573423332492, 'll': 19.27746415358289, 'hh': 25.09981519227885, 'hl': 25.09981519227885, 'lh': 19.27746415358289} max=25.100"
+      },
+      {
+        "name": "line_regulation",
+        "status": "passed",
+        "measurement": "per_corner_mV_per_V={tt: 5.738, ff: 6.028, ss: 5.576, fs: 6.588, sf: 5.320, ll: 5.736, hh: 5.744, hl: 5.744, lh: 5.736} max=6.588"
+      },
+      {
+        "name": "multi_ramp_startup_settling",
+        "status": "passed",
+        "measurement": "continuous_window=1.220403..1.243273V after entry; endpoints=1.221259..1.243273V/1.223811..1.228002V"
+      },
+      {
+        "name": "startup_overshoot",
+        "status": "passed",
+        "measurement": "overshoot_max=44.737mV"
+      },
+      {
+        "name": "startup_inrush_and_energy",
+        "status": "passed",
+        "measurement": "peak_supply_current=0.045mA energy=1.782nJ"
+      },
+      {
+        "name": "supply_rejection",
+        "status": "passed",
+        "measurement": "VDD_to_VREF_gain_max=0.168553V/V"
+      },
+      {
+        "name": "integrated_output_noise",
+        "status": "passed",
+        "measurement": "noise_10Hz_to_1MHz=181.210uVrms"
+      },
+      {
+        "name": "supply_step_response",
+        "status": "passed",
+        "measurement": "excursion_max=37.282mV settling_max=6.210us within 1mV"
+      },
+      {
+        "name": "monte_carlo_reference_accuracy",
+        "status": "passed",
+        "measurement": "runs=30 mean=1.227996V sigma=3.748mV yield=1.000 in 1.15..1.28V"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-bandgap-reference-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-bandgap-reference-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

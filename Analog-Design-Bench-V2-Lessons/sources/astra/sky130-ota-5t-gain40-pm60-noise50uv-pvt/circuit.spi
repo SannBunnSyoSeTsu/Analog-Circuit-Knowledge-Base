@@ -1,0 +1,8 @@
+.subckt ota_5t vss ibias vdd vinn vinp vout
+XREF ibias ibias vss vss sky130_fd_pr__nfet_01v8 l=1 w=10 nf=2
+XTAIL tail ibias vss vss sky130_fd_pr__nfet_01v8 l=1 w=40 nf=8
+XINP mirror vinp tail vss sky130_fd_pr__nfet_01v8 l=1 w=80 nf=16
+XINN vout vinn tail vss sky130_fd_pr__nfet_01v8 l=1 w=80 nf=16
+XLOADP mirror mirror vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=100 nf=20
+XLOADN vout mirror vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=100 nf=20
+.ends ota_5t

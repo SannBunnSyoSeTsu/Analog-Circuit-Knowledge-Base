@@ -1,0 +1,15 @@
+.subckt low_power_line_driver vss iref vdd vinn vinp vout
+XREF iref iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=100 nf=10
+XTAIL tail iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=40 nf=4
+XINN mirror vinn tail vss sky130_fd_pr__nfet_01v8 l=1 w=60 nf=6
+XINP drive vinp tail vss sky130_fd_pr__nfet_01v8 l=1 w=60 nf=6
+XLOAD1 mirror mirror vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=20 nf=4
+XLOAD2 drive mirror vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=20 nf=4
+XOUTP vout drive vdd vdd sky130_fd_pr__pfet_01v8 l=0.5 w=1000 nf=100
+XOUTN vout ngate vss vss sky130_fd_pr__nfet_01v8 l=1 w=200 nf=20
+RBIAS iref ngate 1meg
+CFLOAT drive ngate 1u
+CREF iref vss 1n
+RCOMP drive comp 3000
+CCOMP comp vout 8p
+.ends low_power_line_driver

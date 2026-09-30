@@ -1,0 +1,30 @@
+.subckt vco_delay vss pbias nbias vdd vin delay_out
+XPS psource pbias vdd vdd sky130_fd_pr__pfet_01v8 l=0.35 w=6 nf=1
+XNS nsource nbias vss vss sky130_fd_pr__nfet_01v8 l=1 w=1 nf=1
+XPI delay_out vin psource vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+XNI delay_out vin nsource vss sky130_fd_pr__nfet_01v8 l=0.15 w=1 nf=1
+CD delay_out vss 22.5f
+.ends vco_delay
+
+.subckt current_starved_ring_vco vss vctrl vdd vout
+XCONTROL pbias vctrl sense vss sky130_fd_pr__nfet_01v8 l=0.5 w=30 nf=1
+RCONTROL sense vss 60k
+XBPREF pbias pbias vdd vdd sky130_fd_pr__pfet_01v8 l=0.35 w=6 nf=1
+XBPMIR nbias pbias vdd vdd sky130_fd_pr__pfet_01v8 l=0.35 w=6 nf=1
+XBNREF nbias nbias vss vss sky130_fd_pr__nfet_01v8 l=1 w=1 nf=1
+
+XDELAY1 vss pbias nbias vdd ring5 ring1 vco_delay
+XDELAY2 vss pbias nbias vdd ring1 ring2 vco_delay
+XDELAY3 vss pbias nbias vdd ring2 ring3 vco_delay
+XDELAY4 vss pbias nbias vdd ring3 ring4 vco_delay
+XDELAY5 vss pbias nbias vdd ring4 ring5 vco_delay
+
+XRESETN reset vctrl vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.26 nf=1
+XRESETP reset vctrl vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.42 nf=1
+XSTART ring1 reset vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42 nf=1
+
+XBUF1N buffered ring5 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42 nf=1
+XBUF1P buffered ring5 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.84 nf=1
+XBUF2N vout buffered vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1 nf=1
+XBUF2P vout buffered vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2 nf=1
+.ends current_starved_ring_vco

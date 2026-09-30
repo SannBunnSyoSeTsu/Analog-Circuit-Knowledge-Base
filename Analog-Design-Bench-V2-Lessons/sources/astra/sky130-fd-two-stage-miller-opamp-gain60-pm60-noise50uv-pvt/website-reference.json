@@ -1,0 +1,112 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-fd-two-stage-miller-opamp-gain60-pm60-noise50uv-pvt",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 11,
+  "tests_total": 11,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 2.522,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": 36,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 33.43,
+    "wall_clock_seconds": 33.758,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "pvt_gain",
+      "source_check": "pvt_gain",
+      "specification": "pvt gain ≥ 60 dB",
+      "metric": 60,
+      "value": 101.5,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_bandwidth",
+      "source_check": "pvt_bandwidth",
+      "specification": "pvt bandwidth ≥ 100 MHz",
+      "metric": 100,
+      "value": 151.2,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_phase_margin",
+      "source_check": "pvt_phase_margin",
+      "specification": "pvt phase margin ≥ 60 °",
+      "metric": 60,
+      "value": 65.85,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_input_noise",
+      "source_check": "pvt_input_noise",
+      "specification": "pvt input noise ≤ 50 µVrms",
+      "metric": 50,
+      "value": 44.14,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_output_bias",
+      "source_check": "pvt_output_bias",
+      "specification": "pvt output bias ≤ 15 mV",
+      "metric": 15,
+      "value": 6.597,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_power",
+      "source_check": "pvt_power",
+      "specification": "pvt power ≤ 5 mW",
+      "metric": 5,
+      "value": 4.932,
+      "status": "pass"
+    },
+    {
+      "id": "common_mode_rejection",
+      "source_check": "common_mode_rejection",
+      "specification": "common mode rejection ≥ 50 dB",
+      "metric": 50,
+      "value": 55.9,
+      "status": "pass"
+    },
+    {
+      "id": "supply_rejection",
+      "source_check": "supply_rejection",
+      "specification": "supply rejection ≥ 40 dB",
+      "metric": 40,
+      "value": 40.38,
+      "status": "pass"
+    },
+    {
+      "id": "closed_loop_range",
+      "source_check": "closed_loop_range",
+      "specification": "closed loop range ≥ 0.8 Vpp",
+      "metric": 0.8,
+      "value": 1.6,
+      "status": "pass"
+    },
+    {
+      "id": "precision_settling",
+      "source_check": "precision_settling",
+      "specification": "precision settling ≤ 15 ns",
+      "metric": 15,
+      "value": 11.78,
+      "status": "pass"
+    },
+    {
+      "id": "common_mode_recovery",
+      "source_check": "common_mode_recovery",
+      "specification": "common mode recovery ≤ 100 ns",
+      "metric": 100,
+      "value": 30.12,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-14T20:08:39+00:00"
+}

@@ -1,0 +1,23 @@
+.subckt gmr_degen IREF VCM VDD VIN VIP VON VOP VSS
+XBIAS IREF IREF VSS VSS sky130_fd_pr__nfet_01v8_lvt l=1 w=10 nf=2
+RINP VIN FBP 10k
+RINN VIP FBN 10k
+RFP VOP FBP 20.12k
+RFN VON FBN 20.12k
+XAP VCM FBP VOP IREF VDD VSS gmr_amp
+XAN VCM FBN VON IREF VDD VSS gmr_amp
+.ends gmr_degen
+
+.subckt gmr_amp PLUS MINUS OUT BIAS VDD VSS
+XTAIL TAIL BIAS VSS VSS sky130_fd_pr__nfet_01v8_lvt l=1 w=20 nf=4
+RSP SOURCEP TAIL 200
+RSN SOURCEN TAIL 200
+XINP LEFT MINUS SOURCEP VSS sky130_fd_pr__nfet_01v8_lvt l=0.35 w=20 nf=4
+XINN DRIVE PLUS SOURCEN VSS sky130_fd_pr__nfet_01v8_lvt l=0.35 w=20 nf=4
+XLOADP LEFT LEFT VDD VDD sky130_fd_pr__pfet_01v8 l=0.35 w=10 nf=2
+XLOADN DRIVE LEFT VDD VDD sky130_fd_pr__pfet_01v8 l=0.35 w=10 nf=2
+XOUTP OUT DRIVE VDD VDD sky130_fd_pr__pfet_01v8 l=0.35 w=40 nf=8
+XOUTN OUT BIAS VSS VSS sky130_fd_pr__nfet_01v8_lvt l=1 w=40 nf=8
+RCOMP DRIVE COMP 250
+XCOMP COMP OUT sky130_fd_pr__cap_mim_m3_1 w=12 l=12 mf=1
+.ends gmr_amp

@@ -1,0 +1,33 @@
+.subckt fd_two_stage_miller_opamp vss iref vdd vinn vinp vocm voutn voutp
+XBIAS iref iref vss vss sky130_fd_pr__nfet_01v8 l=2 w=80 nf=8
+XTAIL tail iref vss vss sky130_fd_pr__nfet_01v8 l=2 w=740 nf=74
+XINP stagep vinp tail vss sky130_fd_pr__nfet_01v8 l=1.5 w=270 nf=27
+XINN stagen vinn tail vss sky130_fd_pr__nfet_01v8 l=1.5 w=270 nf=27
+XLOADP stagep firstcm vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=480 nf=48
+XLOADN stagen firstcm vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=480 nf=48
+RFIRSTP stagep firstcm 10k
+RFIRSTN stagen firstcm 10k
+CFIRSTP stagep firstcm 0.8p
+CFIRSTN stagen firstcm 0.8p
+XOUTP voutp stagep vdd vdd sky130_fd_pr__pfet_01v8 l=0.6 w=330 nf=33
+XOUTN voutn stagen vdd vdd sky130_fd_pr__pfet_01v8 l=0.6 w=330 nf=33
+XSINKP voutp cmctrl vss vss sky130_fd_pr__nfet_01v8 l=1 w=480 nf=48
+XSINKN voutn cmctrl vss vss sky130_fd_pr__nfet_01v8 l=1 w=480 nf=48
+RCOMPENSATEP stagep comp_p 300
+RCOMPENSATEN stagen comp_n 300
+CCOMPENSATEP comp_p voutp 4p
+CCOMPENSATEN comp_n voutn 4p
+RSENSEP voutp sensedcm 100k
+RSENSEN voutn sensedcm 100k
+CSENSEP voutp sensedcm 0.2p
+CSENSEN voutn sensedcm 0.2p
+XCMT cm_tail iref vss vss sky130_fd_pr__nfet_01v8 l=2 w=8 nf=1
+XCMS cm_diode sensedcm cm_tail vss sky130_fd_pr__nfet_01v8 l=1 w=20 nf=2
+XCMR cmctrl vocm cm_tail vss sky130_fd_pr__nfet_01v8 l=1 w=20 nf=2
+XCMLD cm_diode cm_diode vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=20 nf=2
+XCMLM cmctrl cm_diode vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=20 nf=2
+CCMCOMPENSATEP cmctrl cmcomp_p 1p
+CCMCOMPENSATEN cmctrl cmcomp_n 1p
+RCMCOMPENSATEP cmcomp_p voutp 10k
+RCMCOMPENSATEN cmcomp_n voutn 10k
+.ends fd_two_stage_miller_opamp

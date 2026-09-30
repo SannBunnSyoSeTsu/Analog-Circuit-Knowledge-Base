@@ -1,0 +1,271 @@
+.subckt adc_inv in out vdd vss
+XN out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends adc_inv
+
+.subckt adc_clock_inv in out vdd vss
+XN out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=12.6
+XP out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=25.2
+.ends adc_clock_inv
+
+.subckt adc_acq_inv in out vdd vss
+XN out in vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=42
+XP out in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=84
+.ends adc_acq_inv
+
+.subckt adc_nand2 first second out vdd vss
+XN1 out first series vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.68
+XN2 series second vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.68
+XP1 out first vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XP2 out second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends adc_nand2
+
+.subckt adc_nand4 first second third fourth out vdd vss
+XN1 out first series1 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36
+XN2 series1 second series2 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36
+XN3 series2 third series3 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36
+XN4 series3 fourth vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36
+XP1 out first vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XP2 out second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XP3 out third vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XP4 out fourth vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends adc_nand4
+
+.subckt adc_nor2 first second out vdd vss
+XN1 out first vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XN2 out second vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP1 out first series vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3.36
+XP2 series second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3.36
+.ends adc_nor2
+
+.subckt adc_tg first second enable enableb vdd vss
+XN first enable second vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP first enableb second vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends adc_tg
+
+.subckt adc_sample_tg first second enable enableb vdd vss
+XN first enable second vss sky130_fd_pr__nfet_01v8 l=0.15 w=8.4
+XP first enableb second vdd sky130_fd_pr__pfet_01v8 l=0.15 w=16.8
+.ends adc_sample_tg
+
+.subckt adc_dff data clock clockb output vdd vss
+XMI data master clockb clock vdd vss adc_tg
+XMA master masterb vdd vss adc_inv
+XMB masterb masterq vdd vss adc_inv
+XMF masterq master clock clockb vdd vss adc_tg
+XSI masterq slave clock clockb vdd vss adc_tg
+XSA slave slaveb vdd vss adc_inv
+XSB slaveb output vdd vss adc_inv
+XSF output slave clockb clock vdd vss adc_tg
+.ends adc_dff
+
+.subckt adc_comparator inp inn evaluate therm thermb vdd vss
+XTAIL tail evaluate vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4.2
+XIP intp inp tail vss sky130_fd_pr__nfet_01v8 l=0.15 w=2.1
+XIN intn inn tail vss sky130_fd_pr__nfet_01v8 l=0.15 w=2.1
+XNP outp outn intp vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XNN outn outp intn vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XPP outp outn vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XPN outn outp vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRP outp evaluate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRN outn evaluate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRIP intp evaluate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRIN intn evaluate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XBP outn therm vdd vss adc_inv
+XBN outp thermb vdd vss adc_inv
+.ends adc_comparator
+
+.subckt sar_adc_4bit_async clks dout3 dout2 dout1 dout0 vss vdd vinn vinp vrefn vrefp
+XCI clks sample_b vdd vss adc_acq_inv
+XCB sample_b sample vdd vss adc_acq_inv
+XCD1 sample delay_b vdd vss adc_clock_inv
+CDLY delay_b vss 100f
+XCD2 delay_b evaluate_b vdd vss adc_clock_inv
+XCEI evaluate_b evaluate vdd vss adc_clock_inv
+XCMP1 evaluate compare_b vdd vss adc_clock_inv
+CCMP compare_b vss 100f
+XCMP2 compare_b compare vdd vss adc_clock_inv
+XCMN common common vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=1
+XCMP common common vdd vdd sky130_fd_pr__pfet_01v8 l=0.5 w=2
+CCM common vss 1p
+XSPH vinp ph clks sample_b vdd vss adc_sample_tg
+XSPL vinp pl clks sample_b vdd vss adc_sample_tg
+XSNH vinn nh clks sample_b vdd vss adc_sample_tg
+XSNL vinn nl clks sample_b vdd vss adc_sample_tg
+XRPH vrefp ph evaluate evaluate_b vdd vss adc_sample_tg
+XRPL vrefn pl evaluate evaluate_b vdd vss adc_sample_tg
+XRNH vrefp nh evaluate evaluate_b vdd vss adc_sample_tg
+XRNL vrefn nl evaluate evaluate_b vdd vss adc_sample_tg
+
+CPH1 gp1 ph 4f
+CPL1 gp1 pl 60f
+CNH1 gn1 nh 60f
+CNL1 gn1 nl 4f
+CPM1 gp1 common 128f
+CNM1 gn1 common 128f
+XZP1 gp1 common clks sample_b vdd vss adc_sample_tg
+XZN1 gn1 common clks sample_b vdd vss adc_sample_tg
+XC1 gp1 gn1 compare t1 tb1 vdd vss adc_comparator
+
+CPH2 gp2 ph 8f
+CPL2 gp2 pl 56f
+CNH2 gn2 nh 56f
+CNL2 gn2 nl 8f
+CPM2 gp2 common 128f
+CNM2 gn2 common 128f
+XZP2 gp2 common clks sample_b vdd vss adc_sample_tg
+XZN2 gn2 common clks sample_b vdd vss adc_sample_tg
+XC2 gp2 gn2 compare t2 tb2 vdd vss adc_comparator
+
+CPH3 gp3 ph 12f
+CPL3 gp3 pl 52f
+CNH3 gn3 nh 52f
+CNL3 gn3 nl 12f
+CPM3 gp3 common 128f
+CNM3 gn3 common 128f
+XZP3 gp3 common clks sample_b vdd vss adc_sample_tg
+XZN3 gn3 common clks sample_b vdd vss adc_sample_tg
+XC3 gp3 gn3 compare t3 tb3 vdd vss adc_comparator
+
+CPH4 gp4 ph 16f
+CPL4 gp4 pl 48f
+CNH4 gn4 nh 48f
+CNL4 gn4 nl 16f
+CPM4 gp4 common 128f
+CNM4 gn4 common 128f
+XZP4 gp4 common clks sample_b vdd vss adc_sample_tg
+XZN4 gn4 common clks sample_b vdd vss adc_sample_tg
+XC4 gp4 gn4 compare t4 tb4 vdd vss adc_comparator
+
+CPH5 gp5 ph 20f
+CPL5 gp5 pl 44f
+CNH5 gn5 nh 44f
+CNL5 gn5 nl 20f
+CPM5 gp5 common 128f
+CNM5 gn5 common 128f
+XZP5 gp5 common clks sample_b vdd vss adc_sample_tg
+XZN5 gn5 common clks sample_b vdd vss adc_sample_tg
+XC5 gp5 gn5 compare t5 tb5 vdd vss adc_comparator
+
+CPH6 gp6 ph 24f
+CPL6 gp6 pl 40f
+CNH6 gn6 nh 40f
+CNL6 gn6 nl 24f
+CPM6 gp6 common 128f
+CNM6 gn6 common 128f
+XZP6 gp6 common clks sample_b vdd vss adc_sample_tg
+XZN6 gn6 common clks sample_b vdd vss adc_sample_tg
+XC6 gp6 gn6 compare t6 tb6 vdd vss adc_comparator
+
+CPH7 gp7 ph 28f
+CPL7 gp7 pl 36f
+CNH7 gn7 nh 36f
+CNL7 gn7 nl 28f
+CPM7 gp7 common 128f
+CNM7 gn7 common 128f
+XZP7 gp7 common clks sample_b vdd vss adc_sample_tg
+XZN7 gn7 common clks sample_b vdd vss adc_sample_tg
+XC7 gp7 gn7 compare t7 tb7 vdd vss adc_comparator
+
+CPH8 gp8 ph 32f
+CPL8 gp8 pl 32f
+CNH8 gn8 nh 32f
+CNL8 gn8 nl 32f
+CPM8 gp8 common 128f
+CNM8 gn8 common 128f
+XZP8 gp8 common clks sample_b vdd vss adc_sample_tg
+XZN8 gn8 common clks sample_b vdd vss adc_sample_tg
+XC8 gp8 gn8 compare t8 tb8 vdd vss adc_comparator
+
+CPH9 gp9 ph 36f
+CPL9 gp9 pl 28f
+CNH9 gn9 nh 28f
+CNL9 gn9 nl 36f
+CPM9 gp9 common 128f
+CNM9 gn9 common 128f
+XZP9 gp9 common clks sample_b vdd vss adc_sample_tg
+XZN9 gn9 common clks sample_b vdd vss adc_sample_tg
+XC9 gp9 gn9 compare t9 tb9 vdd vss adc_comparator
+
+CPH10 gp10 ph 40f
+CPL10 gp10 pl 24f
+CNH10 gn10 nh 24f
+CNL10 gn10 nl 40f
+CPM10 gp10 common 128f
+CNM10 gn10 common 128f
+XZP10 gp10 common clks sample_b vdd vss adc_sample_tg
+XZN10 gn10 common clks sample_b vdd vss adc_sample_tg
+XC10 gp10 gn10 compare t10 tb10 vdd vss adc_comparator
+
+CPH11 gp11 ph 44f
+CPL11 gp11 pl 20f
+CNH11 gn11 nh 20f
+CNL11 gn11 nl 44f
+CPM11 gp11 common 128f
+CNM11 gn11 common 128f
+XZP11 gp11 common clks sample_b vdd vss adc_sample_tg
+XZN11 gn11 common clks sample_b vdd vss adc_sample_tg
+XC11 gp11 gn11 compare t11 tb11 vdd vss adc_comparator
+
+CPH12 gp12 ph 48f
+CPL12 gp12 pl 16f
+CNH12 gn12 nh 16f
+CNL12 gn12 nl 48f
+CPM12 gp12 common 128f
+CNM12 gn12 common 128f
+XZP12 gp12 common clks sample_b vdd vss adc_sample_tg
+XZN12 gn12 common clks sample_b vdd vss adc_sample_tg
+XC12 gp12 gn12 compare t12 tb12 vdd vss adc_comparator
+
+CPH13 gp13 ph 52f
+CPL13 gp13 pl 12f
+CNH13 gn13 nh 12f
+CNL13 gn13 nl 52f
+CPM13 gp13 common 128f
+CNM13 gn13 common 128f
+XZP13 gp13 common clks sample_b vdd vss adc_sample_tg
+XZN13 gn13 common clks sample_b vdd vss adc_sample_tg
+XC13 gp13 gn13 compare t13 tb13 vdd vss adc_comparator
+
+CPH14 gp14 ph 56f
+CPL14 gp14 pl 8f
+CNH14 gn14 nh 8f
+CNL14 gn14 nl 56f
+CPM14 gp14 common 128f
+CNM14 gn14 common 128f
+XZP14 gp14 common clks sample_b vdd vss adc_sample_tg
+XZN14 gn14 common clks sample_b vdd vss adc_sample_tg
+XC14 gp14 gn14 compare t14 tb14 vdd vss adc_comparator
+
+CPH15 gp15 ph 60f
+CPL15 gp15 pl 4f
+CNH15 gn15 nh 4f
+CNL15 gn15 nl 60f
+CPM15 gp15 common 128f
+CNM15 gn15 common 128f
+XZP15 gp15 common clks sample_b vdd vss adc_sample_tg
+XZN15 gn15 common clks sample_b vdd vss adc_sample_tg
+XC15 gp15 gn15 compare t15 tb15 vdd vss adc_comparator
+
+XE24 t4 tb8 enc24 vdd vss adc_nand2
+XE2 enc24 tb12 bit2 vdd vss adc_nand2
+XE12 t2 tb4 enc12 vdd vss adc_nand2
+XE16 t6 tb8 enc16 vdd vss adc_nand2
+XE110 t10 tb12 enc110 vdd vss adc_nand2
+XE1 enc12 enc16 enc110 tb14 bit1 vdd vss adc_nand4
+XE01 t1 tb2 enc01 vdd vss adc_nand2
+XE03 t3 tb4 enc03 vdd vss adc_nand2
+XE05 t5 tb6 enc05 vdd vss adc_nand2
+XE07 t7 tb8 enc07 vdd vss adc_nand2
+XE09 t9 tb10 enc09 vdd vss adc_nand2
+XE011 t11 tb12 enc011 vdd vss adc_nand2
+XE013 t13 tb14 enc013 vdd vss adc_nand2
+XE0L enc01 enc03 enc05 enc07 enc0low vdd vss adc_nand4
+XE0H enc09 enc011 enc013 tb15 enc0high vdd vss adc_nand4
+XE0N enc0low enc0high bit0b vdd vss adc_nor2
+XE0I bit0b bit0 vdd vss adc_inv
+XFF3 t8 sample sample_b dout3 vdd vss adc_dff
+XFF2 bit2 sample sample_b dout2 vdd vss adc_dff
+XFF1 bit1 sample sample_b dout1 vdd vss adc_dff
+XFF0 bit0 sample sample_b dout0 vdd vss adc_dff
+.ends sar_adc_4bit_async

@@ -1,0 +1,38 @@
+.subckt bq_amp vss vdd bias inp inn out
+Xtail tail bias vss vss sky130_fd_pr__nfet_01v8 l=1 w=8 nf=2
+Xinm diode inn tail vss sky130_fd_pr__nfet_01v8 l=0.3 w=12 nf=4
+Xinp drive inp tail vss sky130_fd_pr__nfet_01v8 l=0.3 w=12 nf=4
+Xmirror diode diode vdd vdd sky130_fd_pr__pfet_01v8 l=0.6 w=10 nf=2
+Xload drive diode vdd vdd sky130_fd_pr__pfet_01v8 l=0.6 w=10 nf=2
+Xpull out drive vdd vdd sky130_fd_pr__pfet_01v8 l=0.6 w=25 nf=5
+Xsink out bias vss vss sky130_fd_pr__nfet_01v8 l=1 w=10 nf=2
+Rcomp drive comp 3k
+Ccomp comp out 400f
+.ends bq_amp
+
+.subckt fd_ota_c_biquad vss iref vdd vinp vinn vocm vbpp vbpn voutp voutn
+Xbias iref iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=8 nf=2
+Rrefp vinp reference 10k
+Rrefn vinn reference 10k
+Rrefcm vocm reference 5k
+Rinputp vinn statep 50k
+Rinputn vinp staten 50k
+Rfeedbackp voutp statep 50k
+Rfeedbackn voutn staten 50k
+Rintegratep statep sump 20k
+Rintegraten staten sumn 20k
+Cintegratep sump voutp 1.15p
+Cintegraten sumn voutn 1.15p
+Cstatep statep vocm 5.15p
+Cstaten staten vocm 5.15p
+Xlowp vss vdd iref reference sump voutp bq_amp
+Xlown vss vdd iref reference sumn voutn bq_amp
+Rbandfp vbpp bandinp 20k
+Rbandfn vbpn bandinn 20k
+Rbandpp vinp bandinp 40k
+Rbandpn vinn bandinp 40k
+Rbandnp vinp bandinn 40k
+Rbandnn vinn bandinn 40k
+Xbandp vss vdd iref statep bandinp vbpp bq_amp
+Xbandn vss vdd iref staten bandinn vbpn bq_amp
+.ends fd_ota_c_biquad

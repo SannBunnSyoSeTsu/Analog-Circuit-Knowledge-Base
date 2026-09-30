@@ -1,0 +1,28 @@
+.subckt bandgap_reference vss vdd vref
+Rupper_single vref sense_single 81.9k
+Rupper_array vref sense_array 81.9k
+Rdelta sense_array diode_array 10k
+XQsingle sense_single sense_single vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XQarray1 diode_array diode_array vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XQarray2 diode_array diode_array vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XQarray3 diode_array diode_array vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XQarray4 diode_array diode_array vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XQarray5 diode_array diode_array vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XQarray6 diode_array diode_array vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XQarray7 diode_array diode_array vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XQarray8 diode_array diode_array vss vss sky130_fd_pr__npn_05v5_W1p00L1p00 mult=1
+XNbias nbias nbias vss vss sky130_fd_pr__nfet_01v8 l=4 w=24 nf=4
+Rbias vdd nbias 75k
+XNtail tail nbias vss vss sky130_fd_pr__nfet_01v8 l=4 w=24 nf=4
+XNinput_array mirror sense_array tail vss sky130_fd_pr__nfet_01v8_lvt l=8 w=96 nf=12
+XNinput_single control sense_single tail vss sky130_fd_pr__nfet_01v8_lvt l=8 w=96 nf=12
+XPmirror mirror mirror vdd vdd sky130_fd_pr__pfet_01v8_lvt l=8 w=48 nf=6
+XPload control mirror vdd vdd sky130_fd_pr__pfet_01v8_lvt l=8 w=48 nf=6
+XPpass vref control vdd vdd sky130_fd_pr__pfet_01v8_lvt l=2 w=24 nf=6
+Rcomp control compensation 5k
+Ccomp compensation vref 0.15p
+Csupply control vdd 40p
+Rfilter vref filtered 47k
+Cfilter filtered vss 10p
+XPstartup vref vref vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=32 nf=8
+.ends bandgap_reference

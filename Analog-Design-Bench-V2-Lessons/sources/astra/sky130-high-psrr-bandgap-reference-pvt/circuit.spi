@@ -1,0 +1,37 @@
+.subckt bandgap AVDD AVSS VBG SUB
+XQSMALL SUB AVSS sense_a sky130_fd_pr__pnp_05v5_W3p40L3p40
+XQLARGE1 SUB AVSS emitter_b sky130_fd_pr__pnp_05v5_W3p40L3p40
+XQLARGE2 SUB AVSS emitter_b sky130_fd_pr__pnp_05v5_W3p40L3p40
+XQLARGE3 SUB AVSS emitter_b sky130_fd_pr__pnp_05v5_W3p40L3p40
+XQLARGE4 SUB AVSS emitter_b sky130_fd_pr__pnp_05v5_W3p40L3p40
+XQLARGE5 SUB AVSS emitter_b sky130_fd_pr__pnp_05v5_W3p40L3p40
+XQLARGE6 SUB AVSS emitter_b sky130_fd_pr__pnp_05v5_W3p40L3p40
+XQLARGE7 SUB AVSS emitter_b sky130_fd_pr__pnp_05v5_W3p40L3p40
+XQLARGE8 SUB AVSS emitter_b sky130_fd_pr__pnp_05v5_W3p40L3p40
+XRUPPERA VBG sense_a SUB sky130_fd_pr__res_high_po w=1 l=280
+XRUPPERB VBG sense_b SUB sky130_fd_pr__res_high_po w=1 l=280
+XRPTAT sense_b emitter_b SUB sky130_fd_pr__res_high_po w=1 l=30
+XRBIAS AVDD bias_n SUB sky130_fd_pr__res_high_po w=1 l=120
+XNBIAS bias_n bias_n AVSS SUB sky130_fd_pr__nfet_01v8 w=4 l=4
+XNBIASM bias_p bias_n AVSS SUB sky130_fd_pr__nfet_01v8 w=2 l=4
+XRBIASUP bias_n bias_casp SUB sky130_fd_pr__res_high_po w=1 l=300
+XRBIASDOWN bias_casp AVSS SUB sky130_fd_pr__res_high_po w=1 l=180
+XPBIAS bias_p bias_p AVDD AVDD sky130_fd_pr__pfet_01v8_lvt w=120 l=4
+XPTAIL tail bias_p AVDD AVDD sky130_fd_pr__pfet_01v8_lvt w=120 l=4
+XPINA pbranch_a sense_a tail AVDD sky130_fd_pr__pfet_01v8_lvt w=120 l=6
+XPINB pbranch_b sense_b tail AVDD sky130_fd_pr__pfet_01v8_lvt w=120 l=6
+XPCASA control bias_casp pbranch_a AVDD sky130_fd_pr__pfet_01v8_lvt w=120 l=6
+XPCASB mirror bias_casp pbranch_b AVDD sky130_fd_pr__pfet_01v8_lvt w=120 l=6
+XNLOADA nbranch_a mirror AVSS SUB sky130_fd_pr__nfet_01v8 w=72 l=12
+XNLOADB nbranch_b mirror AVSS SUB sky130_fd_pr__nfet_01v8 w=72 l=12
+XNCASA control bias_n nbranch_a SUB sky130_fd_pr__nfet_01v8 w=48 l=6
+XNCASB mirror bias_n nbranch_b SUB sky130_fd_pr__nfet_01v8 w=48 l=6
+XPFEED VBG bias_p AVDD AVDD sky130_fd_pr__pfet_01v8_lvt w=480 l=4
+XNSHUNT VBG control AVSS SUB sky130_fd_pr__nfet_01v8 w=400 l=12
+XPSTART startup VBG AVDD AVDD sky130_fd_pr__pfet_01v8 w=1 l=5
+XNSTART startup VBG AVSS SUB sky130_fd_pr__nfet_01v8 w=4 l=2
+XNKICK control startup AVSS SUB sky130_fd_pr__nfet_01v8 w=1 l=10
+XCCOMP control VBG sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=1
+XCSUPPLY bias_p AVDD sky130_fd_pr__cap_mim_m3_1 w=220 l=220 mf=1
+XCOUTPUT VBG AVSS sky130_fd_pr__cap_mim_m3_1 w=300 l=300 mf=1
+.ends bandgap

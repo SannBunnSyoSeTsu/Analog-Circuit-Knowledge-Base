@@ -1,0 +1,107 @@
+{
+  "taskId": "sky130-two-stage-miller-opamp-gain60-ugb200-pm60-noise50uv-pvt",
+  "taskTitle": "Design a two-stage Miller op amp",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 30,
+  "costUsd": 11.46283,
+  "inputTokens": 1057478,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 17761,
+  "peakContextTokens": 57162,
+  "durationMs": 786530,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-two-stage-miller-opamp-gain60-ugb200-pm60-noise50uv-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "nominal_functional",
+        "status": "passed",
+        "measurement": "gain=65.87dB UGB=362.24MHz PM=79.22deg"
+      },
+      {
+        "name": "pvt_gain_bandwidth",
+        "status": "passed",
+        "measurement": "worst=61.32dB at ff/1.62V/-40C (min 60dB); worst=233.5MHz at ss/1.62V/+125C (min 200MHz)"
+      },
+      {
+        "name": "pvt_phase_margin",
+        "status": "passed",
+        "measurement": "worst=62.87deg at ff/1.98V/-40C (min 60deg)"
+      },
+      {
+        "name": "pvt_output_bias",
+        "status": "passed",
+        "measurement": "worst=0.4495mV at ss/1.62V/-40C (max 25mV)"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "worst=1685uW at ss/1.98V/+125C (max 2000uW)"
+      },
+      {
+        "name": "pvt_input_noise",
+        "status": "passed",
+        "measurement": "worst=28.98uVrms integrated 10Hz-10.01MHz at tt/1.80V/+125C (max 50uVrms)"
+      },
+      {
+        "name": "pvt_supply_rejection",
+        "status": "passed",
+        "measurement": "worst=61.29dB at ss/1.62V/+125C (min 35dB); worst=45.76dB at ss/1.62V/+125C (min 35dB)"
+      },
+      {
+        "name": "pvt_common_mode_rejection",
+        "status": "passed",
+        "measurement": "worst=72.21dB at ss/1.62V/+125C (min 55dB)"
+      },
+      {
+        "name": "closed_loop_range",
+        "status": "passed",
+        "measurement": "worst=1.011Vpp at ss/1.62V/+125C (min 0.8Vpp)"
+      },
+      {
+        "name": "closed_loop_settling",
+        "status": "passed",
+        "measurement": "time_max=4.374ns at ss/1.62V/+125C (max 20ns); final_max=0.2861% at ss/1.62V/+125C; static_max=0.2861mV at ss/1.62V/+125C"
+      },
+      {
+        "name": "slew_rate",
+        "status": "passed",
+        "measurement": "worst=168V/us at ss/1.62V/+125C (min 50V/us); worst=148.4V/us at ss/1.62V/+125C (min 50V/us)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-two-stage-miller-opamp-gain60-ugb200-pm60-noise50uv-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-two-stage-miller-opamp-gain60-ugb200-pm60-noise50uv-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

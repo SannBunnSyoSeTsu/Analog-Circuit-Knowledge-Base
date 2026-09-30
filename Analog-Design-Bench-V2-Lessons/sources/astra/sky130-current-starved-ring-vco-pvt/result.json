@@ -1,0 +1,97 @@
+{
+  "taskId": "sky130-current-starved-ring-vco-pvt",
+  "taskTitle": "Design a Current-Starved Ring VCO",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 34,
+  "costUsd": 12.79368,
+  "inputTokens": 1169093,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 22055,
+  "peakContextTokens": 51255,
+  "durationMs": 1202844,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-current-starved-ring-vco-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_frequency_coverage",
+        "status": "passed",
+        "measurement": "f(0.9V)_range=13.5..24.05MHz; f(1.2V)_min=26.16MHz at ss/1.62V/-40C"
+      },
+      {
+        "name": "pvt_tuning_ratio",
+        "status": "passed",
+        "measurement": "worst=1.658 at ss/1.62V/+125C"
+      },
+      {
+        "name": "pvt_kvco_monotonic_linear",
+        "status": "passed",
+        "measurement": "KVCO_min=32.74MHz/V at ss/1.62V/-40C; linearity_max=1.31 at ss/1.62V/-40C"
+      },
+      {
+        "name": "pvt_frequency_settling",
+        "status": "passed",
+        "measurement": "worst=0.004268% at ss/1.98V/+27C"
+      },
+      {
+        "name": "pvt_duty_cycle",
+        "status": "passed",
+        "measurement": "range=0.488..0.4995"
+      },
+      {
+        "name": "pvt_startup",
+        "status": "passed",
+        "measurement": "worst=50.79ns at ss/1.98V/-40C"
+      },
+      {
+        "name": "pvt_output_swing",
+        "status": "passed",
+        "measurement": "low_max=0.0001631 at ff/1.98V/+125C; high_min=1.001 at ff/1.98V/+125C"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "worst=109uW at ff/1.98V/+125C"
+      },
+      {
+        "name": "supply_pushing",
+        "status": "passed",
+        "measurement": "worst=58.3%/V at ff/27C"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-current-starved-ring-vco-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-current-starved-ring-vco-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

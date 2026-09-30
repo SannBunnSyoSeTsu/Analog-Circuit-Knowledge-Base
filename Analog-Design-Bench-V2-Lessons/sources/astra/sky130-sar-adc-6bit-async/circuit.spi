@@ -1,0 +1,768 @@
+.subckt adc_inv input output vss vdd
+XN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends adc_inv
+.subckt adc_inv_mid input output vss vdd
+XN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4.2
+XP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=8.4
+.ends adc_inv_mid
+.subckt adc_inv_big input output vss vdd
+XN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=33.6
+XP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=67.2
+.ends adc_inv_big
+.subckt adc_tg source drain enable enableb vss vdd
+XN drain enable source vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP drain enableb source vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends adc_tg
+.subckt adc_tg_big source drain enable enableb vss vdd
+XN drain enable source vss sky130_fd_pr__nfet_01v8 l=0.15 w=16.8
+XP drain enableb source vdd sky130_fd_pr__pfet_01v8 l=0.15 w=33.6
+.ends adc_tg_big
+.subckt adc_tg_sample source drain enable enableb vss vdd
+XN drain enable source vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=33.6
+XP drain enableb source vdd sky130_fd_pr__pfet_01v8 l=0.15 w=67.2
+.ends adc_tg_sample
+.subckt adc_nand2 first second output vss vdd
+XN0 output first middle1 vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.68
+XP0 output first vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XN1 middle1 second vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.68
+XP1 output second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends adc_nand2
+.subckt adc_nand4 first second third fourth output vss vdd
+XN0 output first middle1 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36
+XP0 output first vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XN1 middle1 second middle2 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36
+XP1 output second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XN2 middle2 third middle3 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36
+XP2 output third vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XN3 middle3 fourth vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=3.36
+XP3 output fourth vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+.ends adc_nand4
+.subckt adc_nor2 first second output vss vdd
+XN0 output first vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP0 output first middle1 vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3.36
+XN1 output second vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP1 middle1 second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=3.36
+.ends adc_nor2
+.subckt adc_nor4 first second third fourth output vss vdd
+XN0 output first vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP0 output first middle1 vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6.72
+XN1 output second vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP1 middle1 second middle2 vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6.72
+XN2 output third vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP2 middle2 third middle3 vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6.72
+XN3 output fourth vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XP3 middle3 fourth vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6.72
+.ends adc_nor4
+.subckt adc_register data enable enableb output vss vdd
+XIN data memory enable enableb vss vdd adc_tg
+XKEEP output memory enableb enable vss vdd adc_tg
+XINV memory inverted vss vdd adc_inv
+XOUT inverted output vss vdd adc_inv_mid
+.ends adc_register
+.subckt adc_compare positive negative evaluate result resultb vss vdd
+XTAIL tail evaluate vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.68
+XIP drainp positive tail vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XIN drainn negative tail vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.84
+XNP outp outn drainp vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42
+XNN outn outp drainn vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42
+XPP outp outn vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.84
+XPN outn outp vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.84
+XRDP drainp evaluate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.42
+XRDN drainn evaluate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.42
+XROP outp evaluate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.42
+XRON outn evaluate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.42
+XBP outn result vss vdd adc_inv
+XBN outp resultb vss vdd adc_inv
+.ends adc_compare
+.subckt adc_nand_clock first second output vss vdd
+XN1 output first middle vss sky130_fd_pr__nfet_01v8 l=0.15 w=67.2
+XN2 middle second vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=67.2
+XP1 output first vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=67.2
+XP2 output second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=67.2
+.ends adc_nand_clock
+.subckt sar_adc_6bit_async clks dout5 dout4 dout3 dout2 dout1 dout0 vss vdd vinn vinp vrefn vrefp
+XCLK0 clks clockb vss vdd adc_inv_big
+XCLK1 clockb acquire vss vdd adc_inv_big
+XCLK2 acquire acquireb vss vdd adc_inv_big
+XDELAY0 acquireb delay0 vss vdd adc_inv
+CD0 delay0 vss 30f
+XDELAY1 delay0 shift_pending vss vdd adc_inv_mid
+CD1 shift_pending vss 30f
+XPHASE clockb shift_pending shiftrequestb vss vdd adc_nand_clock
+XCONVERT shiftrequestb shift vss vdd adc_inv_big
+XSHIFT shift shiftb vss vdd adc_inv_big
+XSAMPLEPH acquire shiftb sampleb vss vdd adc_nand_clock
+XSAMPLE sampleb sample vss vdd adc_inv_big
+XDELAY2 shift delay2 vss vdd adc_inv
+CD2 delay2 vss 120f
+XDELAY3 delay2 delay3 vss vdd adc_inv_mid
+XDELAY4 delay3 delay4 vss vdd adc_inv_mid
+XEVAL delay4 evaluate vss vdd adc_inv_big
+XSPH vinp bottomph sample sampleb vss vdd adc_tg_sample
+XSPL vinp bottompl sample sampleb vss vdd adc_tg_sample
+XSNH vinn bottomnh sample sampleb vss vdd adc_tg_sample
+XSNL vinn bottomnl sample sampleb vss vdd adc_tg_sample
+XRPH vrefp bottomph shift shiftb vss vdd adc_tg_big
+XRPL vrefn bottompl shift shiftb vss vdd adc_tg_big
+XRNH vrefp bottomnh shift shiftb vss vdd adc_tg_big
+XRNL vrefn bottomnl shift shiftb vss vdd adc_tg_big
+CPH1 topp1 bottomph 0.09375f
+CPL1 topp1 bottompl 7.90625f
+CNH1 topn1 bottomnh 7.90625f
+CNL1 topn1 bottomnl 0.09375f
+CPC1 topp1 shiftb 8f
+CNC1 topn1 shiftb 8f
+XRSP1 topp1 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN1 topn1 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP1 topp1 topn1 evaluate thermometer1 thermometerb1 vss vdd adc_compare
+CPH2 topp2 bottomph 0.21875f
+CPL2 topp2 bottompl 7.78125f
+CNH2 topn2 bottomnh 7.78125f
+CNL2 topn2 bottomnl 0.21875f
+CPC2 topp2 shiftb 8f
+CNC2 topn2 shiftb 8f
+XRSP2 topp2 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN2 topn2 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP2 topp2 topn2 evaluate thermometer2 thermometerb2 vss vdd adc_compare
+CPH3 topp3 bottomph 0.34375f
+CPL3 topp3 bottompl 7.65625f
+CNH3 topn3 bottomnh 7.65625f
+CNL3 topn3 bottomnl 0.34375f
+CPC3 topp3 shiftb 8f
+CNC3 topn3 shiftb 8f
+XRSP3 topp3 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN3 topn3 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP3 topp3 topn3 evaluate thermometer3 thermometerb3 vss vdd adc_compare
+CPH4 topp4 bottomph 0.46875f
+CPL4 topp4 bottompl 7.53125f
+CNH4 topn4 bottomnh 7.53125f
+CNL4 topn4 bottomnl 0.46875f
+CPC4 topp4 shiftb 8f
+CNC4 topn4 shiftb 8f
+XRSP4 topp4 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN4 topn4 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP4 topp4 topn4 evaluate thermometer4 thermometerb4 vss vdd adc_compare
+CPH5 topp5 bottomph 0.59375f
+CPL5 topp5 bottompl 7.40625f
+CNH5 topn5 bottomnh 7.40625f
+CNL5 topn5 bottomnl 0.59375f
+CPC5 topp5 shiftb 8f
+CNC5 topn5 shiftb 8f
+XRSP5 topp5 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN5 topn5 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP5 topp5 topn5 evaluate thermometer5 thermometerb5 vss vdd adc_compare
+CPH6 topp6 bottomph 0.71875f
+CPL6 topp6 bottompl 7.28125f
+CNH6 topn6 bottomnh 7.28125f
+CNL6 topn6 bottomnl 0.71875f
+CPC6 topp6 shiftb 8f
+CNC6 topn6 shiftb 8f
+XRSP6 topp6 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN6 topn6 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP6 topp6 topn6 evaluate thermometer6 thermometerb6 vss vdd adc_compare
+CPH7 topp7 bottomph 0.84375f
+CPL7 topp7 bottompl 7.15625f
+CNH7 topn7 bottomnh 7.15625f
+CNL7 topn7 bottomnl 0.84375f
+CPC7 topp7 shiftb 8f
+CNC7 topn7 shiftb 8f
+XRSP7 topp7 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN7 topn7 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP7 topp7 topn7 evaluate thermometer7 thermometerb7 vss vdd adc_compare
+CPH8 topp8 bottomph 0.96875f
+CPL8 topp8 bottompl 7.03125f
+CNH8 topn8 bottomnh 7.03125f
+CNL8 topn8 bottomnl 0.96875f
+CPC8 topp8 shiftb 8f
+CNC8 topn8 shiftb 8f
+XRSP8 topp8 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN8 topn8 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP8 topp8 topn8 evaluate thermometer8 thermometerb8 vss vdd adc_compare
+CPH9 topp9 bottomph 1.09375f
+CPL9 topp9 bottompl 6.90625f
+CNH9 topn9 bottomnh 6.90625f
+CNL9 topn9 bottomnl 1.09375f
+CPC9 topp9 shiftb 8f
+CNC9 topn9 shiftb 8f
+XRSP9 topp9 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN9 topn9 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP9 topp9 topn9 evaluate thermometer9 thermometerb9 vss vdd adc_compare
+CPH10 topp10 bottomph 1.21875f
+CPL10 topp10 bottompl 6.78125f
+CNH10 topn10 bottomnh 6.78125f
+CNL10 topn10 bottomnl 1.21875f
+CPC10 topp10 shiftb 8f
+CNC10 topn10 shiftb 8f
+XRSP10 topp10 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN10 topn10 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP10 topp10 topn10 evaluate thermometer10 thermometerb10 vss vdd adc_compare
+CPH11 topp11 bottomph 1.34375f
+CPL11 topp11 bottompl 6.65625f
+CNH11 topn11 bottomnh 6.65625f
+CNL11 topn11 bottomnl 1.34375f
+CPC11 topp11 shiftb 8f
+CNC11 topn11 shiftb 8f
+XRSP11 topp11 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN11 topn11 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP11 topp11 topn11 evaluate thermometer11 thermometerb11 vss vdd adc_compare
+CPH12 topp12 bottomph 1.46875f
+CPL12 topp12 bottompl 6.53125f
+CNH12 topn12 bottomnh 6.53125f
+CNL12 topn12 bottomnl 1.46875f
+CPC12 topp12 shiftb 8f
+CNC12 topn12 shiftb 8f
+XRSP12 topp12 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN12 topn12 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP12 topp12 topn12 evaluate thermometer12 thermometerb12 vss vdd adc_compare
+CPH13 topp13 bottomph 1.59375f
+CPL13 topp13 bottompl 6.40625f
+CNH13 topn13 bottomnh 6.40625f
+CNL13 topn13 bottomnl 1.59375f
+CPC13 topp13 shiftb 8f
+CNC13 topn13 shiftb 8f
+XRSP13 topp13 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN13 topn13 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP13 topp13 topn13 evaluate thermometer13 thermometerb13 vss vdd adc_compare
+CPH14 topp14 bottomph 1.71875f
+CPL14 topp14 bottompl 6.28125f
+CNH14 topn14 bottomnh 6.28125f
+CNL14 topn14 bottomnl 1.71875f
+CPC14 topp14 shiftb 8f
+CNC14 topn14 shiftb 8f
+XRSP14 topp14 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN14 topn14 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP14 topp14 topn14 evaluate thermometer14 thermometerb14 vss vdd adc_compare
+CPH15 topp15 bottomph 1.84375f
+CPL15 topp15 bottompl 6.15625f
+CNH15 topn15 bottomnh 6.15625f
+CNL15 topn15 bottomnl 1.84375f
+CPC15 topp15 shiftb 8f
+CNC15 topn15 shiftb 8f
+XRSP15 topp15 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN15 topn15 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP15 topp15 topn15 evaluate thermometer15 thermometerb15 vss vdd adc_compare
+CPH16 topp16 bottomph 1.96875f
+CPL16 topp16 bottompl 6.03125f
+CNH16 topn16 bottomnh 6.03125f
+CNL16 topn16 bottomnl 1.96875f
+CPC16 topp16 shiftb 8f
+CNC16 topn16 shiftb 8f
+XRSP16 topp16 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN16 topn16 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP16 topp16 topn16 evaluate thermometer16 thermometerb16 vss vdd adc_compare
+CPH17 topp17 bottomph 2.09375f
+CPL17 topp17 bottompl 5.90625f
+CNH17 topn17 bottomnh 5.90625f
+CNL17 topn17 bottomnl 2.09375f
+CPC17 topp17 shiftb 8f
+CNC17 topn17 shiftb 8f
+XRSP17 topp17 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN17 topn17 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP17 topp17 topn17 evaluate thermometer17 thermometerb17 vss vdd adc_compare
+CPH18 topp18 bottomph 2.21875f
+CPL18 topp18 bottompl 5.78125f
+CNH18 topn18 bottomnh 5.78125f
+CNL18 topn18 bottomnl 2.21875f
+CPC18 topp18 shiftb 8f
+CNC18 topn18 shiftb 8f
+XRSP18 topp18 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN18 topn18 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP18 topp18 topn18 evaluate thermometer18 thermometerb18 vss vdd adc_compare
+CPH19 topp19 bottomph 2.34375f
+CPL19 topp19 bottompl 5.65625f
+CNH19 topn19 bottomnh 5.65625f
+CNL19 topn19 bottomnl 2.34375f
+CPC19 topp19 shiftb 8f
+CNC19 topn19 shiftb 8f
+XRSP19 topp19 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN19 topn19 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP19 topp19 topn19 evaluate thermometer19 thermometerb19 vss vdd adc_compare
+CPH20 topp20 bottomph 2.46875f
+CPL20 topp20 bottompl 5.53125f
+CNH20 topn20 bottomnh 5.53125f
+CNL20 topn20 bottomnl 2.46875f
+CPC20 topp20 shiftb 8f
+CNC20 topn20 shiftb 8f
+XRSP20 topp20 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN20 topn20 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP20 topp20 topn20 evaluate thermometer20 thermometerb20 vss vdd adc_compare
+CPH21 topp21 bottomph 2.59375f
+CPL21 topp21 bottompl 5.40625f
+CNH21 topn21 bottomnh 5.40625f
+CNL21 topn21 bottomnl 2.59375f
+CPC21 topp21 shiftb 8f
+CNC21 topn21 shiftb 8f
+XRSP21 topp21 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN21 topn21 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP21 topp21 topn21 evaluate thermometer21 thermometerb21 vss vdd adc_compare
+CPH22 topp22 bottomph 2.71875f
+CPL22 topp22 bottompl 5.28125f
+CNH22 topn22 bottomnh 5.28125f
+CNL22 topn22 bottomnl 2.71875f
+CPC22 topp22 shiftb 8f
+CNC22 topn22 shiftb 8f
+XRSP22 topp22 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN22 topn22 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP22 topp22 topn22 evaluate thermometer22 thermometerb22 vss vdd adc_compare
+CPH23 topp23 bottomph 2.84375f
+CPL23 topp23 bottompl 5.15625f
+CNH23 topn23 bottomnh 5.15625f
+CNL23 topn23 bottomnl 2.84375f
+CPC23 topp23 shiftb 8f
+CNC23 topn23 shiftb 8f
+XRSP23 topp23 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN23 topn23 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP23 topp23 topn23 evaluate thermometer23 thermometerb23 vss vdd adc_compare
+CPH24 topp24 bottomph 2.96875f
+CPL24 topp24 bottompl 5.03125f
+CNH24 topn24 bottomnh 5.03125f
+CNL24 topn24 bottomnl 2.96875f
+CPC24 topp24 shiftb 8f
+CNC24 topn24 shiftb 8f
+XRSP24 topp24 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN24 topn24 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP24 topp24 topn24 evaluate thermometer24 thermometerb24 vss vdd adc_compare
+CPH25 topp25 bottomph 3.09375f
+CPL25 topp25 bottompl 4.90625f
+CNH25 topn25 bottomnh 4.90625f
+CNL25 topn25 bottomnl 3.09375f
+CPC25 topp25 shiftb 8f
+CNC25 topn25 shiftb 8f
+XRSP25 topp25 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN25 topn25 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP25 topp25 topn25 evaluate thermometer25 thermometerb25 vss vdd adc_compare
+CPH26 topp26 bottomph 3.21875f
+CPL26 topp26 bottompl 4.78125f
+CNH26 topn26 bottomnh 4.78125f
+CNL26 topn26 bottomnl 3.21875f
+CPC26 topp26 shiftb 8f
+CNC26 topn26 shiftb 8f
+XRSP26 topp26 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN26 topn26 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP26 topp26 topn26 evaluate thermometer26 thermometerb26 vss vdd adc_compare
+CPH27 topp27 bottomph 3.34375f
+CPL27 topp27 bottompl 4.65625f
+CNH27 topn27 bottomnh 4.65625f
+CNL27 topn27 bottomnl 3.34375f
+CPC27 topp27 shiftb 8f
+CNC27 topn27 shiftb 8f
+XRSP27 topp27 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN27 topn27 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP27 topp27 topn27 evaluate thermometer27 thermometerb27 vss vdd adc_compare
+CPH28 topp28 bottomph 3.46875f
+CPL28 topp28 bottompl 4.53125f
+CNH28 topn28 bottomnh 4.53125f
+CNL28 topn28 bottomnl 3.46875f
+CPC28 topp28 shiftb 8f
+CNC28 topn28 shiftb 8f
+XRSP28 topp28 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN28 topn28 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP28 topp28 topn28 evaluate thermometer28 thermometerb28 vss vdd adc_compare
+CPH29 topp29 bottomph 3.59375f
+CPL29 topp29 bottompl 4.40625f
+CNH29 topn29 bottomnh 4.40625f
+CNL29 topn29 bottomnl 3.59375f
+CPC29 topp29 shiftb 8f
+CNC29 topn29 shiftb 8f
+XRSP29 topp29 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN29 topn29 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP29 topp29 topn29 evaluate thermometer29 thermometerb29 vss vdd adc_compare
+CPH30 topp30 bottomph 3.71875f
+CPL30 topp30 bottompl 4.28125f
+CNH30 topn30 bottomnh 4.28125f
+CNL30 topn30 bottomnl 3.71875f
+CPC30 topp30 shiftb 8f
+CNC30 topn30 shiftb 8f
+XRSP30 topp30 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN30 topn30 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP30 topp30 topn30 evaluate thermometer30 thermometerb30 vss vdd adc_compare
+CPH31 topp31 bottomph 3.84375f
+CPL31 topp31 bottompl 4.15625f
+CNH31 topn31 bottomnh 4.15625f
+CNL31 topn31 bottomnl 3.84375f
+CPC31 topp31 shiftb 8f
+CNC31 topn31 shiftb 8f
+XRSP31 topp31 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN31 topn31 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP31 topp31 topn31 evaluate thermometer31 thermometerb31 vss vdd adc_compare
+CPH32 topp32 bottomph 3.96875f
+CPL32 topp32 bottompl 4.03125f
+CNH32 topn32 bottomnh 4.03125f
+CNL32 topn32 bottomnl 3.96875f
+CPC32 topp32 shiftb 8f
+CNC32 topn32 shiftb 8f
+XRSP32 topp32 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN32 topn32 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP32 topp32 topn32 evaluate thermometer32 thermometerb32 vss vdd adc_compare
+CPH33 topp33 bottomph 4.09375f
+CPL33 topp33 bottompl 3.90625f
+CNH33 topn33 bottomnh 3.90625f
+CNL33 topn33 bottomnl 4.09375f
+CPC33 topp33 shiftb 8f
+CNC33 topn33 shiftb 8f
+XRSP33 topp33 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN33 topn33 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP33 topp33 topn33 evaluate thermometer33 thermometerb33 vss vdd adc_compare
+CPH34 topp34 bottomph 4.21875f
+CPL34 topp34 bottompl 3.78125f
+CNH34 topn34 bottomnh 3.78125f
+CNL34 topn34 bottomnl 4.21875f
+CPC34 topp34 shiftb 8f
+CNC34 topn34 shiftb 8f
+XRSP34 topp34 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN34 topn34 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP34 topp34 topn34 evaluate thermometer34 thermometerb34 vss vdd adc_compare
+CPH35 topp35 bottomph 4.34375f
+CPL35 topp35 bottompl 3.65625f
+CNH35 topn35 bottomnh 3.65625f
+CNL35 topn35 bottomnl 4.34375f
+CPC35 topp35 shiftb 8f
+CNC35 topn35 shiftb 8f
+XRSP35 topp35 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN35 topn35 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP35 topp35 topn35 evaluate thermometer35 thermometerb35 vss vdd adc_compare
+CPH36 topp36 bottomph 4.46875f
+CPL36 topp36 bottompl 3.53125f
+CNH36 topn36 bottomnh 3.53125f
+CNL36 topn36 bottomnl 4.46875f
+CPC36 topp36 shiftb 8f
+CNC36 topn36 shiftb 8f
+XRSP36 topp36 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN36 topn36 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP36 topp36 topn36 evaluate thermometer36 thermometerb36 vss vdd adc_compare
+CPH37 topp37 bottomph 4.59375f
+CPL37 topp37 bottompl 3.40625f
+CNH37 topn37 bottomnh 3.40625f
+CNL37 topn37 bottomnl 4.59375f
+CPC37 topp37 shiftb 8f
+CNC37 topn37 shiftb 8f
+XRSP37 topp37 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN37 topn37 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP37 topp37 topn37 evaluate thermometer37 thermometerb37 vss vdd adc_compare
+CPH38 topp38 bottomph 4.71875f
+CPL38 topp38 bottompl 3.28125f
+CNH38 topn38 bottomnh 3.28125f
+CNL38 topn38 bottomnl 4.71875f
+CPC38 topp38 shiftb 8f
+CNC38 topn38 shiftb 8f
+XRSP38 topp38 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN38 topn38 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP38 topp38 topn38 evaluate thermometer38 thermometerb38 vss vdd adc_compare
+CPH39 topp39 bottomph 4.84375f
+CPL39 topp39 bottompl 3.15625f
+CNH39 topn39 bottomnh 3.15625f
+CNL39 topn39 bottomnl 4.84375f
+CPC39 topp39 shiftb 8f
+CNC39 topn39 shiftb 8f
+XRSP39 topp39 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN39 topn39 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP39 topp39 topn39 evaluate thermometer39 thermometerb39 vss vdd adc_compare
+CPH40 topp40 bottomph 4.96875f
+CPL40 topp40 bottompl 3.03125f
+CNH40 topn40 bottomnh 3.03125f
+CNL40 topn40 bottomnl 4.96875f
+CPC40 topp40 shiftb 8f
+CNC40 topn40 shiftb 8f
+XRSP40 topp40 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN40 topn40 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP40 topp40 topn40 evaluate thermometer40 thermometerb40 vss vdd adc_compare
+CPH41 topp41 bottomph 5.09375f
+CPL41 topp41 bottompl 2.90625f
+CNH41 topn41 bottomnh 2.90625f
+CNL41 topn41 bottomnl 5.09375f
+CPC41 topp41 shiftb 8f
+CNC41 topn41 shiftb 8f
+XRSP41 topp41 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN41 topn41 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP41 topp41 topn41 evaluate thermometer41 thermometerb41 vss vdd adc_compare
+CPH42 topp42 bottomph 5.21875f
+CPL42 topp42 bottompl 2.78125f
+CNH42 topn42 bottomnh 2.78125f
+CNL42 topn42 bottomnl 5.21875f
+CPC42 topp42 shiftb 8f
+CNC42 topn42 shiftb 8f
+XRSP42 topp42 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN42 topn42 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP42 topp42 topn42 evaluate thermometer42 thermometerb42 vss vdd adc_compare
+CPH43 topp43 bottomph 5.34375f
+CPL43 topp43 bottompl 2.65625f
+CNH43 topn43 bottomnh 2.65625f
+CNL43 topn43 bottomnl 5.34375f
+CPC43 topp43 shiftb 8f
+CNC43 topn43 shiftb 8f
+XRSP43 topp43 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN43 topn43 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP43 topp43 topn43 evaluate thermometer43 thermometerb43 vss vdd adc_compare
+CPH44 topp44 bottomph 5.46875f
+CPL44 topp44 bottompl 2.53125f
+CNH44 topn44 bottomnh 2.53125f
+CNL44 topn44 bottomnl 5.46875f
+CPC44 topp44 shiftb 8f
+CNC44 topn44 shiftb 8f
+XRSP44 topp44 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN44 topn44 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP44 topp44 topn44 evaluate thermometer44 thermometerb44 vss vdd adc_compare
+CPH45 topp45 bottomph 5.59375f
+CPL45 topp45 bottompl 2.40625f
+CNH45 topn45 bottomnh 2.40625f
+CNL45 topn45 bottomnl 5.59375f
+CPC45 topp45 shiftb 8f
+CNC45 topn45 shiftb 8f
+XRSP45 topp45 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN45 topn45 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP45 topp45 topn45 evaluate thermometer45 thermometerb45 vss vdd adc_compare
+CPH46 topp46 bottomph 5.71875f
+CPL46 topp46 bottompl 2.28125f
+CNH46 topn46 bottomnh 2.28125f
+CNL46 topn46 bottomnl 5.71875f
+CPC46 topp46 shiftb 8f
+CNC46 topn46 shiftb 8f
+XRSP46 topp46 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN46 topn46 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP46 topp46 topn46 evaluate thermometer46 thermometerb46 vss vdd adc_compare
+CPH47 topp47 bottomph 5.84375f
+CPL47 topp47 bottompl 2.15625f
+CNH47 topn47 bottomnh 2.15625f
+CNL47 topn47 bottomnl 5.84375f
+CPC47 topp47 shiftb 8f
+CNC47 topn47 shiftb 8f
+XRSP47 topp47 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN47 topn47 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP47 topp47 topn47 evaluate thermometer47 thermometerb47 vss vdd adc_compare
+CPH48 topp48 bottomph 5.96875f
+CPL48 topp48 bottompl 2.03125f
+CNH48 topn48 bottomnh 2.03125f
+CNL48 topn48 bottomnl 5.96875f
+CPC48 topp48 shiftb 8f
+CNC48 topn48 shiftb 8f
+XRSP48 topp48 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN48 topn48 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP48 topp48 topn48 evaluate thermometer48 thermometerb48 vss vdd adc_compare
+CPH49 topp49 bottomph 6.09375f
+CPL49 topp49 bottompl 1.90625f
+CNH49 topn49 bottomnh 1.90625f
+CNL49 topn49 bottomnl 6.09375f
+CPC49 topp49 shiftb 8f
+CNC49 topn49 shiftb 8f
+XRSP49 topp49 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN49 topn49 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP49 topp49 topn49 evaluate thermometer49 thermometerb49 vss vdd adc_compare
+CPH50 topp50 bottomph 6.21875f
+CPL50 topp50 bottompl 1.78125f
+CNH50 topn50 bottomnh 1.78125f
+CNL50 topn50 bottomnl 6.21875f
+CPC50 topp50 shiftb 8f
+CNC50 topn50 shiftb 8f
+XRSP50 topp50 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN50 topn50 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP50 topp50 topn50 evaluate thermometer50 thermometerb50 vss vdd adc_compare
+CPH51 topp51 bottomph 6.34375f
+CPL51 topp51 bottompl 1.65625f
+CNH51 topn51 bottomnh 1.65625f
+CNL51 topn51 bottomnl 6.34375f
+CPC51 topp51 shiftb 8f
+CNC51 topn51 shiftb 8f
+XRSP51 topp51 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN51 topn51 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP51 topp51 topn51 evaluate thermometer51 thermometerb51 vss vdd adc_compare
+CPH52 topp52 bottomph 6.46875f
+CPL52 topp52 bottompl 1.53125f
+CNH52 topn52 bottomnh 1.53125f
+CNL52 topn52 bottomnl 6.46875f
+CPC52 topp52 shiftb 8f
+CNC52 topn52 shiftb 8f
+XRSP52 topp52 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN52 topn52 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP52 topp52 topn52 evaluate thermometer52 thermometerb52 vss vdd adc_compare
+CPH53 topp53 bottomph 6.59375f
+CPL53 topp53 bottompl 1.40625f
+CNH53 topn53 bottomnh 1.40625f
+CNL53 topn53 bottomnl 6.59375f
+CPC53 topp53 shiftb 8f
+CNC53 topn53 shiftb 8f
+XRSP53 topp53 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN53 topn53 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP53 topp53 topn53 evaluate thermometer53 thermometerb53 vss vdd adc_compare
+CPH54 topp54 bottomph 6.71875f
+CPL54 topp54 bottompl 1.28125f
+CNH54 topn54 bottomnh 1.28125f
+CNL54 topn54 bottomnl 6.71875f
+CPC54 topp54 shiftb 8f
+CNC54 topn54 shiftb 8f
+XRSP54 topp54 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN54 topn54 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP54 topp54 topn54 evaluate thermometer54 thermometerb54 vss vdd adc_compare
+CPH55 topp55 bottomph 6.84375f
+CPL55 topp55 bottompl 1.15625f
+CNH55 topn55 bottomnh 1.15625f
+CNL55 topn55 bottomnl 6.84375f
+CPC55 topp55 shiftb 8f
+CNC55 topn55 shiftb 8f
+XRSP55 topp55 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN55 topn55 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP55 topp55 topn55 evaluate thermometer55 thermometerb55 vss vdd adc_compare
+CPH56 topp56 bottomph 6.96875f
+CPL56 topp56 bottompl 1.03125f
+CNH56 topn56 bottomnh 1.03125f
+CNL56 topn56 bottomnl 6.96875f
+CPC56 topp56 shiftb 8f
+CNC56 topn56 shiftb 8f
+XRSP56 topp56 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN56 topn56 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP56 topp56 topn56 evaluate thermometer56 thermometerb56 vss vdd adc_compare
+CPH57 topp57 bottomph 7.09375f
+CPL57 topp57 bottompl 0.90625f
+CNH57 topn57 bottomnh 0.90625f
+CNL57 topn57 bottomnl 7.09375f
+CPC57 topp57 shiftb 8f
+CNC57 topn57 shiftb 8f
+XRSP57 topp57 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN57 topn57 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP57 topp57 topn57 evaluate thermometer57 thermometerb57 vss vdd adc_compare
+CPH58 topp58 bottomph 7.21875f
+CPL58 topp58 bottompl 0.78125f
+CNH58 topn58 bottomnh 0.78125f
+CNL58 topn58 bottomnl 7.21875f
+CPC58 topp58 shiftb 8f
+CNC58 topn58 shiftb 8f
+XRSP58 topp58 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN58 topn58 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP58 topp58 topn58 evaluate thermometer58 thermometerb58 vss vdd adc_compare
+CPH59 topp59 bottomph 7.34375f
+CPL59 topp59 bottompl 0.65625f
+CNH59 topn59 bottomnh 0.65625f
+CNL59 topn59 bottomnl 7.34375f
+CPC59 topp59 shiftb 8f
+CNC59 topn59 shiftb 8f
+XRSP59 topp59 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN59 topn59 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP59 topp59 topn59 evaluate thermometer59 thermometerb59 vss vdd adc_compare
+CPH60 topp60 bottomph 7.46875f
+CPL60 topp60 bottompl 0.53125f
+CNH60 topn60 bottomnh 0.53125f
+CNL60 topn60 bottomnl 7.46875f
+CPC60 topp60 shiftb 8f
+CNC60 topn60 shiftb 8f
+XRSP60 topp60 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN60 topn60 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP60 topp60 topn60 evaluate thermometer60 thermometerb60 vss vdd adc_compare
+CPH61 topp61 bottomph 7.59375f
+CPL61 topp61 bottompl 0.40625f
+CNH61 topn61 bottomnh 0.40625f
+CNL61 topn61 bottomnl 7.59375f
+CPC61 topp61 shiftb 8f
+CNC61 topn61 shiftb 8f
+XRSP61 topp61 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN61 topn61 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP61 topp61 topn61 evaluate thermometer61 thermometerb61 vss vdd adc_compare
+CPH62 topp62 bottomph 7.71875f
+CPL62 topp62 bottompl 0.28125f
+CNH62 topn62 bottomnh 0.28125f
+CNL62 topn62 bottomnl 7.71875f
+CPC62 topp62 shiftb 8f
+CNC62 topn62 shiftb 8f
+XRSP62 topp62 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN62 topn62 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP62 topp62 topn62 evaluate thermometer62 thermometerb62 vss vdd adc_compare
+CPH63 topp63 bottomph 7.84375f
+CPL63 topp63 bottompl 0.15625f
+CNH63 topn63 bottomnh 0.15625f
+CNL63 topn63 bottomnl 7.84375f
+CPC63 topp63 shiftb 8f
+CNC63 topn63 shiftb 8f
+XRSP63 topp63 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XRSN63 topn63 clockb vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.68
+XCMP63 topp63 topn63 evaluate thermometer63 thermometerb63 vss vdd adc_compare
+XTERM0_0 thermometer1 thermometerb2 term0_0 vss vdd adc_nand2
+XTERM0_1 thermometer3 thermometerb4 term0_1 vss vdd adc_nand2
+XTERM0_2 thermometer5 thermometerb6 term0_2 vss vdd adc_nand2
+XTERM0_3 thermometer7 thermometerb8 term0_3 vss vdd adc_nand2
+XTERM0_4 thermometer9 thermometerb10 term0_4 vss vdd adc_nand2
+XTERM0_5 thermometer11 thermometerb12 term0_5 vss vdd adc_nand2
+XTERM0_6 thermometer13 thermometerb14 term0_6 vss vdd adc_nand2
+XTERM0_7 thermometer15 thermometerb16 term0_7 vss vdd adc_nand2
+XTERM0_8 thermometer17 thermometerb18 term0_8 vss vdd adc_nand2
+XTERM0_9 thermometer19 thermometerb20 term0_9 vss vdd adc_nand2
+XTERM0_10 thermometer21 thermometerb22 term0_10 vss vdd adc_nand2
+XTERM0_11 thermometer23 thermometerb24 term0_11 vss vdd adc_nand2
+XTERM0_12 thermometer25 thermometerb26 term0_12 vss vdd adc_nand2
+XTERM0_13 thermometer27 thermometerb28 term0_13 vss vdd adc_nand2
+XTERM0_14 thermometer29 thermometerb30 term0_14 vss vdd adc_nand2
+XTERM0_15 thermometer31 thermometerb32 term0_15 vss vdd adc_nand2
+XTERM0_16 thermometer33 thermometerb34 term0_16 vss vdd adc_nand2
+XTERM0_17 thermometer35 thermometerb36 term0_17 vss vdd adc_nand2
+XTERM0_18 thermometer37 thermometerb38 term0_18 vss vdd adc_nand2
+XTERM0_19 thermometer39 thermometerb40 term0_19 vss vdd adc_nand2
+XTERM0_20 thermometer41 thermometerb42 term0_20 vss vdd adc_nand2
+XTERM0_21 thermometer43 thermometerb44 term0_21 vss vdd adc_nand2
+XTERM0_22 thermometer45 thermometerb46 term0_22 vss vdd adc_nand2
+XTERM0_23 thermometer47 thermometerb48 term0_23 vss vdd adc_nand2
+XTERM0_24 thermometer49 thermometerb50 term0_24 vss vdd adc_nand2
+XTERM0_25 thermometer51 thermometerb52 term0_25 vss vdd adc_nand2
+XTERM0_26 thermometer53 thermometerb54 term0_26 vss vdd adc_nand2
+XTERM0_27 thermometer55 thermometerb56 term0_27 vss vdd adc_nand2
+XTERM0_28 thermometer57 thermometerb58 term0_28 vss vdd adc_nand2
+XTERM0_29 thermometer59 thermometerb60 term0_29 vss vdd adc_nand2
+XTERM0_30 thermometer61 thermometerb62 term0_30 vss vdd adc_nand2
+XTERM0_31 thermometer63 vdd term0_31 vss vdd adc_nand2
+XGROUP0_0 term0_0 term0_1 term0_2 term0_3 group0_0 vss vdd adc_nand4
+XGROUP0_1 term0_4 term0_5 term0_6 term0_7 group0_1 vss vdd adc_nand4
+XGROUP0_2 term0_8 term0_9 term0_10 term0_11 group0_2 vss vdd adc_nand4
+XGROUP0_3 term0_12 term0_13 term0_14 term0_15 group0_3 vss vdd adc_nand4
+XGROUP0_4 term0_16 term0_17 term0_18 term0_19 group0_4 vss vdd adc_nand4
+XGROUP0_5 term0_20 term0_21 term0_22 term0_23 group0_5 vss vdd adc_nand4
+XGROUP0_6 term0_24 term0_25 term0_26 term0_27 group0_6 vss vdd adc_nand4
+XGROUP0_7 term0_28 term0_29 term0_30 term0_31 group0_7 vss vdd adc_nand4
+XENCN0a group0_0 group0_1 group0_2 group0_3 datab0a vss vdd adc_nor4
+XENCN0b group0_4 group0_5 group0_6 group0_7 datab0b vss vdd adc_nor4
+XENC0 datab0a datab0b data0 vss vdd adc_nand2
+XREG0 data0 acquireb acquire dout0 vss vdd adc_register
+XTERM1_0 thermometer2 thermometerb4 term1_0 vss vdd adc_nand2
+XTERM1_1 thermometer6 thermometerb8 term1_1 vss vdd adc_nand2
+XTERM1_2 thermometer10 thermometerb12 term1_2 vss vdd adc_nand2
+XTERM1_3 thermometer14 thermometerb16 term1_3 vss vdd adc_nand2
+XTERM1_4 thermometer18 thermometerb20 term1_4 vss vdd adc_nand2
+XTERM1_5 thermometer22 thermometerb24 term1_5 vss vdd adc_nand2
+XTERM1_6 thermometer26 thermometerb28 term1_6 vss vdd adc_nand2
+XTERM1_7 thermometer30 thermometerb32 term1_7 vss vdd adc_nand2
+XTERM1_8 thermometer34 thermometerb36 term1_8 vss vdd adc_nand2
+XTERM1_9 thermometer38 thermometerb40 term1_9 vss vdd adc_nand2
+XTERM1_10 thermometer42 thermometerb44 term1_10 vss vdd adc_nand2
+XTERM1_11 thermometer46 thermometerb48 term1_11 vss vdd adc_nand2
+XTERM1_12 thermometer50 thermometerb52 term1_12 vss vdd adc_nand2
+XTERM1_13 thermometer54 thermometerb56 term1_13 vss vdd adc_nand2
+XTERM1_14 thermometer58 thermometerb60 term1_14 vss vdd adc_nand2
+XTERM1_15 thermometer62 vdd term1_15 vss vdd adc_nand2
+XGROUP1_0 term1_0 term1_1 term1_2 term1_3 group1_0 vss vdd adc_nand4
+XGROUP1_1 term1_4 term1_5 term1_6 term1_7 group1_1 vss vdd adc_nand4
+XGROUP1_2 term1_8 term1_9 term1_10 term1_11 group1_2 vss vdd adc_nand4
+XGROUP1_3 term1_12 term1_13 term1_14 term1_15 group1_3 vss vdd adc_nand4
+XENCN1 group1_0 group1_1 group1_2 group1_3 datab1 vss vdd adc_nor4
+XENC1 datab1 data1 vss vdd adc_inv
+XREG1 data1 acquireb acquire dout1 vss vdd adc_register
+XTERM2_0 thermometer4 thermometerb8 term2_0 vss vdd adc_nand2
+XTERM2_1 thermometer12 thermometerb16 term2_1 vss vdd adc_nand2
+XTERM2_2 thermometer20 thermometerb24 term2_2 vss vdd adc_nand2
+XTERM2_3 thermometer28 thermometerb32 term2_3 vss vdd adc_nand2
+XTERM2_4 thermometer36 thermometerb40 term2_4 vss vdd adc_nand2
+XTERM2_5 thermometer44 thermometerb48 term2_5 vss vdd adc_nand2
+XTERM2_6 thermometer52 thermometerb56 term2_6 vss vdd adc_nand2
+XTERM2_7 thermometer60 vdd term2_7 vss vdd adc_nand2
+XGROUP2_0 term2_0 term2_1 term2_2 term2_3 group2_0 vss vdd adc_nand4
+XGROUP2_1 term2_4 term2_5 term2_6 term2_7 group2_1 vss vdd adc_nand4
+XENCN2 group2_0 group2_1 datab2 vss vdd adc_nor2
+XENC2 datab2 data2 vss vdd adc_inv
+XREG2 data2 acquireb acquire dout2 vss vdd adc_register
+XTERM3_0 thermometer8 thermometerb16 term3_0 vss vdd adc_nand2
+XTERM3_1 thermometer24 thermometerb32 term3_1 vss vdd adc_nand2
+XTERM3_2 thermometer40 thermometerb48 term3_2 vss vdd adc_nand2
+XTERM3_3 thermometer56 vdd term3_3 vss vdd adc_nand2
+XENC3 term3_0 term3_1 term3_2 term3_3 data3 vss vdd adc_nand4
+XREG3 data3 acquireb acquire dout3 vss vdd adc_register
+XTERM4_0 thermometer16 thermometerb32 term4_0 vss vdd adc_nand2
+XTERM4_1 thermometer48 vdd term4_1 vss vdd adc_nand2
+XENC4 term4_0 term4_1 data4 vss vdd adc_nand2
+XREG4 data4 acquireb acquire dout4 vss vdd adc_register
+XREG5 thermometer32 acquireb acquire dout5 vss vdd adc_register
+.ends sar_adc_6bit_async

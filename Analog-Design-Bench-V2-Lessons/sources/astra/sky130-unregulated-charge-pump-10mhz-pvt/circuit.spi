@@ -1,0 +1,29 @@
+.subckt charge_pump_unregulate AVDD AVSS CLK EN VOUT
+XENP ENB EN AVDD AVDD sky130_fd_pr__pfet_01v8 l=1 w=0.84
+XENN ENB EN AVSS AVSS sky130_fd_pr__nfet_01v8 l=1 w=0.42
+XHEADER VPWR ENB AVDD AVDD sky130_fd_pr__pfet_01v8 l=1 w=40 nf=8
+
+XGATEPCLK CLKB CLK AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.5 w=0.84
+XGATEPEN CLKB EN AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.5 w=0.84
+XGATENCLK CLKB CLK NGATE AVSS sky130_fd_pr__nfet_01v8 l=0.5 w=0.84
+XGATENEN NGATE EN AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.5 w=0.84
+
+XPREP CK CLKB AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.5 w=4 nf=2
+XPREN CK CLKB AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.5 w=2 nf=2
+XDRBP PHIB CK AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.5 w=24 nf=4
+XDRBN PHIB CK AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.5 w=12 nf=4
+XDRAP PHIA PHIB AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.5 w=24 nf=4
+XDRAN PHIA PHIB AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.5 w=12 nf=4
+
+XFLYA FLYA PHIA sky130_fd_pr__cap_mim_m3_1 w=50 l=50 mf=1
+XFLYB FLYB PHIB sky130_fd_pr__cap_mim_m3_1 w=50 l=50 mf=1
+XINA FLYA FLYB VPWR VPWR sky130_fd_pr__nfet_g5v0d10v5 l=0.5 w=8 nf=2
+XINB FLYB FLYA VPWR VPWR sky130_fd_pr__nfet_g5v0d10v5 l=0.5 w=8 nf=2
+XBOOTA VPWR VPWR FLYA AVSS sky130_fd_pr__nfet_g5v0d10v5 l=1 w=1
+XBOOTB VPWR VPWR FLYB AVSS sky130_fd_pr__nfet_g5v0d10v5 l=1 w=1
+XSTART VPWR VPWR VPUMP AVSS sky130_fd_pr__nfet_g5v0d10v5 l=0.5 w=4
+XOUTA VPUMP FLYB FLYA VPUMP sky130_fd_pr__pfet_g5v0d10v5 l=0.5 w=16 nf=4
+XOUTB VPUMP FLYA FLYB VPUMP sky130_fd_pr__pfet_g5v0d10v5 l=0.5 w=16 nf=4
+XSTORE VPUMP AVSS sky130_fd_pr__cap_mim_m3_1 w=160 l=160 mf=1
+XROUT VPUMP VOUT AVSS sky130_fd_pr__res_xhigh_po w=1 l=5
+.ends charge_pump_unregulate

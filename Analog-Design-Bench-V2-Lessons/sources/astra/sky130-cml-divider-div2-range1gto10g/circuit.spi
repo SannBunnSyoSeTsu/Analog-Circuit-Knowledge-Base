@@ -1,0 +1,23 @@
+.subckt cml_div2 vss iref vdd clkn clkp outn outp
+XREF iref iref vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=12
+XMT mtail iref vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=22
+XST stail iref vss vss sky130_fd_pr__nfet_01v8 l=0.5 w=22
+
+RMP vdd mp 1.62k
+RMN vdd mn 1.6k
+XMCP mtrack clkp mtail vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=8
+XMCN mhold clkn mtail vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=8
+XMDP mp outp mtrack vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+XMDN mn outn mtrack vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+XMHP mp mn mhold vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+XMHN mn mp mhold vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+
+RSP vdd outp 1.6k
+RSN vdd outn 1.6k
+XSCP strack clkn stail vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=8
+XSCN shold clkp stail vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=8
+XSDP outp mn strack vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+XSDN outn mp strack vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+XSHP outp outn shold vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+XSHN outn outp shold vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+.ends cml_div2

@@ -1,0 +1,112 @@
+{
+  "taskId": "sky130-beta-multiplier-reference-pvt-mc",
+  "taskTitle": "Design a beta-multiplier current reference",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 15,
+  "costUsd": 4.00881,
+  "inputTokens": 348686,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 10439,
+  "peakContextTokens": 31465,
+  "durationMs": 454877,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-beta-multiplier-reference-pvt-mc",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "runs=95 PVT=27/27 compliance=27/27 startup=18/18 MC=50/50"
+      },
+      {
+        "name": "pvt_output_current",
+        "status": "passed",
+        "measurement": "current=31.569..51.081uA"
+      },
+      {
+        "name": "nominal_current_accuracy",
+        "status": "passed",
+        "measurement": "TT/1.8V/27C current=40.041uA"
+      },
+      {
+        "name": "pvt_vref",
+        "status": "passed",
+        "measurement": "VREF=0.6429..0.7159V"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "power_max=79.73uW"
+      },
+      {
+        "name": "pvt_output_compliance",
+        "status": "passed",
+        "measurement": "current=30.643..52.106uA flatness_max=6.448%"
+      },
+      {
+        "name": "pvt_multi_ramp_startup_final",
+        "status": "passed",
+        "measurement": "final_current=32.649..49.967uA VREF=0.6429..0.7159V"
+      },
+      {
+        "name": "pvt_multi_ramp_startup_settling",
+        "status": "passed",
+        "measurement": "settling_time_max=0.445us"
+      },
+      {
+        "name": "startup_overshoot",
+        "status": "passed",
+        "measurement": "peak_to_final_current_ratio_max=1.0028"
+      },
+      {
+        "name": "startup_inrush_and_energy",
+        "status": "passed",
+        "measurement": "peak_supply_current=0.015mA energy=0.308nJ"
+      },
+      {
+        "name": "mc_current_yield",
+        "status": "passed",
+        "measurement": "samples=50 yield=100.0% in 30..50uA"
+      },
+      {
+        "name": "mc_current_sigma",
+        "status": "passed",
+        "measurement": "samples=50 sigma=1.230uA"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-beta-multiplier-reference-pvt-mc/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-beta-multiplier-reference-pvt-mc/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

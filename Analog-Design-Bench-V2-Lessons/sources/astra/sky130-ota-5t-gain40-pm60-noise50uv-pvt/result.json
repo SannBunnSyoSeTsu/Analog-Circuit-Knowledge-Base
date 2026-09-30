@@ -1,0 +1,87 @@
+{
+  "taskId": "sky130-ota-5t-gain40-pm60-noise50uv-pvt",
+  "taskTitle": "Design a current-biased five-transistor OTA",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 17,
+  "costUsd": 5.14158,
+  "inputTokens": 456903,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 11451,
+  "peakContextTokens": 38166,
+  "durationMs": 439172,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-ota-5t-gain40-pm60-noise50uv-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "gain_40db",
+        "status": "passed",
+        "measurement": "worst=41.36dB at ff/1.62V/+125C (min 40dB)"
+      },
+      {
+        "name": "ugb_100mhz",
+        "status": "passed",
+        "measurement": "worst=128MHz at ss/1.62V/+125C (min 100MHz)"
+      },
+      {
+        "name": "phase_margin_60deg",
+        "status": "passed",
+        "measurement": "worst=77.85deg at ff/1.98V/+27C (min 60deg)"
+      },
+      {
+        "name": "power_0p5mw",
+        "status": "passed",
+        "measurement": "worst=0.4764mW at ff/1.98V/+125C (max 0.5mW)"
+      },
+      {
+        "name": "noise_50uvrms",
+        "status": "passed",
+        "measurement": "worst=40.68uVrms at ss/1.62V/+125C (max 50uVrms)"
+      },
+      {
+        "name": "cmrr_50db",
+        "status": "passed",
+        "measurement": "worst=52.71dB at ss/1.62V/+125C (min 50dB)"
+      },
+      {
+        "name": "psrr_30db",
+        "status": "passed",
+        "measurement": "worst=40.54dB at ss/1.62V/+125C (min 30dB)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-ota-5t-gain40-pm60-noise50uv-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-ota-5t-gain40-pm60-noise50uv-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

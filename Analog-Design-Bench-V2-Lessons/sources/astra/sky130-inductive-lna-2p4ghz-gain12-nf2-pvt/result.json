@@ -1,0 +1,87 @@
+{
+  "taskId": "sky130-inductive-lna-2p4ghz-gain12-nf2-pvt",
+  "taskTitle": "Design a 2.4 GHz Inductive-Degeneration LNA: Gain 12 dB, NF 2 dB",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 26,
+  "costUsd": 8.27269,
+  "inputTokens": 763294,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 12795,
+  "peakContextTokens": 45366,
+  "durationMs": 747565,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-inductive-lna-2p4ghz-gain12-nf2-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "band_transducer_gain",
+        "status": "passed",
+        "measurement": "gain_min=12.5dB at ff/1.62V/+125C; gain_max=15.3dB; ripple_max=0.299dB at ff/1.98V/+125C"
+      },
+      {
+        "name": "input_match",
+        "status": "passed",
+        "measurement": "S11_worst=-11.5dB at ff/1.62V/+125C"
+      },
+      {
+        "name": "output_match",
+        "status": "passed",
+        "measurement": "S22_worst=-13.4dB at ff/1.98V/+125C"
+      },
+      {
+        "name": "noise_figure",
+        "status": "passed",
+        "measurement": "NF_worst=1.937dB at ss/1.62V/+125C"
+      },
+      {
+        "name": "reverse_isolation",
+        "status": "passed",
+        "measurement": "S12_worst=-35.4dB at ff/1.98V/+125C"
+      },
+      {
+        "name": "unconditional_stability",
+        "status": "passed",
+        "measurement": "K_min=4.948 at ff/1.98V/+125C; delta_max=0.9774 at ff/1.62V/+125C"
+      },
+      {
+        "name": "power_and_bias_compliance",
+        "status": "passed",
+        "measurement": "power_max=8.201mW at ff/1.98V/+125C; iref_min=0.6428V; headroom_min=0.8117V"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-inductive-lna-2p4ghz-gain12-nf2-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-inductive-lna-2p4ghz-gain12-nf2-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

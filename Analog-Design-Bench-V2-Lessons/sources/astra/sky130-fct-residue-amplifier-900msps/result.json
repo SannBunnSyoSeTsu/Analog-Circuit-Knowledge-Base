@@ -1,0 +1,117 @@
+{
+  "taskId": "sky130-fct-residue-amplifier-900msps",
+  "taskTitle": "Design a 900 MS/s Fully Differential Floating Charge Transfer (FCT) Residue Amplifier",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 82,
+  "costUsd": 63.5238,
+  "inputTokens": 5894385,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 91599,
+  "peakContextTokens": 133778,
+  "durationMs": 4479329,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-fct-residue-amplifier-900msps",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "sampled_gain_pvt_10mv",
+        "status": "passed",
+        "measurement": "10 mV range=5.6534..6.0180V/V (5.5..6.5)"
+      },
+      {
+        "name": "sfdr_pvt_10mv",
+        "status": "passed",
+        "measurement": "10 mV min=78.359dB at fs (min 60dB)"
+      },
+      {
+        "name": "output_common_mode_pvt_10mv",
+        "status": "passed",
+        "measurement": "10 mV mean range=0.9450..1.0509V (0.3..1.2V)"
+      },
+      {
+        "name": "output_headroom_pvt_10mv",
+        "status": "passed",
+        "measurement": "10 mV sample range=0.9154..1.0805V (0.2..1.6V)"
+      },
+      {
+        "name": "hold_transition_movement_pvt_10mv",
+        "status": "passed",
+        "measurement": "10 mV max=1.0719% at sf (max 1.5%)"
+      },
+      {
+        "name": "power_pvt_10mv",
+        "status": "passed",
+        "measurement": "10 mV total delivered range=4.0434..4.1840mW (0..5mW)"
+      },
+      {
+        "name": "sampled_gain_pvt_20mv",
+        "status": "passed",
+        "measurement": "20 mV range=5.6506..6.0153V/V (5.5..6.5)"
+      },
+      {
+        "name": "sfdr_pvt_20mv",
+        "status": "passed",
+        "measurement": "20 mV min=65.957dB at fs (min 60dB)"
+      },
+      {
+        "name": "output_common_mode_pvt_20mv",
+        "status": "passed",
+        "measurement": "20 mV mean range=0.9452..1.0508V (0.3..1.2V)"
+      },
+      {
+        "name": "output_headroom_pvt_20mv",
+        "status": "passed",
+        "measurement": "20 mV sample range=0.8863..1.1098V (0.2..1.6V)"
+      },
+      {
+        "name": "hold_transition_movement_pvt_20mv",
+        "status": "passed",
+        "measurement": "20 mV max=1.0830% at sf (max 1.5%)"
+      },
+      {
+        "name": "power_pvt_20mv",
+        "status": "passed",
+        "measurement": "20 mV total delivered range=4.0431..4.1837mW (0..5mW)"
+      },
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "10/10 unique finite transients: tt/ss/ff/fs/sf at 10mV and 20mV"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-fct-residue-amplifier-900msps/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-fct-residue-amplifier-900msps/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

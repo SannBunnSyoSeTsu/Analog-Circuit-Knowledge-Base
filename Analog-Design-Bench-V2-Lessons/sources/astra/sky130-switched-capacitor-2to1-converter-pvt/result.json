@@ -1,0 +1,97 @@
+{
+  "taskId": "sky130-switched-capacitor-2to1-converter-pvt",
+  "taskTitle": "Design a two-phase switched-capacitor 2:1 step-down converter",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 31,
+  "costUsd": 12.43141,
+  "inputTokens": 1135281,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 21572,
+  "peakContextTokens": 58755,
+  "durationMs": 923965,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-switched-capacitor-2to1-converter-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "heavy=47/47 light=47/47 unique matched points"
+      },
+      {
+        "name": "pvt_loaded_conversion_ratio",
+        "status": "passed",
+        "measurement": "ratio=0.45080 at ss/1.62V/+125C..0.47639 at ff/1.98V/-40C"
+      },
+      {
+        "name": "pvt_efficiency",
+        "status": "passed",
+        "measurement": "efficiency=84.349% at ss/1.62V/+125C..89.783% at ff/1.98V/-40C"
+      },
+      {
+        "name": "pvt_output_ripple",
+        "status": "passed",
+        "measurement": "ripple_max=16.046mVpp at ff/1.98V/-40C"
+      },
+      {
+        "name": "pvt_startup",
+        "status": "passed",
+        "measurement": "startup_max=62.389ns at ss/1.62V/+125C; post_200ns_margin_min=112.286mV at ss/1.62V/+125C"
+      },
+      {
+        "name": "pvt_light_conversion_ratio",
+        "status": "passed",
+        "measurement": "ratio=0.49040 at fs/1.62V/-40C..0.49758 at ff/1.98V/-40C"
+      },
+      {
+        "name": "pvt_light_overhead_power",
+        "status": "passed",
+        "measurement": "input_power=151.178uW at sf/1.62V/-40C..274.083uW at ff/1.98V/+125C"
+      },
+      {
+        "name": "pvt_light_efficiency",
+        "status": "passed",
+        "measurement": "efficiency=52.005% at ff/1.98V/+125C..62.822% at sf/1.62V/-40C"
+      },
+      {
+        "name": "pvt_output_resistance",
+        "status": "passed",
+        "measurement": "Rout=33.777ohm at ff/1.98V/-40C..72.192ohm at ss/1.62V/+125C"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-switched-capacitor-2to1-converter-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-switched-capacitor-2to1-converter-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

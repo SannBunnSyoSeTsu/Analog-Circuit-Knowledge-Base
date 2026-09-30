@@ -1,0 +1,12 @@
+.subckt nmos_pass_ldo vdd vout vss vref ibias loop_out pass_gate
+XBIAS ibias ibias vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=40 nf=4
+XTAIL tail ibias vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=40 nf=4
+XIN_FB mirror vout tail vdd sky130_fd_pr__pfet_01v8_lvt l=1 w=40 nf=4
+XIN_REF amp vref tail vdd sky130_fd_pr__pfet_01v8_lvt l=1 w=40 nf=4
+XMIR_REF mirror mirror vss vss sky130_fd_pr__nfet_01v8 l=1 w=10 nf=2
+XMIR_OUT amp mirror vss vss sky130_fd_pr__nfet_01v8 l=1 w=10 nf=2
+XDRIVE loop_out amp vss vss sky130_fd_pr__nfet_01v8 l=1 w=80 nf=8
+XDRIVE_BIAS loop_out ibias vdd vdd sky130_fd_pr__pfet_01v8 l=2 w=80 nf=8
+XPASS vdd pass_gate vout vss sky130_fd_pr__nfet_01v8_lvt l=0.5 w=300 nf=10 m=10
+XCOMP amp loop_out sky130_fd_pr__cap_mim_m3_1 w=110 l=110 mf=1
+.ends nmos_pass_ldo

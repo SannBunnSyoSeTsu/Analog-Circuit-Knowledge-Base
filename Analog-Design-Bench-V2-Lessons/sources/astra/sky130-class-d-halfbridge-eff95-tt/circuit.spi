@@ -1,0 +1,12 @@
+.subckt half_bridge vss vdd clk_in sw
+XPIN phase clk_in vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4 m=1
+XNIN phase clk_in vss vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=2 m=1
+XPBUF drive phase vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=16 nf=4 m=4
+XNBUF drive phase vss vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=8 nf=2 m=4
+XPPRE pgate drive vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=16 nf=4 m=150
+XNPRE pgate drive vss vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=8 nf=2 m=40
+XPNRE ngate drive vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=16 nf=4 m=40
+XNNRE ngate drive vss vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=8 nf=2 m=150
+XPOWERP sw pgate vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=16 nf=4 m=1500
+XPOWERN sw ngate vss vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=8 nf=2 m=1500
+.ends half_bridge

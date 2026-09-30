@@ -1,0 +1,30 @@
+.subckt pll_charge_pump vss iref up dn vdd vout
+XNR nr iref vss vss sky130_fd_pr__nfet_01v8 l=8 w=160
+XNRC iref ncb nr vss sky130_fd_pr__nfet_01v8 l=1 w=30
+XNPR npr iref vss vss sky130_fd_pr__nfet_01v8 l=8 w=160
+XNPRC pb ncb npr vss sky130_fd_pr__nfet_01v8 l=1 w=30
+XPR pr pb vdd vdd sky130_fd_pr__pfet_01v8 l=8 w=400
+XPRC pb pcb pr vdd sky130_fd_pr__pfet_01v8 l=1 w=90
+XNPB npb iref vss vss sky130_fd_pr__nfet_01v8 l=8 w=80
+XNPBC pcb ncb npb vss sky130_fd_pr__nfet_01v8 l=1 w=15
+XPBD pcb pcb vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=6
+XPNB pnb pb vdd vdd sky130_fd_pr__pfet_01v8 l=8 w=200
+XPNBC ncb pcb pnb vdd sky130_fd_pr__pfet_01v8 l=1 w=45
+XNBD ncb ncb vss vss sky130_fd_pr__nfet_01v8 l=1 w=2
+XNS ns iref vss vss sky130_fd_pr__nfet_01v8 l=8 w=320
+XNC nx ncb ns vss sky130_fd_pr__nfet_01v8 l=1 w=60
+XPS ps pb vdd vdd sky130_fd_pr__pfet_01v8 l=8 w=800
+XPC px pcb ps vdd sky130_fd_pr__pfet_01v8 l=1 w=180
+XUIS upb up vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+XUIP upb up vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4
+XDIS dnb dn vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+XDIP dnb dn vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4
+XUP vout upb px vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4
+XUD vss up px vdd sky130_fd_pr__pfet_01v8 l=0.15 w=4
+XDN vout dn nx vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+XDD vdd dnb nx vss sky130_fd_pr__nfet_01v8 l=0.15 w=2
+CNB iref vss 10p
+CPB pb vdd 10p
+CNBC ncb vss 2p
+CPBC pcb vdd 2p
+.ends pll_charge_pump

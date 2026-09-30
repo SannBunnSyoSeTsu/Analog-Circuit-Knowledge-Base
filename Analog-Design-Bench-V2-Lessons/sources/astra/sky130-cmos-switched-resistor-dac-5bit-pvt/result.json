@@ -1,0 +1,92 @@
+{
+  "taskId": "sky130-cmos-switched-resistor-dac-5bit-pvt",
+  "taskTitle": "Design a 5-Bit Switched-Resistor DAC",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 32,
+  "costUsd": 14.39343,
+  "inputTokens": 1325873,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 22694,
+  "peakContextTokens": 60524,
+  "durationMs": 1145142,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-cmos-switched-resistor-dac-5bit-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_inl",
+        "status": "passed",
+        "measurement": "max=0.08715LSB at ss_1p62v_m40c (max 0.25LSB)"
+      },
+      {
+        "name": "pvt_dnl_monotonic",
+        "status": "passed",
+        "measurement": "max_abs=0.04039LSB at ff_1p62v_125c; monotonic=True"
+      },
+      {
+        "name": "pvt_endpoints",
+        "status": "passed",
+        "measurement": "zero_max=0.387mV at ff_1p98v_125c; code31_max=2.865mV at ff_1p98v_125c"
+      },
+      {
+        "name": "mismatch_linearity_monotonic",
+        "status": "passed",
+        "measurement": "INL_max=0.09LSB at tt_mm_seed_41003; DNL_max=0.04819LSB at tt_mm_seed_41003; monotonic=True"
+      },
+      {
+        "name": "pvt_major_carry_settling",
+        "status": "passed",
+        "measurement": "crossing_max=2.96ns at ss_1p62v_125c; end_error_max=0.09754LSB at ss_1p62v_m40c (limits 5ns, 0.25LSB)"
+      },
+      {
+        "name": "pvt_major_carry_excursion",
+        "status": "passed",
+        "measurement": "max=0.6526LSB at ss_1p62v_m40c (max 1LSB)"
+      },
+      {
+        "name": "pvt_output_resistance",
+        "status": "passed",
+        "measurement": "range=1.061kohm at ss_1p98v_m40c/rout_code0_ohm .. 1.202kohm at ff_1p62v_125c/rout_code31_ohm (max 2kohm)"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "max=687.71uW at ff_1p98v_125c (max 1000uW)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-cmos-switched-resistor-dac-5bit-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-cmos-switched-resistor-dac-5bit-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

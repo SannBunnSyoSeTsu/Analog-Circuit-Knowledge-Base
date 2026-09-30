@@ -1,0 +1,87 @@
+{
+  "taskId": "sky130-nmos-pass-ldo-0p4v-pvt-mc",
+  "taskTitle": "Design a 0.4 V NMOS-Pass LDO Across PVT and Mismatch",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 20,
+  "costUsd": 5.98908,
+  "inputTokens": 540653,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 11651,
+  "peakContextTokens": 37649,
+  "durationMs": 581400,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-nmos-pass-ldo-0p4v-pvt-mc",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "PVT/load=54/54 MC=50/50"
+      },
+      {
+        "name": "pvt_output_range",
+        "status": "passed",
+        "measurement": "VOUT=0.397V..0.399V"
+      },
+      {
+        "name": "quiescent_current",
+        "status": "passed",
+        "measurement": "Iq=118.273uA..120.154uA"
+      },
+      {
+        "name": "loop_stability",
+        "status": "passed",
+        "measurement": "PM_min=79.540deg GM_min=14.605dB"
+      },
+      {
+        "name": "psrr_1khz",
+        "status": "passed",
+        "measurement": "PSRR_min=47.291dB"
+      },
+      {
+        "name": "active_device_headroom",
+        "status": "passed",
+        "measurement": "min(|VDS|-|VDSAT|)=80.901mV"
+      },
+      {
+        "name": "mismatch_3sigma_output",
+        "status": "passed",
+        "measurement": "mean+/-3sigma: 1mA=0.3927..0.4067V, 5mA=0.3927..0.4067V"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-nmos-pass-ldo-0p4v-pvt-mc/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-nmos-pass-ldo-0p4v-pvt-mc/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

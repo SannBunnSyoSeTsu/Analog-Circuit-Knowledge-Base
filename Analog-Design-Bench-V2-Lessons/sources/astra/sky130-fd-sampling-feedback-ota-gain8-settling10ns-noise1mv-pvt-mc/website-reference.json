@@ -1,0 +1,144 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-fd-sampling-feedback-ota-gain8-settling10ns-noise1mv-pvt-mc",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 15,
+  "tests_total": 15,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 2.18,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": 143,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 128.685,
+    "wall_clock_seconds": 129.093,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "pvt_phase_margin",
+      "source_check": "pvt_phase_margin",
+      "specification": "pvt phase margin ≥ 60 °",
+      "metric": 60,
+      "value": 69.3615,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_output_common_mode",
+      "source_check": "pvt_output_common_mode",
+      "specification": "pvt output common mode ≤ 25 mV",
+      "metric": 25,
+      "value": 24.4989,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_power",
+      "source_check": "pvt_power",
+      "specification": "pvt power ≤ 10 mW",
+      "metric": 10,
+      "value": 6.30723,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_static_accuracy",
+      "source_check": "pvt_static_accuracy",
+      "specification": "pvt static accuracy ≤ 1 %",
+      "metric": 1,
+      "value": 0.0483111,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_dynamic_accuracy",
+      "source_check": "pvt_dynamic_accuracy",
+      "specification": "pvt dynamic accuracy ≤ 1 %",
+      "metric": 1,
+      "value": 0.868767,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_rise_settling",
+      "source_check": "pvt_rise_settling",
+      "specification": "pvt rise settling ≤ 10 ns",
+      "metric": 10,
+      "value": 9.74834,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_fall_settling",
+      "source_check": "pvt_fall_settling",
+      "specification": "pvt fall settling ≤ 10 ns",
+      "metric": 10,
+      "value": 9.71326,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_output_range",
+      "source_check": "pvt_output_range",
+      "specification": "pvt output range ≥ 1.8 V",
+      "metric": 1.8,
+      "value": 2.00686,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_output_noise",
+      "source_check": "pvt_output_noise",
+      "specification": "pvt output noise ≤ 1000 µVrms",
+      "metric": 1000,
+      "value": 860.775,
+      "status": "pass"
+    },
+    {
+      "id": "mc_cmrr",
+      "source_check": "mc_cmrr",
+      "specification": "mc cmrr ≥ 50 dB",
+      "metric": 50,
+      "value": 54,
+      "status": "pass"
+    },
+    {
+      "id": "mc_psrr_plus",
+      "source_check": "mc_psrr_plus",
+      "specification": "mc psrr plus ≥ 60 dB",
+      "metric": 60,
+      "value": 68.8817,
+      "status": "pass"
+    },
+    {
+      "id": "mc_psrr_minus",
+      "source_check": "mc_psrr_minus",
+      "specification": "mc psrr minus ≥ 60 dB",
+      "metric": 60,
+      "value": 68.8817,
+      "status": "pass"
+    },
+    {
+      "id": "cmfb_peak_deviation",
+      "source_check": "cmfb_peak_deviation",
+      "specification": "cmfb peak deviation ≤ 100 mV",
+      "metric": 100,
+      "value": 10.1375,
+      "status": "pass"
+    },
+    {
+      "id": "cmfb_residual_20ns",
+      "source_check": "cmfb_residual_20ns",
+      "specification": "cmfb residual 20 ns ≤ 5 mV",
+      "metric": 5,
+      "value": 0.240609,
+      "status": "pass"
+    },
+    {
+      "id": "cmfb_residual_100ns",
+      "source_check": "cmfb_residual_100ns",
+      "specification": "cmfb residual 100 ns ≤ 1 mV",
+      "metric": 1,
+      "value": 4.15598e-05,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-14T20:09:58+00:00"
+}

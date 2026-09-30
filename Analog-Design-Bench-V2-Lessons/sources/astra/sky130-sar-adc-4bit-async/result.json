@@ -1,0 +1,72 @@
+{
+  "taskId": "sky130-sar-adc-4bit-async",
+  "taskTitle": "Design a 4-Bit 100 MS/s Asynchronous SAR ADC",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 30,
+  "costUsd": 13.09116,
+  "inputTokens": 1144536,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 32916,
+  "peakContextTokens": 57662,
+  "durationMs": 1280972,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-sar-adc-4bit-async",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "sample_hold_16_codes",
+        "status": "passed",
+        "measurement": "transfer=[0, 11, 4, 15, 2, 9, 6, 13, 1, 8, 5, 14, 3, 10, 7, 12]; transfer_alt=[15, 0, 8, 7, 3, 12, 5, 10, 1, 14, 6, 9, 2, 13, 4, 11]"
+      },
+      {
+        "name": "sndr",
+        "status": "passed",
+        "measurement": "worst=25.301dB at tt_1p80v_27c_bin13_phase17 (> 24dB)"
+      },
+      {
+        "name": "normalized_enob",
+        "status": "passed",
+        "measurement": "worst=3.94722 bit at tt_1p80v_27c_bin13_phase17 (> 3.9 bit)"
+      },
+      {
+        "name": "power",
+        "status": "passed",
+        "measurement": "worst=1.27455mW at ff_1p98v_m40c_bin15 (max 5mW)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-sar-adc-4bit-async/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-sar-adc-4bit-async/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+.subckt inductive_lna vss iref vdd rfin rfout
+XREF iref iref vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=6 nf=1
+XRB iref gate_bias vss sky130_fd_pr__res_high_po w=0.35 l=20
+XCB gate_bias vss sky130_fd_pr__cap_mim_m3_1 w=50 l=50
+XRG gate_bias gate vss sky130_fd_pr__res_high_po w=0.35 l=20
+XCIN rfin input_match sky130_fd_pr__cap_mim_m3_1 w=80 l=80
+XLG input_match gate input_ct vss sky130_fd_pr__ind_05_125
+XLS source source_unused vss vss sky130_fd_pr__ind_03_90
+XLS2 source vss source_ct vss sky130_fd_pr__ind_03_90
+XCGS gate source sky130_fd_pr__cap_mim_m3_1 w=9.5 l=9.5
+XMN drain gate source vss sky130_fd_pr__nfet_01v8 l=0.15 w=360 nf=72
+XMC output vdd drain vss sky130_fd_pr__nfet_01v8 l=0.15 w=200 nf=40
+XLD vdd output load_ct vss sky130_fd_pr__ind_03_90
+XCT output vss sky130_fd_pr__cap_mim_m3_1 w=32.64 l=32.64
+XCOUT output rfout sky130_fd_pr__cap_mim_m3_1 w=18.75 l=18.75
+.ends inductive_lna

@@ -1,0 +1,172 @@
+{
+  "taskId": "sky130-bootstrap-driver-pt",
+  "taskTitle": "Design an All-NMOS Half-Bridge Bootstrap High-Side Gate Driver",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 39,
+  "costUsd": 22.23405,
+  "inputTokens": 2020135,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 40654,
+  "peakContextTokens": 90254,
+  "durationMs": 1663589,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-bootstrap-driver-pt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "g1_deadtime_tt",
+        "status": "passed",
+        "measurement": "deadtime=[5.04,6.15]ns (need all in [3,7])"
+      },
+      {
+        "name": "g2_power_tt",
+        "status": "passed",
+        "measurement": "max_power=2.36mW (limit < 3.5mW)"
+      },
+      {
+        "name": "g3_vgs_avg_min_tt",
+        "status": "passed",
+        "measurement": "min_vgs_avg=1.727V (need >= 1.65)"
+      },
+      {
+        "name": "g3_vgs_avg_max_tt",
+        "status": "passed",
+        "measurement": "max_vgs_avg=1.729V (need <= 1.85)"
+      },
+      {
+        "name": "g4_vgs_peak_tt",
+        "status": "passed",
+        "measurement": "max_vgs_peak=1.974V (limit < 2.15V)"
+      },
+      {
+        "name": "g5_hs_peak_tt",
+        "status": "passed",
+        "measurement": "max_hs_current=499.3mA (limit < 800mA)"
+      },
+      {
+        "name": "g6_1p8v_nodes_tt",
+        "status": "passed",
+        "measurement": "max_1p8v_voltage=[vbst-vlx=2.018V,gn2=1.814V] (limit < 2.15V)"
+      },
+      {
+        "name": "g6_5v_node_tt",
+        "status": "passed",
+        "measurement": "max_5v_voltage=vbst=3.799V (limit < 5.65V)"
+      },
+      {
+        "name": "g1_deadtime_fs",
+        "status": "passed",
+        "measurement": "deadtime=[5.67,6.47]ns (need all in [3,7])"
+      },
+      {
+        "name": "g2_power_fs",
+        "status": "passed",
+        "measurement": "max_power=2.38mW (limit < 3.5mW)"
+      },
+      {
+        "name": "g3_vgs_avg_min_fs",
+        "status": "passed",
+        "measurement": "min_vgs_avg=1.728V (need >= 1.65)"
+      },
+      {
+        "name": "g3_vgs_avg_max_fs",
+        "status": "passed",
+        "measurement": "max_vgs_avg=1.731V (need <= 1.85)"
+      },
+      {
+        "name": "g4_vgs_peak_fs",
+        "status": "passed",
+        "measurement": "max_vgs_peak=1.992V (limit < 2.15V)"
+      },
+      {
+        "name": "g5_hs_peak_fs",
+        "status": "passed",
+        "measurement": "max_hs_current=498.2mA (limit < 800mA)"
+      },
+      {
+        "name": "g6_1p8v_nodes_fs",
+        "status": "passed",
+        "measurement": "max_1p8v_voltage=[vbst-vlx=2.043V,gn2=1.821V] (limit < 2.15V)"
+      },
+      {
+        "name": "g6_5v_node_fs",
+        "status": "passed",
+        "measurement": "max_5v_voltage=vbst=3.819V (limit < 5.65V)"
+      },
+      {
+        "name": "g1_deadtime_sf",
+        "status": "passed",
+        "measurement": "deadtime=[4.45,5.69]ns (need all in [3,7])"
+      },
+      {
+        "name": "g2_power_sf",
+        "status": "passed",
+        "measurement": "max_power=2.37mW (limit < 3.5mW)"
+      },
+      {
+        "name": "g3_vgs_avg_min_sf",
+        "status": "passed",
+        "measurement": "min_vgs_avg=1.726V (need >= 1.65)"
+      },
+      {
+        "name": "g3_vgs_avg_max_sf",
+        "status": "passed",
+        "measurement": "max_vgs_avg=1.727V (need <= 1.85)"
+      },
+      {
+        "name": "g4_vgs_peak_sf",
+        "status": "passed",
+        "measurement": "max_vgs_peak=1.943V (limit < 2.15V)"
+      },
+      {
+        "name": "g5_hs_peak_sf",
+        "status": "passed",
+        "measurement": "max_hs_current=499.4mA (limit < 800mA)"
+      },
+      {
+        "name": "g6_1p8v_nodes_sf",
+        "status": "passed",
+        "measurement": "max_1p8v_voltage=[vbst-vlx=2.008V,gn2=1.810V] (limit < 2.15V)"
+      },
+      {
+        "name": "g6_5v_node_sf",
+        "status": "passed",
+        "measurement": "max_5v_voltage=vbst=3.789V (limit < 5.65V)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-bootstrap-driver-pt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-bootstrap-driver-pt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

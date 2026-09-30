@@ -1,0 +1,11 @@
+.subckt beta_multiplier_reference vss vdd vref iout
+XP1 vref pbias vdd vdd sky130_fd_pr__pfet_01v8 l=4 w=16 nf=1
+XP2 pbias pbias vdd vdd sky130_fd_pr__pfet_01v8 l=4 w=16 nf=1
+XN1 vref vref vss vss sky130_fd_pr__nfet_01v8 l=4 w=8 nf=1
+XN2 pbias vref nres vss sky130_fd_pr__nfet_01v8 l=4 w=32 nf=1
+XR1 nres vss vss sky130_fd_pr__res_high_po w=2 l=80 mult=1
+XNOUT iout vref vss vss sky130_fd_pr__nfet_01v8 l=4 w=59.2 nf=1
+XPSTART nstart vss vdd vdd sky130_fd_pr__pfet_01v8 l=8 w=1 nf=1
+XNDETECT nstart vref vss vss sky130_fd_pr__nfet_01v8 l=1 w=4 nf=1
+XNSTART vdd nstart vref vss sky130_fd_pr__nfet_01v8 l=4 w=0.84 nf=1
+.ends beta_multiplier_reference

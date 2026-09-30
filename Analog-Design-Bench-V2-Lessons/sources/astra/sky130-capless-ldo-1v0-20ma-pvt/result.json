@@ -1,0 +1,92 @@
+{
+  "taskId": "sky130-capless-ldo-1v0-20ma-pvt",
+  "taskTitle": "Design a Fully-Integrated External-Capacitor-Free LDO",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 33,
+  "costUsd": 15.14244,
+  "inputTokens": 1369934,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 28862,
+  "peakContextTokens": 73866,
+  "durationMs": 1218796,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-capless-ldo-1v0-20ma-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "dc_regulation",
+        "status": "passed",
+        "measurement": "worst |vout-1.0V| over the 0-20mA DC sweep = 27.2mV at fs/1.5V/+85C/vmin_v (max 30mV)"
+      },
+      {
+        "name": "quiescent_current",
+        "status": "passed",
+        "measurement": "worst no-load VIN current = 84.69uA at fs/1.8V/+85C (max 100uA; ideal VREF current is free)"
+      },
+      {
+        "name": "psr_1khz",
+        "status": "passed",
+        "measurement": "1kHz 1.5V: worst 32.3dB at ff/27C/1.5V (min 30dB); 1.8V: worst 35.9dB at ff/27C/1.8V (min 35dB)"
+      },
+      {
+        "name": "psr_100khz",
+        "status": "passed",
+        "measurement": "100kHz: worst 28.39dB at sf/27C/1.5V (min 20dB)"
+      },
+      {
+        "name": "psr_1mhz",
+        "status": "passed",
+        "measurement": "1MHz: worst 11.41dB at sf/27C/1.5V (min 10dB)"
+      },
+      {
+        "name": "load_step_excursion",
+        "status": "passed",
+        "measurement": "worst excursion from 1.0V = 79.08mV at fs/1.5V/+85C/droop_v (max 150mV)"
+      },
+      {
+        "name": "load_step_recovery",
+        "status": "passed",
+        "measurement": "worst tail-window deviation from 1.0V = 27.2mV at fs/1.5V/+85C/t1min_v (max 30mV, windows begin 20us after each edge completes)"
+      },
+      {
+        "name": "startup",
+        "status": "passed",
+        "measurement": "worst peak = 0.9941V at tt/1.8V/+27C (max 1.05V); worst 200-400us deviation = 11.73mV at sf/1.5V/-40C (max 20mV)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-capless-ldo-1v0-20ma-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-capless-ldo-1v0-20ma-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

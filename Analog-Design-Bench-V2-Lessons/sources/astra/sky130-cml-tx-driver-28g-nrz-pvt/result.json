@@ -1,0 +1,167 @@
+{
+  "taskId": "sky130-cml-tx-driver-28g-nrz-pvt",
+  "taskTitle": "Design a 28 Gb/s NRZ CML Transmitter Driver",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 25,
+  "costUsd": 8.52799,
+  "inputTokens": 796629,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 11234,
+  "peakContextTokens": 45052,
+  "durationMs": 522038,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-cml-tx-driver-28g-nrz-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "differential_swing",
+        "status": "passed",
+        "measurement": "min=438.0mV at ff (need 400-900mV)"
+      },
+      {
+        "name": "output_common_mode",
+        "status": "passed",
+        "measurement": "worst range margin=179.932mV at ss/vocm0 (required >=0mV)"
+      },
+      {
+        "name": "common_mode_shift",
+        "status": "passed",
+        "measurement": "max=0.00mV (max 30mV)"
+      },
+      {
+        "name": "output_rail_range_static",
+        "status": "passed",
+        "measurement": "worst range margin=162.342mV at ss/vn0 (required >=0mV)"
+      },
+      {
+        "name": "static_offset",
+        "status": "passed",
+        "measurement": "max=0.00mV at tt (max 20mV)"
+      },
+      {
+        "name": "vdd_current_balance",
+        "status": "passed",
+        "measurement": "max=0.00% at tt (max 10%)"
+      },
+      {
+        "name": "gain_100mhz",
+        "status": "passed",
+        "measurement": "worst=1.484V/V at ff (need 1.3-4.0)"
+      },
+      {
+        "name": "bandwidth_22ghz",
+        "status": "passed",
+        "measurement": "worst=26.63GHz at ss (min 22GHz)"
+      },
+      {
+        "name": "passband_peaking",
+        "status": "passed",
+        "measurement": "worst=-0.000dB at ff (max 1.5dB)"
+      },
+      {
+        "name": "group_delay_variation",
+        "status": "passed",
+        "measurement": "worst=0.013ps at ff (max 8ps)"
+      },
+      {
+        "name": "eye_height",
+        "status": "passed",
+        "measurement": "worst=438.0mV at ff (min 320mV)"
+      },
+      {
+        "name": "eye_sign",
+        "status": "passed",
+        "measurement": "worst=0 errors at ss (need 0)"
+      },
+      {
+        "name": "rise_fall_time_28g",
+        "status": "passed",
+        "measurement": "worst=9.90ps at ss (max 15ps)"
+      },
+      {
+        "name": "overshoot_undershoot",
+        "status": "passed",
+        "measurement": "worst=4.06% at ff (max 12%)"
+      },
+      {
+        "name": "vocm_deviation_transient",
+        "status": "passed",
+        "measurement": "worst=3.90mV at ss (max 50mV)"
+      },
+      {
+        "name": "output_rail_range_transient",
+        "status": "passed",
+        "measurement": "worst range margin=158.371mV at ss (required >=0mV)"
+      },
+      {
+        "name": "jitter_pp",
+        "status": "passed",
+        "measurement": "worst=0.107ps at ff (max 5.0ps)"
+      },
+      {
+        "name": "jitter_rms",
+        "status": "passed",
+        "measurement": "worst=0.052ps at ff (max 1.5ps)"
+      },
+      {
+        "name": "dcd",
+        "status": "passed",
+        "measurement": "worst=0.002ps at ff (max 2.0ps)"
+      },
+      {
+        "name": "average_power",
+        "status": "passed",
+        "measurement": "worst=23.20mW at ff (max 45mW)"
+      },
+      {
+        "name": "sensitivity_swing",
+        "status": "passed",
+        "measurement": "worst=317.5mV at ff (min 250mV)"
+      },
+      {
+        "name": "sensitivity_sign",
+        "status": "passed",
+        "measurement": "worst=0 errors at ss (need 0)"
+      },
+      {
+        "name": "sensitivity_rise_fall",
+        "status": "passed",
+        "measurement": "worst=10.53ps at ss (max 17ps)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-cml-tx-driver-28g-nrz-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-cml-tx-driver-28g-nrz-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "taskId": "sky130-tia-zt8k-bw750m-noise5p-sfdr70-power5m-pt",
+  "taskTitle": "Design an 8 kOhm, 750 MHz transimpedance amplifier",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 47,
+  "costUsd": 25.46771,
+  "inputTokens": 2309236,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 47507,
+  "peakContextTokens": 91257,
+  "durationMs": 1924614,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-tia-zt8k-bw750m-noise5p-sfdr70-power5m-pt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_transimpedance",
+        "status": "passed",
+        "measurement": "worst=8.8309 kOhm at ff/+85C/1.80V (requirement >8)"
+      },
+      {
+        "name": "pvt_bandwidth",
+        "status": "passed",
+        "measurement": "worst=901.705 MHz at ss/-40C/1.80V (requirement >750)"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "worst=2.4612 mW at ff/+85C/1.80V (requirement <5)"
+      },
+      {
+        "name": "pvt_noise_density",
+        "status": "passed",
+        "measurement": "worst=3.58529 pA/sqrt(Hz) at ss/-40C/1.80V (requirement <5)"
+      },
+      {
+        "name": "pvt_integrated_noise",
+        "status": "passed",
+        "measurement": "worst=0.0506182 uA rms at ss/-40C/1.80V (requirement <0.1)"
+      },
+      {
+        "name": "pvt_sfdr",
+        "status": "passed",
+        "measurement": "minimum SFDR=73.5841 dBc at fs/+85C/1.80V (>70); minimum large-signal ZT=8.84719 kOhm at ff/+85C/1.80V (>8)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-tia-zt8k-bw750m-noise5p-sfdr70-power5m-pt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-tia-zt8k-bw750m-noise5p-sfdr70-power5m-pt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 0,
+      "reward": 0.8333
+    }
+  ]
+}

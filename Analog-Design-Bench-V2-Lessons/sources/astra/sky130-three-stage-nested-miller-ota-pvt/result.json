@@ -1,0 +1,107 @@
+{
+  "taskId": "sky130-three-stage-nested-miller-ota-pvt",
+  "taskTitle": "Design a three-stage nested-Miller amplifier for 200 pF loads",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 31,
+  "costUsd": 12.06118,
+  "inputTokens": 1103628,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 20498,
+  "peakContextTokens": 51122,
+  "durationMs": 1048242,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-three-stage-nested-miller-ota-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "nominal_functional",
+        "status": "passed",
+        "measurement": "gain=121.42dB UGB=0.790MHz PM=87.80deg settling=1.771us"
+      },
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "225 rows, five exact 45-point matrices"
+      },
+      {
+        "name": "pvt_gain",
+        "status": "passed",
+        "measurement": "gain_min=119.22dB"
+      },
+      {
+        "name": "pvt_large_load_drive",
+        "status": "passed",
+        "measurement": "UGB_min=0.713MHz drive_FOM_min=579.0kHz*pF/uW"
+      },
+      {
+        "name": "pvt_phase_margin",
+        "status": "passed",
+        "measurement": "PM_min=85.41deg"
+      },
+      {
+        "name": "pvt_output_bias",
+        "status": "passed",
+        "measurement": "output_error_max=0.24mV"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "power_max=259.3uW"
+      },
+      {
+        "name": "pvt_input_bias",
+        "status": "passed",
+        "measurement": "input_bias_max=0.00nA"
+      },
+      {
+        "name": "closed_loop_range",
+        "status": "passed",
+        "measurement": "range_min=1.364Vpp"
+      },
+      {
+        "name": "closed_loop_settling",
+        "status": "passed",
+        "measurement": "settling_max=1.91us final_error_max=0.049%"
+      },
+      {
+        "name": "slew_rate",
+        "status": "passed",
+        "measurement": "rise_min=0.350 fall_min=0.455V/us"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-three-stage-nested-miller-ota-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-three-stage-nested-miller-ota-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

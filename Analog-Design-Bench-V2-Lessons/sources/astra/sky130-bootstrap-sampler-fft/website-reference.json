@@ -1,0 +1,64 @@
+{
+  "schema_version": 5,
+  "task_id": "sky130-bootstrap-sampler-fft",
+  "status": "passed",
+  "reward": 1,
+  "tests_passed": 5,
+  "tests_total": 5,
+  "runtime": {
+    "cpu_limit": 6,
+    "hard_timeout_seconds": 1800,
+    "image_prepare_seconds": 2.288,
+    "memory_limit_mb": 6144,
+    "ngspice_runs": 22,
+    "optimization_target_seconds": 180,
+    "verifier_wall_clock_seconds": 34.729,
+    "wall_clock_seconds": 35.057,
+    "within_optimization_target": true
+  },
+  "metric_schema": "specification-metric-value-v1",
+  "metrics_complete": true,
+  "metrics": [
+    {
+      "id": "complete_signoff",
+      "source_check": "complete_signoff",
+      "specification": "complete signoff = 22 analyses",
+      "metric": 22,
+      "value": 22,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_sdr",
+      "source_check": "pvt_sdr",
+      "specification": "pvt sdr ≥ 72 dB",
+      "metric": 72,
+      "value": 75.5,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_midtrack_vgs",
+      "source_check": "pvt_midtrack_vgs",
+      "specification": "pvt midtrack vgs ≥ 0.8 VDD",
+      "metric": 0.8,
+      "value": 0.8162,
+      "status": "pass"
+    },
+    {
+      "id": "acquisition_and_hold",
+      "source_check": "acquisition_and_hold",
+      "specification": "acquisition and hold ≥ 0.9",
+      "metric": 0.9,
+      "value": 0.9841,
+      "status": "pass"
+    },
+    {
+      "id": "pvt_power",
+      "source_check": "pvt_power",
+      "specification": "pvt power ≤ 500 µW",
+      "metric": 500,
+      "value": 303.1,
+      "status": "pass"
+    }
+  ],
+  "generated_at": "2026-08-14T20:05:07+00:00"
+}

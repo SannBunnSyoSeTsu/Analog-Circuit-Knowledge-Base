@@ -1,0 +1,38 @@
+.subckt sampling_feedback_ota vss iref vdd vinn vinp vocm voutn voutp
+XREFN iref iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=40
+XBP biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=20
+XBN biasp iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=40
+RNC1 vdd biasnc 680k
+RNC2 biasnc iref 500k
+RPC1 biasp biaspc 2meg
+RPC2 biaspc vss 1meg
+CBCN biasnc vss 4p
+CBCP biaspc vdd 4p
+XTAIL tail cmctrl vss vss sky130_fd_pr__nfet_01v8 l=1 w=320
+XINP drainp vinp tail vss sky130_fd_pr__nfet_01v8 l=0.5 w=100
+XINN drainn vinn tail vss sky130_fd_pr__nfet_01v8 l=0.5 w=100
+XCASNP firstp biasnc drainp vss sky130_fd_pr__nfet_01v8 l=0.5 w=100
+XCASNN firstn biasnc drainn vss sky130_fd_pr__nfet_01v8 l=0.5 w=100
+XLOADP topp biasp vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=80
+XLOADN topn biasp vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=80
+XCASPP firstp biaspc topp vdd sky130_fd_pr__pfet_01v8 l=0.5 w=100
+XCASPN firstn biaspc topn vdd sky130_fd_pr__pfet_01v8 l=0.5 w=100
+XOUTP voutp firstp vss vss sky130_fd_pr__nfet_01v8 l=1 w=120
+XOUTN voutn firstn vss vss sky130_fd_pr__nfet_01v8 l=1 w=120
+XOUTLP voutp biasp vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=200
+XOUTLN voutn biasp vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=200
+RCP firstp compp 250
+RCN firstn compn 250
+CCP compp voutp 3p
+CCN compn voutn 3p
+RSENSP voutp sense 20k
+RSENSN voutn sense 20k
+RSENSREF sense vocm 3333.333333
+XCMTAIL cmtail iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=80
+XCMIN sensemirror vocm cmtail vss sky130_fd_pr__nfet_01v8 l=1 w=20
+XCMSENSE cmctrl sense cmtail vss sky130_fd_pr__nfet_01v8 l=1 w=20
+XCMPM sensemirror sensemirror vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=20
+XCMPO cmctrl sensemirror vdd vdd sky130_fd_pr__pfet_01v8 l=1 w=42.5
+XCMDIODE cmctrl cmctrl vss vss sky130_fd_pr__nfet_01v8 l=1 w=40
+CCM cmctrl vss 50f
+.ends sampling_feedback_ota

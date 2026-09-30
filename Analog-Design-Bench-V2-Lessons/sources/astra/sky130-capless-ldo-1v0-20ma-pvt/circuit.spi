@@ -1,0 +1,21 @@
+.subckt capless_ldo vin vout vss vref
+RBIAS pbias vss 160k
+XPBIAS pbias pbias vin vin sky130_fd_pr__pfet_01v8 l=1 w=8
+XPTAIL tail pbias vin vin sky130_fd_pr__pfet_01v8 l=1 w=32
+XPREF nref vref tail vin sky130_fd_pr__pfet_01v8_lvt l=1 w=80
+XPFB nfb fb tail vin sky130_fd_pr__pfet_01v8_lvt l=1 w=80
+XNREF nref nref vss vss sky130_fd_pr__nfet_01v8 l=2 w=40
+XNFB nfb nfb vss vss sky130_fd_pr__nfet_01v8 l=2 w=40
+XNMIRROR pmirror nref vss vss sky130_fd_pr__nfet_01v8 l=2 w=40
+XPMIRROR pmirror pmirror vin vin sky130_fd_pr__pfet_01v8_lvt l=2 w=80 m=3
+XPDRIVE gate pmirror vin vin sky130_fd_pr__pfet_01v8_lvt l=2 w=80 m=9
+XNDRIVE gate nfb vss vss sky130_fd_pr__nfet_01v8 l=2 w=40 m=3
+XPPASS vout gate vin vin sky130_fd_pr__pfet_01v8 l=0.15 w=10 m=200
+RFBTOP vout fb 30k
+RFBBOT fb vss 20k
+CCOMP gate vout 6p
+CBUFFER nref vout 2p
+RZERO vout lead 2k
+CLEAD lead fb 100p
+COUT vout vss 880p
+.ends capless_ldo

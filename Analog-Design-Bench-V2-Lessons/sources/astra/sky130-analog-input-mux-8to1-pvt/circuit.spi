@@ -1,0 +1,44 @@
+.subckt mux_inv AVDD AVSS A Y
+XMN Y A AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.35 w=2
+XMP Y A AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.35 w=4
+.ends mux_inv
+
+.subckt mux_decode AVDD AVSS A B C EN ENB
+XMPA ENB A AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.35 w=1
+XMPB ENB B AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.35 w=1
+XMPC ENB C AVDD AVDD sky130_fd_pr__pfet_01v8 l=0.35 w=1
+XMNA ENB A STACK1 AVSS sky130_fd_pr__nfet_01v8 l=0.35 w=2
+XMNB STACK1 B STACK2 AVSS sky130_fd_pr__nfet_01v8 l=0.35 w=2
+XMNC STACK2 C AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.35 w=2
+XENABLE AVDD AVSS ENB EN mux_inv
+.ends mux_decode
+
+.subckt mux_channel AVDD AVSS EN ENB VIN VO
+XMNIN MID EN VIN AVSS sky130_fd_pr__nfet_01v8 l=0.5 w=4
+XMPIN MID ENB VIN AVDD sky130_fd_pr__pfet_01v8 l=0.5 w=8
+XMNOUT VO EN MID AVSS sky130_fd_pr__nfet_01v8 l=0.5 w=4
+XMPOUT VO ENB MID AVDD sky130_fd_pr__pfet_01v8 l=0.5 w=8
+XCLAMP MID ENB AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.5 w=2
+.ends mux_channel
+
+.subckt input_mux_8to1 AVDD AVSS S\<2\> S\<1\> S\<0\> VIN\<7\> VIN\<6\> VIN\<5\> VIN\<4\> VIN\<3\> VIN\<2\> VIN\<1\> VIN\<0\> VO
+XINV2 AVDD AVSS S\<2\> SB2 mux_inv
+XINV1 AVDD AVSS S\<1\> SB1 mux_inv
+XINV0 AVDD AVSS S\<0\> SB0 mux_inv
+XDEC0 AVDD AVSS SB2 SB1 SB0 EN0 ENB0 mux_decode
+XDEC1 AVDD AVSS SB2 SB1 S\<0\> EN1 ENB1 mux_decode
+XDEC2 AVDD AVSS SB2 S\<1\> SB0 EN2 ENB2 mux_decode
+XDEC3 AVDD AVSS SB2 S\<1\> S\<0\> EN3 ENB3 mux_decode
+XDEC4 AVDD AVSS S\<2\> SB1 SB0 EN4 ENB4 mux_decode
+XDEC5 AVDD AVSS S\<2\> SB1 S\<0\> EN5 ENB5 mux_decode
+XDEC6 AVDD AVSS S\<2\> S\<1\> SB0 EN6 ENB6 mux_decode
+XDEC7 AVDD AVSS S\<2\> S\<1\> S\<0\> EN7 ENB7 mux_decode
+XCH0 AVDD AVSS EN0 ENB0 VIN\<0\> VO mux_channel
+XCH1 AVDD AVSS EN1 ENB1 VIN\<1\> VO mux_channel
+XCH2 AVDD AVSS EN2 ENB2 VIN\<2\> VO mux_channel
+XCH3 AVDD AVSS EN3 ENB3 VIN\<3\> VO mux_channel
+XCH4 AVDD AVSS EN4 ENB4 VIN\<4\> VO mux_channel
+XCH5 AVDD AVSS EN5 ENB5 VIN\<5\> VO mux_channel
+XCH6 AVDD AVSS EN6 ENB6 VIN\<6\> VO mux_channel
+XCH7 AVDD AVSS EN7 ENB7 VIN\<7\> VO mux_channel
+.ends input_mux_8to1

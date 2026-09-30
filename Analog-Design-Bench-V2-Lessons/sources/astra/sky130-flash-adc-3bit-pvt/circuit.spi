@@ -1,0 +1,80 @@
+.subckt adc_inv vss vdd input output
+XNP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=2
+XNN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1
+.ends adc_inv
+
+.subckt adc_sense_inv vss vdd input output
+XNP output input vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.84
+XNN output input vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=0.42
+.ends adc_sense_inv
+
+.subckt adc_nand2 vss vdd first second output
+XP1 output first vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.5
+XP2 output second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.5
+XN1 output first middle vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.5
+XN2 middle second vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1.5
+.ends adc_nand2
+
+.subckt adc_nand4 vss vdd first second third fourth output
+XP1 output first vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.5
+XP2 output second vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.5
+XP3 output third vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.5
+XP4 output fourth vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.5
+XN1 output first middle1 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3
+XN2 middle1 second middle2 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3
+XN3 middle2 third middle3 vss sky130_fd_pr__nfet_01v8 l=0.15 w=3
+XN4 middle3 fourth vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=3
+.ends adc_nand4
+
+.subckt adc_compare vss vdd clk vin reference decision complement
+XTAIL tail clk vss vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=12
+XINP innerp vin tail vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+XINN innern reference tail vss sky130_fd_pr__nfet_01v8_lvt l=0.15 w=4
+XLNP outp outn innerp vss sky130_fd_pr__nfet_01v8 l=0.15 w=1
+XLNN outn outp innern vss sky130_fd_pr__nfet_01v8 l=0.15 w=1
+XLPP outp outn vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.5
+XLPN outn outp vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=1.5
+XRIP innerp clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.5
+XRIN innern clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.5
+XROP outp clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.5
+XRON outn clk vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=0.5
+XIS1 vss vdd outp set_inverse adc_sense_inv
+XIS2 vss vdd set_inverse set_bar adc_inv
+XIR1 vss vdd outn reset_inverse adc_sense_inv
+XIR2 vss vdd reset_inverse reset_bar adc_inv
+XSET vss vdd set_bar complement decision adc_nand2
+XRESET vss vdd reset_bar decision complement adc_nand2
+.ends adc_compare
+
+.subckt flash_adc_3bit vss vdd vrefn vrefp clk vin b2 b1 b0
+RREF0 vrefn ref1 1k
+RREF1 ref1 ref2 1k
+RREF2 ref2 ref3 1k
+RREF3 ref3 ref4 1k
+RREF4 ref4 ref5 1k
+RREF5 ref5 ref6 1k
+RREF6 ref6 ref7 1k
+RREF7 ref7 vrefp 1k
+CREF1 ref1 vss 1p
+CREF2 ref2 vss 1p
+CREF3 ref3 vss 1p
+CREF4 ref4 vss 1p
+CREF5 ref5 vss 1p
+CREF6 ref6 vss 1p
+CREF7 ref7 vss 1p
+XCMP1 vss vdd clk vin ref1 therm1 neg1 adc_compare
+XCMP2 vss vdd clk vin ref2 therm2 neg2 adc_compare
+XCMP3 vss vdd clk vin ref3 therm3 neg3 adc_compare
+XCMP4 vss vdd clk vin ref4 therm4 neg4 adc_compare
+XCMP5 vss vdd clk vin ref5 therm5 neg5 adc_compare
+XCMP6 vss vdd clk vin ref6 therm6 neg6 adc_compare
+XCMP7 vss vdd clk vin ref7 therm7 neg7 adc_compare
+XMSB1 vss vdd therm4 msb_bar adc_inv
+XMSB2 vss vdd msb_bar b2 adc_inv
+XMID1 vss vdd therm2 neg4 middle_bar adc_nand2
+XMID2 vss vdd middle_bar neg6 b1 adc_nand2
+XLOW1 vss vdd therm1 neg2 low12_bar adc_nand2
+XLOW3 vss vdd therm3 neg4 low34_bar adc_nand2
+XLOW5 vss vdd therm5 neg6 low56_bar adc_nand2
+XLOW7 vss vdd low12_bar low34_bar low56_bar neg7 b0 adc_nand4
+.ends flash_adc_3bit

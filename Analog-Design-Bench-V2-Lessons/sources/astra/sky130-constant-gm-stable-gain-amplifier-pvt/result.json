@@ -1,0 +1,97 @@
+{
+  "taskId": "sky130-constant-gm-stable-gain-amplifier-pvt",
+  "taskTitle": "Design a gain-stable differential amplifier",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 11,
+  "costUsd": 3.03458,
+  "inputTokens": 242273,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 12237,
+  "peakContextTokens": 35030,
+  "durationMs": 327955,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-constant-gm-stable-gain-amplifier-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "pvt=27/27 startup=27/27 linearity=27/27"
+      },
+      {
+        "name": "absolute_gain_window",
+        "status": "passed",
+        "measurement": "gain=3.4390..3.6663 V/V"
+      },
+      {
+        "name": "bandwidth",
+        "status": "passed",
+        "measurement": "BW_min=50.53 MHz"
+      },
+      {
+        "name": "load_drop_window",
+        "status": "passed",
+        "measurement": "load_drop=199.89..323.23 mV"
+      },
+      {
+        "name": "deterministic_output_imbalance",
+        "status": "passed",
+        "measurement": "imbalance_max=0.0000 mV"
+      },
+      {
+        "name": "linearity",
+        "status": "passed",
+        "measurement": "linearity_error_max=5.54%"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "power_max=346.59 uW"
+      },
+      {
+        "name": "gain_spread",
+        "status": "passed",
+        "measurement": "gain_spread_ratio=1.06610"
+      },
+      {
+        "name": "startup_power_on",
+        "status": "passed",
+        "measurement": "gain=3.4301..3.6466 V/V zero_imbalance_max=0.0000 mV load_drop=199.89..323.25 mV"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-constant-gm-stable-gain-amplifier-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-constant-gm-stable-gain-amplifier-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

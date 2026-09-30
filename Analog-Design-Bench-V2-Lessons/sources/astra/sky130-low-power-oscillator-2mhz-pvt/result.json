@@ -1,0 +1,67 @@
+{
+  "taskId": "sky130-low-power-oscillator-2mhz-pvt",
+  "taskTitle": "Design a 2 MHz Low-Power Oscillator",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 59,
+  "costUsd": 33.71161,
+  "inputTokens": 3065166,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 61199,
+  "peakContextTokens": 99139,
+  "durationMs": 2130033,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-low-power-oscillator-2mhz-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_frequency",
+        "status": "passed",
+        "measurement": "range=1.8324MHz at ff/1.98V/-40C .. 2.17233MHz at ss/1.98V/+85C (required 1.8..2.2MHz)"
+      },
+      {
+        "name": "pvt_output_swing",
+        "status": "passed",
+        "measurement": "tightest Vpp=1.62191V at ss/1.62V/-40C; bounds=1.539..1.701V"
+      },
+      {
+        "name": "nominal_power",
+        "status": "passed",
+        "measurement": "14.2835uW at tt/1.80V/+27C (required <=20uW, including 2uA bias and 1pF load drive)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-low-power-oscillator-2mhz-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-low-power-oscillator-2mhz-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

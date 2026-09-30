@@ -1,0 +1,127 @@
+{
+  "taskId": "sky130-fd-sampling-feedback-ota-gain8-settling10ns-noise1mv-pvt-mc",
+  "taskTitle": "Design a Fully Differential Sampling-Feedback OTA: Gain 8, 10 ns Settling, 1 mVrms Noise",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 44,
+  "costUsd": 25.39957,
+  "inputTokens": 2279082,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 52175,
+  "peakContextTokens": 97034,
+  "durationMs": 2278059,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-fd-sampling-feedback-ota-gain8-settling10ns-noise1mv-pvt-mc",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_phase_margin",
+        "status": "passed",
+        "measurement": "worst=63.0086deg at sf/1.98V/+85C; limit >=60deg"
+      },
+      {
+        "name": "pvt_output_common_mode",
+        "status": "passed",
+        "measurement": "worst=7.61165mV at sf/1.80V/+85C; limit <=25mV"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "worst=6.14058mW at fs/1.98V/+85C; limit <=10mW"
+      },
+      {
+        "name": "pvt_static_accuracy",
+        "status": "passed",
+        "measurement": "worst=0.0393444% at sf/1.98V/+85C; limit <=1%"
+      },
+      {
+        "name": "pvt_dynamic_accuracy",
+        "status": "passed",
+        "measurement": "worst=0.0684889% at fs/1.80V/+85C; limit <=1%"
+      },
+      {
+        "name": "pvt_rise_settling",
+        "status": "passed",
+        "measurement": "worst=6.33529ns at fs/1.80V/+85C; limit <=10ns"
+      },
+      {
+        "name": "pvt_fall_settling",
+        "status": "passed",
+        "measurement": "worst=6.32076ns at fs/1.80V/+85C; limit <=10ns"
+      },
+      {
+        "name": "pvt_output_range",
+        "status": "passed",
+        "measurement": "3dB-compression differential range=1.89493V at fs/1.80V/+85C; limit >=1.8V"
+      },
+      {
+        "name": "pvt_output_noise",
+        "status": "passed",
+        "measurement": "worst=884.061uVrms at fs/1.80V/+85C; limit <=1000uVrms"
+      },
+      {
+        "name": "mc_cmrr",
+        "status": "passed",
+        "measurement": "worst=86.6218dB at tt/1.80V/+27C/seed-41009; limit >=50dB"
+      },
+      {
+        "name": "mc_psrr_plus",
+        "status": "passed",
+        "measurement": "worst=90.4592dB at tt/1.80V/+27C/seed-41005; limit >=60dB"
+      },
+      {
+        "name": "mc_psrr_minus",
+        "status": "passed",
+        "measurement": "worst=90.4592dB at tt/1.80V/+27C/seed-41005; limit >=60dB"
+      },
+      {
+        "name": "cmfb_peak_deviation",
+        "status": "passed",
+        "measurement": "worst=19.0494mV at ss/1.80V/+85C; limit <=100mV"
+      },
+      {
+        "name": "cmfb_residual_20ns",
+        "status": "passed",
+        "measurement": "worst=1.23694mV at tt/1.80V/+27C; limit <=5mV"
+      },
+      {
+        "name": "cmfb_residual_100ns",
+        "status": "passed",
+        "measurement": "worst=1.04612e-05mV at ss/1.80V/+85C; limit <=1mV"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-fd-sampling-feedback-ota-gain8-settling10ns-noise1mv-pvt-mc/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-fd-sampling-feedback-ota-gain8-settling10ns-noise1mv-pvt-mc/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "taskId": "sky130-lc-vco-2ghz-pvt",
+  "taskTitle": "Design a 2 GHz Differential LC VCO",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 58,
+  "costUsd": 39.77014,
+  "inputTokens": 3666924,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 62018,
+  "peakContextTokens": 109184,
+  "durationMs": 2565022,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-lc-vco-2ghz-pvt",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "complete_signoff",
+        "status": "passed",
+        "measurement": "PVT rows=27/27"
+      },
+      {
+        "name": "pvt_2ghz_coverage",
+        "status": "passed",
+        "measurement": "f(0V)_min=2.1489GHz at ff/1.98V/-40C; f(1.8V)_max=1.6357GHz at ss/1.98V/-40C"
+      },
+      {
+        "name": "pvt_tuning",
+        "status": "passed",
+        "measurement": "ratio_min=1.3660 segment_drop_min=10.28MHz"
+      },
+      {
+        "name": "pvt_differential_swing",
+        "status": "passed",
+        "measurement": "Vdiff_pp_min=0.981V"
+      },
+      {
+        "name": "pvt_startup",
+        "status": "passed",
+        "measurement": "startup_max=5.06ns at ss/1.62V/+125C"
+      },
+      {
+        "name": "pvt_output_operating_range",
+        "status": "passed",
+        "measurement": "output_min=-0.024V output_max=0.730*VDD VCM=0.204..0.376*VDD"
+      },
+      {
+        "name": "pvt_supply_pushing",
+        "status": "passed",
+        "measurement": "pushing_max=0.577%/V"
+      },
+      {
+        "name": "pvt_reference_compliance",
+        "status": "passed",
+        "measurement": "Viref_min=0.251V headroom_min=1.097V"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "power_max=1.751mW at ff/1.98V/+125C"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-lc-vco-2ghz-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-lc-vco-2ghz-pvt/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

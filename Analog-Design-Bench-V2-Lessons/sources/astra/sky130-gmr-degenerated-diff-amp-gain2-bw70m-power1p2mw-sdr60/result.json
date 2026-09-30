@@ -1,0 +1,72 @@
+{
+  "taskId": "sky130-gmr-degenerated-diff-amp-gain2-bw70m-power1p2mw-sdr60",
+  "taskTitle": "Design a GM-R degenerated differential amplifier",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 18,
+  "costUsd": 6.42501,
+  "inputTokens": 556071,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 17286,
+  "peakContextTokens": 45414,
+  "durationMs": 727838,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-gmr-degenerated-diff-amp-gain2-bw70m-power1p2mw-sdr60",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "pvt_gain_1mhz",
+        "status": "passed",
+        "measurement": "min=1.98869 V/V at fs/+27C/1.80V; max=2.00509 V/V at tt/+27C/1.80V (requirement 1.98..2.02)"
+      },
+      {
+        "name": "pvt_bandwidth",
+        "status": "passed",
+        "measurement": "min=74.243 MHz at ss/+27C/1.80V (requirement >70 MHz)"
+      },
+      {
+        "name": "pvt_power",
+        "status": "passed",
+        "measurement": "max=1.052 mW at ff/+27C/1.80V (requirement <1.2 mW)"
+      },
+      {
+        "name": "pvt_dynamic_range",
+        "status": "passed",
+        "measurement": "SDR min=65.27 dB at fs/+27C/1.80V (>60 dB); fundamental gain=1.9845..2.0048 V/V (1.90..2.10 V/V)"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-gmr-degenerated-diff-amp-gain2-bw70m-power1p2mw-sdr60/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-gmr-degenerated-diff-amp-gain2-bw70m-power1p2mw-sdr60/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

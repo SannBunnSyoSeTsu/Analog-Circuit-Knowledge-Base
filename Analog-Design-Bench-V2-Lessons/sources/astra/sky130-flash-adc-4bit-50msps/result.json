@@ -1,0 +1,82 @@
+{
+  "taskId": "sky130-flash-adc-4bit-50msps",
+  "taskTitle": "Design a 4-bit 50 MS/s flash ADC",
+  "modelSlug": "gpt-6-astra-thinking-max",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "runId": "run-1",
+  "rollout": "R1",
+  "pass": true,
+  "reward": 1,
+  "steps": 27,
+  "costUsd": 10.57228,
+  "inputTokens": 938983,
+  "cachedInputTokens": 0,
+  "cacheCreationInputTokens": 0,
+  "outputTokens": 23649,
+  "peakContextTokens": 50124,
+  "durationMs": 1030762,
+  "result": {
+    "schema_version": 1,
+    "task_slug": "sky130-flash-adc-4bit-50msps",
+    "model_slug": "gpt-6-astra-thinking-max",
+    "rollout": "R1",
+    "verifier_status": "completed",
+    "frozen_verifier_reward": 1,
+    "binary_pass": 1,
+    "tests_passed": 0,
+    "tests_total": 0,
+    "gates": [
+      {
+        "name": "transfer",
+        "status": "passed",
+        "measurement": "codes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] errors=0 missing=0"
+      },
+      {
+        "name": "sndr",
+        "status": "passed",
+        "measurement": "26.584 dB"
+      },
+      {
+        "name": "sfdr",
+        "status": "passed",
+        "measurement": "30.209 dB"
+      },
+      {
+        "name": "power",
+        "status": "passed",
+        "measurement": "2.175 mW"
+      },
+      {
+        "name": "inl",
+        "status": "passed",
+        "measurement": "|INL|=0.084 LSB valid=True"
+      },
+      {
+        "name": "dnl",
+        "status": "passed",
+        "measurement": "|DNL|=0.157 LSB monotonic=True missing=0"
+      }
+    ]
+  },
+  "source_url": "https://analog-design-bench.tokenzhang.com/task/v2/sky130-flash-adc-4bit-50msps/runs/gpt-6-astra-thinking-max/run-1",
+  "api_url": "https://analog-design-bench.tokenzhang.com/api/v2/tasks/sky130-flash-adc-4bit-50msps/runs/gpt-6-astra-thinking-max/run-1",
+  "retrieved_date": "2026-09-20",
+  "model_trials": [
+    {
+      "rollout": "R1",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R2",
+      "pass": 1,
+      "reward": 1
+    },
+    {
+      "rollout": "R3",
+      "pass": 1,
+      "reward": 1
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+.subckt ahuja_ota vss iref vdd vinp vinn vout
+XBIAS iref iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=40 nf=8
+XTAIL tail iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=80 nf=16
+XINP stage1 vinp tail vss sky130_fd_pr__nfet_01v8 l=1 w=80 nf=16
+XINN mirror vinn tail vss sky130_fd_pr__nfet_01v8 l=1 w=80 nf=16
+XPMIR mirror mirror vdd vdd sky130_fd_pr__pfet_01v8_lvt l=1 w=90 nf=18
+XPLOAD stage1 mirror vdd vdd sky130_fd_pr__pfet_01v8_lvt l=1 w=90 nf=18
+XPOUT vout stage1 vdd vdd sky130_fd_pr__pfet_01v8_lvt l=1 w=990 nf=198
+XNOUT vout iref vss vss sky130_fd_pr__nfet_01v8 l=1 w=440 nf=88
+RCOMP stage1 comp 1200
+CCOMP comp vout 22p
+.ends ahuja_ota

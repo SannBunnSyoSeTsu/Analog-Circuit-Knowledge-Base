@@ -1,0 +1,54 @@
+.subckt switched_resistor_dac_5bit vss b0 b1 b2 b3 b4 vdd vout
+XIP0 inv0 b0 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=6 nf=1
+XIN0 inv0 b0 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=1 nf=1
+XOP0 rail0 inv0 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=8 nf=2
+XON0 rail0 inv0 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XIP1 inv1 b1 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=12 nf=2
+XIN1 inv1 b1 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=2 nf=1
+XOP1 rail1 inv1 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=16 nf=4
+XON1 rail1 inv1 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=8 nf=2
+XIP2 inv2 b2 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=24 nf=4
+XIN2 inv2 b2 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=4 nf=1
+XOP2 rail2 inv2 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=32 nf=8
+XON2 rail2 inv2 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=16 nf=4
+XIP3 inv3 b3 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=48 nf=8
+XIN3 inv3 b3 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=8 nf=2
+XOP3 rail3 inv3 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=64 nf=16
+XON3 rail3 inv3 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=32 nf=8
+XIP4 inv4 b4 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=96 nf=16
+XIN4 inv4 b4 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=16 nf=4
+XOP4 rail4 inv4 vdd vdd sky130_fd_pr__pfet_01v8 l=0.15 w=128 nf=32
+XON4 rail4 inv4 vss vss sky130_fd_pr__nfet_01v8 l=0.15 w=64 nf=16
+XRG vout vss vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR00 vout rail0 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR10 vout rail1 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR11 vout rail1 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR20 vout rail2 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR21 vout rail2 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR22 vout rail2 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR23 vout rail2 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR30 vout rail3 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR31 vout rail3 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR32 vout rail3 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR33 vout rail3 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR34 vout rail3 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR35 vout rail3 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR36 vout rail3 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR37 vout rail3 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR40 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR41 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR42 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR43 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR44 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR45 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR46 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR47 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR48 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR49 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR410 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR411 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR412 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR413 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR414 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+XR415 vout rail4 vss sky130_fd_pr__res_high_po w=0.7 l=75
+.ends switched_resistor_dac_5bit

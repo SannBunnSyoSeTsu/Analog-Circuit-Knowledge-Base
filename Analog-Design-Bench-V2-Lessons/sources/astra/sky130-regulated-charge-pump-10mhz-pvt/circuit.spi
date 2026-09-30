@@ -1,0 +1,41 @@
+.subckt charge_pump_regulated AVDD AVSS CLK EN IBN1U VOUT
+XENP ENB EN AVDD AVDD sky130_fd_pr__pfet_01v8 l=1 w=2
+XENN ENB EN AVSS AVSS sky130_fd_pr__nfet_01v8 l=1 w=1
+XHEADER VP ENB AVDD AVDD sky130_fd_pr__pfet_01v8 l=1 w=200
+XOFF VP ENB AVSS AVSS sky130_fd_pr__nfet_01v8 l=1 w=10
+
+XPREP1 CKN CLK VP VP sky130_fd_pr__pfet_01v8 l=0.15 w=2
+XPREN1 CKN CLK AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.15 w=1
+XPREP2 CKP CKN VP VP sky130_fd_pr__pfet_01v8 l=0.15 w=2
+XPREN2 CKP CKN AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.15 w=1
+XCKP1 CKB CKP VP VP sky130_fd_pr__pfet_01v8 l=0.15 w=16
+XCKN1 CKB CKP AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.15 w=8
+XCKP2 CKA CKN VP VP sky130_fd_pr__pfet_01v8 l=0.15 w=16
+XCKN2 CKA CKN AVSS AVSS sky130_fd_pr__nfet_01v8 l=0.15 w=8
+
+XFLYA PA CKA sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=1
+XFLYB PB CKB sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=1
+XNA PA PB VP AVSS sky130_fd_pr__nfet_g5v0d10v5 l=0.5 w=80
+XNB PB PA VP AVSS sky130_fd_pr__nfet_g5v0d10v5 l=0.5 w=80
+XPA VRAW PB PA VRAW sky130_fd_pr__pfet_g5v0d10v5 l=0.5 w=80
+XPB VRAW PA PB VRAW sky130_fd_pr__pfet_g5v0d10v5 l=0.5 w=80
+XSTART VP VP VRAW AVSS sky130_fd_pr__nfet_g5v0d10v5 l=0.5 w=4
+XRESERVOIR VRAW AVSS sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=25
+
+XBIAS IBN1U IBN1U AVSS AVSS sky130_fd_pr__nfet_g5v0d10v5 l=1 w=10
+XTAIL TAIL IBN1U BIASG AVSS sky130_fd_pr__nfet_g5v0d10v5 l=1 w=20
+XBIASEN BIASG EN AVSS AVSS sky130_fd_pr__nfet_01v8 l=1 w=10
+XINFB ND VFB TAIL AVSS sky130_fd_pr__nfet_g5v0d10v5 l=1 w=50
+XINREF VG VREF TAIL AVSS sky130_fd_pr__nfet_g5v0d10v5 l=1 w=50
+XMIR1 ND ND VRAW VRAW sky130_fd_pr__pfet_g5v0d10v5 l=2 w=10
+XMIR2 VG ND VRAW VRAW sky130_fd_pr__pfet_g5v0d10v5 l=2 w=10
+XPASS VOUT VG VRAW VRAW sky130_fd_pr__pfet_g5v0d10v5 l=0.5 w=200
+XCOMP VG VOUT sky130_fd_pr__cap_mim_m3_1 w=100 l=100 mf=5
+XGATEOFF VG ENB AVSS AVSS sky130_fd_pr__nfet_g5v0d10v5 l=1 w=2
+
+XRREF1 AVDD VREF AVSS sky130_fd_pr__res_xhigh_po w=1 l=50
+XRREF2 VREF REFG AVSS sky130_fd_pr__res_xhigh_po w=1 l=200
+XREFEN REFG EN AVSS AVSS sky130_fd_pr__nfet_01v8 l=1 w=10
+XRFB1 VOUT VFB AVSS sky130_fd_pr__res_xhigh_po w=1 l=25
+XRFB2 VFB AVSS AVSS sky130_fd_pr__res_xhigh_po w=1 l=40
+.ends charge_pump_regulated
